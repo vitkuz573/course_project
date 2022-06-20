@@ -4,12 +4,13 @@ namespace course_project
 {
     internal class Pike : Fish
     {
-        readonly Brush brush = new SolidBrush(Color.Green);
+        readonly Brush brush;
         readonly AquariumForm aquarium_form;
 
         public Pike(int[] data, AquariumForm aquariumForm) {
             Data = data;
 
+            brush = new SolidBrush(Color.Green);
             aquarium_form = aquariumForm;
 
             Draw(data);

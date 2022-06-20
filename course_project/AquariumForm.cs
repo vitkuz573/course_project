@@ -1,24 +1,24 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace course_project
 {
     public partial class AquariumForm : Form
     {
-        readonly Random random = new Random();
+        readonly Random random;
         readonly Aquarium aquarium;
 
         public AquariumForm()
         {
             InitializeComponent();
 
+            random = new Random();
             aquarium = new Aquarium(this);
         }
 
         private void AquariumForm_Load(object sender, EventArgs e)
         {
-            aquarium.Clear();
+            aquarium.Init();
 
             aquarium_timer.Enabled = false;
         }
@@ -41,12 +41,12 @@ namespace course_project
 
         private void Aquarium_timer_Tick(object sender, EventArgs e)
         {
-            aquarium.Clear();
+            aquarium.Init();
         }
 
         public PictureBox AquariumPictureBox => aquarium_picturebox;
 
-        public int[] FishCoordinates
+        private int[] FishCoordinates
         {
             get
             {

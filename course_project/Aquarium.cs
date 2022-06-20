@@ -4,9 +4,9 @@ namespace course_project
 {
     internal class Aquarium
     {
-        public Fish fish = new Fish();
-
-        readonly Color waterColor = Color.LightSkyBlue;
+        readonly PikeFlock pikeFlock;
+        readonly CarpFlock carpFlock;
+        readonly Color waterColor;
         readonly Bitmap bitmap;
         readonly Graphics graphics;
         readonly AquariumForm aquarium_form;
@@ -15,22 +15,27 @@ namespace course_project
         {
             aquarium_form = aquariumForm;
 
+            waterColor = Color.LightSkyBlue;
+            pikeFlock = new PikeFlock();
+            carpFlock = new CarpFlock();
             bitmap = new Bitmap(aquariumForm.Width, aquariumForm.Height);
             graphics = Graphics.FromImage(bitmap);
         }
 
-        public void Init() { }
-
-        public void Run() { }
-
-        public void Done() { }
-
-        public void Clear()
+        public void Init()
         {
             graphics.Clear(waterColor);
 
             aquarium_form.AquariumPictureBox.Image = bitmap;
             aquarium_form.Refresh();
+        }
+
+        public void Run()
+        {
+        }
+
+        public void Done() 
+        { 
         }
     }
 }

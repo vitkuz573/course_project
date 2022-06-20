@@ -4,12 +4,13 @@ namespace course_project
 {
     internal class Carp : Fish
     {
-        readonly Brush brush = new SolidBrush(Color.Red);
+        readonly Brush brush;
         readonly AquariumForm aquarium_form;
 
         public Carp(int[] data, AquariumForm aquariumForm) {
             Data = data;
 
+            brush = new SolidBrush(Color.Red);
             aquarium_form = aquariumForm;
 
             Draw(data);

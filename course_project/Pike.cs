@@ -21,7 +21,7 @@ namespace course_project
 
         protected override void Draw(int[] coordinates)
         {
-            Graphics graphics = Graphics.FromImage(aquarium_form.Aquarium.Image);
+            Graphics graphics = Graphics.FromImage(aquarium_form.AquariumPictureBox.Image);
 
             graphics.FillEllipse(brush, coordinates[0], coordinates[1], 40, 40);
 

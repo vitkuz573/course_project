@@ -7,23 +7,20 @@ namespace course_project
     public partial class AquariumForm : Form
     {
         readonly Random random = new Random();
-
-        public PictureBox Aquarium => aquarium_picturebox;
+        readonly Aquarium aquarium;
 
         public AquariumForm()
         {
             InitializeComponent();
+
+            aquarium = new Aquarium(this);
         }
 
         private void AquariumForm_Load(object sender, EventArgs e)
         {
-            Bitmap bitmap = new Bitmap(aquarium_picturebox.Width, aquarium_picturebox.Height);
-            Graphics graphics = Graphics.FromImage(bitmap);
+            aquarium.Clear();
 
-            graphics.Clear(Color.Blue);
-
-            aquarium_picturebox.Image = bitmap;
-            aquarium_picturebox.Refresh();
+            aquarium_timer.Enabled = false;
         }
 
         private void Add_carp_button_Click(object sender, EventArgs e)
@@ -44,8 +41,10 @@ namespace course_project
 
         private void Aquarium_timer_Tick(object sender, EventArgs e)
         {
-
+            aquarium.Clear();
         }
+
+        public PictureBox AquariumPictureBox => aquarium_picturebox;
 
         public int[] FishCoordinates
         {

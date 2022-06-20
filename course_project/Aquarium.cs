@@ -34,8 +34,8 @@ namespace course_project
         {
         }
 
-        public void Done() 
-        { 
+        public void Done()
+        {
         }
     }
 }

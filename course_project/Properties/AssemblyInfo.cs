@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанных со сборкой.
-[assembly: AssemblyTitle("course_project")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Курсовой Проект")]
+[assembly: AssemblyDescription("Курсовой Проект - Аквариум - [Кузяев Виталий] [ИТЗ-0900021у]")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("course_project")]
-[assembly: AssemblyCopyright("Copyright ©  2022")]
+[assembly: AssemblyProduct("Курсовой Проект")]
+[assembly: AssemblyCopyright("Copyright © Vitaly Kuzyaev  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

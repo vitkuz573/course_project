@@ -45,13 +45,13 @@ namespace course_project
         }
 
         public PictureBox AquariumPictureBox => aquarium_picturebox;
-
+        
         private int[] FishCoordinates
         {
             get
             {
                 int[] coordinates = { random.Next(0, aquarium_picturebox.Width), random.Next(0, aquarium_picturebox.Height) };
-
+                
                 return coordinates;
             }
         }

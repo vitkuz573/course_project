@@ -4,9 +4,6 @@ namespace course_project
 {
     internal class Pike : Fish
     {
-        readonly Brush brush;
-        readonly AquariumForm aquarium_form;
-
         public Pike(int[] data, AquariumForm aquariumForm) {
             Data = data;
 
@@ -15,8 +12,6 @@ namespace course_project
 
             Draw(data);
         }
-
-        public int[] Data { get; set; }
 
         public Pike Next { get; set; }
 

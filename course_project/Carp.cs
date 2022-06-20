@@ -4,10 +4,8 @@ namespace course_project
 {
     internal class Carp : Fish
     {
-        readonly Brush brush;
-        readonly AquariumForm aquarium_form;
-
-        public Carp(int[] data, AquariumForm aquariumForm) {
+        public Carp(int[] data, AquariumForm aquariumForm)
+        {
             Data = data;
 
             brush = new SolidBrush(Color.Red);
@@ -15,8 +13,6 @@ namespace course_project
 
             Draw(data);
         }
-
-        public int[] Data { get; set; }
 
         public Carp Next { get; set; }
 

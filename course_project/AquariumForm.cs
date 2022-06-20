@@ -8,7 +8,7 @@ namespace course_project
     {
         Random random = new Random();
 
-        public PictureBox Aquarium { get; private set; }
+        public PictureBox Aquarium => aquarium_picturebox;
 
         public AquariumForm()
         {
@@ -17,13 +17,13 @@ namespace course_project
 
         private void AquariumForm_Load(object sender, EventArgs e)
         {
-            Bitmap bitmap = new Bitmap(Aquarium.Width, Aquarium.Height);
+            Bitmap bitmap = new Bitmap(aquarium_picturebox.Width, aquarium_picturebox.Height);
             Graphics graphics = Graphics.FromImage(bitmap);
 
             graphics.Clear(Color.Blue);
 
-            Aquarium.Image = bitmap;
-            Aquarium.Refresh();
+            aquarium_picturebox.Image = bitmap;
+            aquarium_picturebox.Refresh();
         }
 
         private void Add_carp_button_Click(object sender, EventArgs e)
@@ -54,7 +54,10 @@ namespace course_project
         {
             get
             {
-                int[] coordinates = { random.Next(0, Aquarium.Width), random.Next(0, Aquarium.Height) };
+                int[] coordinates = {
+                random.Next(0, aquarium_picturebox.Width),
+                random.Next(0, aquarium_picturebox.Height)
+            };
 
                 return coordinates;
             }

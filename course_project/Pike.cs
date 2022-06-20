@@ -5,12 +5,12 @@ namespace course_project
     internal class Pike<T> : Fish
     {
         readonly Brush brush = new SolidBrush(Color.Green);
-        readonly AquariumForm aquarium;
+        readonly AquariumForm aquarium_form;
 
         public Pike(T data, AquariumForm aquariumForm) {
             Data = data;
 
-            aquarium = aquariumForm;
+            aquarium_form = aquariumForm;
 
             Draw((int[])(object)data);
         }
@@ -21,11 +21,11 @@ namespace course_project
 
         protected override void Draw(int[] coordinates)
         {
-            Graphics graphics = Graphics.FromImage(aquarium.Aquarium.Image);
+            Graphics graphics = Graphics.FromImage(aquarium_form.Aquarium.Image);
 
             graphics.FillEllipse(brush, coordinates[0], coordinates[1], 40, 40);
 
-            aquarium.Refresh();
+            aquarium_form.Refresh();
         }
     }
 }

@@ -26,14 +26,7 @@ namespace course_project
         {
             CarpFlock<int[]> carpFlock = new CarpFlock<int[]>();
 
-            Random random = new Random(DateTime.Now.Millisecond);
-
-            int[] coordinates = {
-                random.Next(0, aquarium_picturebox.Width),
-                random.Next(0, aquarium_picturebox.Height)
-            };
-
-            carpFlock.Add(coordinates, this);
+            carpFlock.Add(setCoordinates(), this);
 
             foreach (var carp in carpFlock)
             {
@@ -45,14 +38,7 @@ namespace course_project
         {
             PikeFlock<int[]> pikeFlock = new PikeFlock<int[]>();
 
-            Random random = new Random(DateTime.Now.Millisecond);
-
-            int[] coordinates = {
-                random.Next(0, aquarium_picturebox.Width),
-                random.Next(0, aquarium_picturebox.Height)
-            };
-
-            pikeFlock.Add(coordinates, this);
+            pikeFlock.Add(setCoordinates(), this);
 
             foreach (var pike in pikeFlock)
             {
@@ -63,6 +49,18 @@ namespace course_project
         public PictureBox getAquarium()
         {
             return aquarium_picturebox;
+        }
+
+        public int[] setCoordinates()
+        {
+            Random random = new Random(DateTime.Now.Millisecond);
+
+            int[] coordinates = {
+                random.Next(0, aquarium_picturebox.Width),
+                random.Next(0, aquarium_picturebox.Height)
+            };
+
+            return coordinates;
         }
     }
 }

@@ -28,7 +28,7 @@ namespace course_project
 
         private void Add_carp_button_Click(object sender, EventArgs e)
         {
-            _ = new CarpFlock<int[]>
+            _ = new CarpFlock
             {
                 { FishCoordinates, this }
             };
@@ -36,7 +36,7 @@ namespace course_project
 
         private void Add_pike_button_Click(object sender, EventArgs e)
         {
-            _ = new PikeFlock<int[]>
+            _ = new PikeFlock
             {
                 { FishCoordinates, this }
             };

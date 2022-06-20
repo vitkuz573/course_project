@@ -2,22 +2,22 @@
 
 namespace course_project
 {
-    internal class Carp<T> : Fish
+    internal class Carp : Fish
     {
         readonly Brush brush = new SolidBrush(Color.Red);
         readonly AquariumForm aquarium_form;
 
-        public Carp(T data, AquariumForm aquariumForm) {
+        public Carp(int[] data, AquariumForm aquariumForm) {
             Data = data;
 
             aquarium_form = aquariumForm;
 
-            Draw((int[])(object)data);
+            Draw(data);
         }
 
-        public T Data { get; set; }
+        public int[] Data { get; set; }
 
-        public Carp<T> Next { get; set; }
+        public Carp Next { get; set; }
 
         protected override void Draw(int[] coordinates)
         {

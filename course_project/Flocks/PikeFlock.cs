@@ -1,31 +1,31 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 
 namespace course_project
 {
-    internal class PikeFlock<T> : IEnumerable<T>
+    internal class PikeFlock : IEnumerable
     {
-        Pike<T> head;
-        Pike<T> tail;
+        Pike head;
+        Pike tail;
         int count;
 
-        public void Add(T data, AquariumForm aquariumForm)
+        public void Add(int[] data, AquariumForm aquariumForm)
         {
-            Pike<T> pike = new Pike<T>(data, aquariumForm);
+            Pike pike = new Pike(data, aquariumForm);
 
             if (head == null)
                 head = pike;
             else
                 tail.Next = pike;
+
             tail = pike;
 
             count++;
         }
 
-        public bool Remove(T data)
+        public bool Remove(int[] data)
         {
-            Pike<T> current = head;
-            Pike<T> previous = null;
+            Pike current = head;
+            Pike previous = null;
 
             while (current != null)
             {
@@ -47,6 +47,7 @@ namespace course_project
                         if (head == null)
                             tail = null;
                     }
+
                     count--;
                     return true;
                 }
@@ -54,12 +55,13 @@ namespace course_project
                 previous = current;
                 current = current.Next;
             }
+
             return false;
         }
 
         public int Count { get { return count; } }
 
-        public bool isEmpty { get { return count == 0; } }
+        public bool IsEmpty { get { return count == 0; } }
 
         public void Clear()
         {
@@ -68,38 +70,42 @@ namespace course_project
             count = 0;
         }
 
-        public bool Contains(T data)
+        public bool Contains(int[] data)
         {
-            Pike<T> current = head;
+            Pike current = head;
+
             while (current != null)
             {
                 if (current.Data.Equals(data))
                     return true;
+
                 current = current.Next;
             }
+
             return false;
         }
 
-        public void AppendFirst(T data, AquariumForm aquariumForm)
+        public void AppendFirst(int[] data, AquariumForm aquariumForm)
         {
-            Pike<T> pike = new Pike<T>(data, aquariumForm);
-            pike.Next = head;
+            Pike pike = new Pike(data, aquariumForm)
+            {
+                Next = head
+            };
+
             head = pike;
+
             if (count == 0)
             {
                 tail = head;
             }
+
             count++;
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return ((IEnumerable)this).GetEnumerator();
-        }
+            Pike current = head;
 
-        IEnumerator<T> IEnumerable<T>.GetEnumerator()
-        {
-            Pike<T> current = head;
             while (current != null)
             {
                 yield return current.Data;

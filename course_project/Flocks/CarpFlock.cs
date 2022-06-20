@@ -1,31 +1,31 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 
 namespace course_project
 {
-    internal class CarpFlock<T> : IEnumerable<T>
+    internal class CarpFlock : IEnumerable
     {
-        Carp<T> head;
-        Carp<T> tail;
+        Carp head;
+        Carp tail;
         int count;
 
-        public void Add(T data, AquariumForm aquariumForm)
+        public void Add(int[] data, AquariumForm aquariumForm)
         {
-            Carp<T> carp = new Carp<T>(data, aquariumForm);
+            Carp carp = new Carp(data, aquariumForm);
 
             if (head == null)
                 head = carp;
             else
                 tail.Next = carp;
+
             tail = carp;
 
             count++;
         }
 
-        public bool Remove(T data)
+        public bool Remove(int[] data)
         {
-            Carp<T> current = head;
-            Carp<T> previous = null;
+            Carp current = head;
+            Carp previous = null;
 
             while (current != null)
             {
@@ -47,6 +47,7 @@ namespace course_project
                         if (head == null)
                             tail = null;
                     }
+
                     count--;
                     return true;
                 }
@@ -54,12 +55,13 @@ namespace course_project
                 previous = current;
                 current = current.Next;
             }
+
             return false;
         }
 
         public int Count { get { return count; } }
 
-        public bool isEmpty { get { return count == 0; } }
+        public bool IsEmpty { get { return count == 0; } }
 
         public void Clear()
         {
@@ -68,38 +70,42 @@ namespace course_project
             count = 0;
         }
 
-        public bool Contains(T data)
+        public bool Contains(int[] data)
         {
-            Carp<T> current = head;
+            Carp current = head;
+
             while (current != null)
             {
                 if (current.Data.Equals(data))
                     return true;
+
                 current = current.Next;
             }
+
             return false;
         }
 
-        public void AppendFirst(T data, AquariumForm aquariumForm)
+        public void AppendFirst(int[] data, AquariumForm aquariumForm)
         {
-            Carp<T> carp = new Carp<T>(data, aquariumForm);
-            carp.Next = head;
+            Carp carp = new Carp(data, aquariumForm)
+            {
+                Next = head
+            };
+
             head = carp;
+
             if (count == 0)
             {
                 tail = head;
             }
+
             count++;
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return ((IEnumerable)this).GetEnumerator();
-        }
+            Carp current = head;
 
-        IEnumerator<T> IEnumerable<T>.GetEnumerator()
-        {
-            Carp<T> current = head;
             while (current != null)
             {
                 yield return current.Data;

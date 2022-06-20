@@ -2,22 +2,22 @@
 
 namespace course_project
 {
-    internal class Pike<T> : Fish
+    internal class Pike : Fish
     {
         readonly Brush brush = new SolidBrush(Color.Green);
         readonly AquariumForm aquarium_form;
 
-        public Pike(T data, AquariumForm aquariumForm) {
+        public Pike(int[] data, AquariumForm aquariumForm) {
             Data = data;
 
             aquarium_form = aquariumForm;
 
-            Draw((int[])(object)data);
+            Draw(data);
         }
 
-        public T Data { get; set; }
+        public int[] Data { get; set; }
 
-        public Pike<T> Next { get; set; }
+        public Pike Next { get; set; }
 
         protected override void Draw(int[] coordinates)
         {

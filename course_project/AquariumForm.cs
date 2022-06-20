@@ -25,8 +25,15 @@ namespace course_project
         private void add_carp_button_Click(object sender, EventArgs e)
         {
             CarpFlock<int[]> carpFlock = new CarpFlock<int[]>();
-            int[] coords = { 3, 4 };
-            carpFlock.Add(coords, this);
+
+            Random random = new Random(DateTime.Now.Millisecond);
+
+            int[] coordinates = {
+                random.Next(0, aquarium_picturebox.Width),
+                random.Next(0, aquarium_picturebox.Height)
+            };
+
+            carpFlock.Add(coordinates, this);
 
             foreach (var carp in carpFlock)
             {
@@ -37,8 +44,15 @@ namespace course_project
         private void add_pike_button_Click(object sender, EventArgs e)
         {
             PikeFlock<int[]> pikeFlock = new PikeFlock<int[]>();
-            int[] coords = { 1, 2 };
-            pikeFlock.Add(coords, this);
+
+            Random random = new Random(DateTime.Now.Millisecond);
+
+            int[] coordinates = {
+                random.Next(0, aquarium_picturebox.Width),
+                random.Next(0, aquarium_picturebox.Height)
+            };
+
+            pikeFlock.Add(coordinates, this);
 
             foreach (var pike in pikeFlock)
             {

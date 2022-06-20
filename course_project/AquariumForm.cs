@@ -42,6 +42,11 @@ namespace course_project
             };
         }
 
+        private void Aquarium_timer_Tick(object sender, EventArgs e)
+        {
+
+        }
+
         public int[] FishCoordinates
         {
             get

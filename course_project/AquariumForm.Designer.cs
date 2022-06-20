@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.aquarium_picturebox = new System.Windows.Forms.PictureBox();
             this.add_carp_button = new System.Windows.Forms.Button();
             this.add_pike_button = new System.Windows.Forms.Button();
+            this.aquarium_timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.aquarium_picturebox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,6 +64,10 @@
             this.add_pike_button.UseVisualStyleBackColor = true;
             this.add_pike_button.Click += new System.EventHandler(this.Add_pike_button_Click);
             // 
+            // aquarium_timer
+            // 
+            this.aquarium_timer.Tick += new System.EventHandler(this.Aquarium_timer_Tick);
+            // 
             // AquariumForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -87,6 +93,7 @@
         private System.Windows.Forms.PictureBox aquarium_picturebox;
         private System.Windows.Forms.Button add_carp_button;
         private System.Windows.Forms.Button add_pike_button;
+        private System.Windows.Forms.Timer aquarium_timer;
     }
 }
 

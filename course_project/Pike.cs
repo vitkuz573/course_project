@@ -19,15 +19,7 @@ namespace course_project
         {
             Graphics graphics = Graphics.FromImage(aquarium_form.AquariumPictureBox.Image);
 
-            Rectangle rectangle = new Rectangle(coordinates[0], coordinates[1], 40, 40);
-
-            graphics.FillEllipse(brush, rectangle);
-
-            aquarium_form.Refresh();
-
-            rectangle.Offset(50, 10);
-
-            Thread.Sleep(10000);
+            graphics.FillEllipse(brush, coordinates[0], coordinates[1], 40, 40);
 
             aquarium_form.Refresh();
         }

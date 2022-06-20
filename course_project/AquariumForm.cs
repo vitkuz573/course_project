@@ -11,7 +11,7 @@ namespace course_project
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void AquariumForm_Load(object sender, EventArgs e)
         {
             Bitmap bitmap = new Bitmap(aquarium_picturebox.Width, aquarium_picturebox.Height);
             Graphics graphics = Graphics.FromImage(bitmap);

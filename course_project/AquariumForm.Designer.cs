@@ -76,7 +76,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Аквариум - Кузяев Виталий (ИТЗ-0900021у)";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.AquariumForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.aquarium_picturebox)).EndInit();
             this.ResumeLayout(false);
 

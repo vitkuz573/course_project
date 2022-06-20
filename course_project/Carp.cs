@@ -1,5 +1,4 @@
 ﻿using System.Drawing;
-using System.Windows.Forms;
 
 namespace course_project
 {
@@ -27,11 +26,6 @@ namespace course_project
             graphics.FillRectangle(brush, coordinates[0], coordinates[1], 50, 20);
 
             aquarium.Refresh();
-        }
-
-        public override string ToString()
-        {
-            return base.ToString() + ": " + Data.ToString();
         }
     }
 }

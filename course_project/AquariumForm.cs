@@ -26,7 +26,7 @@ namespace course_project
         {
             CarpFlock<int[]> carpFlock = new CarpFlock<int[]>();
             int[] coords = { 3, 4 };
-            carpFlock.Add(coords);
+            carpFlock.Add(coords, this);
 
             foreach (var carp in carpFlock)
             {
@@ -38,12 +38,17 @@ namespace course_project
         {
             PikeFlock<int[]> pikeFlock = new PikeFlock<int[]>();
             int[] coords = { 1, 2 };
-            pikeFlock.Add(coords);
+            pikeFlock.Add(coords, this);
 
             foreach (var pike in pikeFlock)
             {
                 Console.WriteLine(pike);
             }
+        }
+
+        public PictureBox getAquarium()
+        {
+            return aquarium_picturebox;
         }
     }
 }

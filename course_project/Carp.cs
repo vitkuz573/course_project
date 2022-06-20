@@ -6,10 +6,12 @@ namespace course_project
     internal class Carp<T> : Fish
     {
         Brush brush = new SolidBrush(Color.Red);
-        PictureBox aquarium = new AquariumForm().aquarium_picturebox;
+        AquariumForm aquarium;
 
-        public Carp(T data) {
+        public Carp(T data, AquariumForm aquariumForm) {
             Data = data;
+
+            aquarium = aquariumForm;
 
             Draw((int[])(object)data);
         }
@@ -20,7 +22,7 @@ namespace course_project
 
         protected override void Draw(int[] coordinates)
         {
-            Graphics graphics = Graphics.FromImage(aquarium.Image);
+            Graphics graphics = Graphics.FromImage(aquarium.getAquarium().Image);
 
             graphics.FillRectangle(brush, coordinates[0], coordinates[1], 50, 20);
 

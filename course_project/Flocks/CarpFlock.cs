@@ -9,9 +9,9 @@ namespace course_project
         Carp<T> tail;
         int count;
 
-        public void Add(T data)
+        public void Add(T data, AquariumForm aquariumForm)
         {
-            Carp<T> carp = new Carp<T>(data);
+            Carp<T> carp = new Carp<T>(data, aquariumForm);
 
             if (head == null)
                 head = carp;
@@ -80,9 +80,9 @@ namespace course_project
             return false;
         }
 
-        public void AppendFirst(T data)
+        public void AppendFirst(T data, AquariumForm aquariumForm)
         {
-            Carp<T> carp = new Carp<T>(data);
+            Carp<T> carp = new Carp<T>(data, aquariumForm);
             carp.Next = head;
             head = carp;
             if (count == 0)

@@ -9,9 +9,9 @@ namespace course_project
         Pike<T> tail;
         int count;
 
-        public void Add(T data)
+        public void Add(T data, AquariumForm aquariumForm)
         {
-            Pike<T> pike = new Pike<T>(data);
+            Pike<T> pike = new Pike<T>(data, aquariumForm);
 
             if (head == null)
                 head = pike;
@@ -80,9 +80,9 @@ namespace course_project
             return false;
         }
 
-        public void AppendFirst(T data)
+        public void AppendFirst(T data, AquariumForm aquariumForm)
         {
-            Pike<T> pike = new Pike<T>(data);
+            Pike<T> pike = new Pike<T>(data, aquariumForm);
             pike.Next = head;
             head = pike;
             if (count == 0)

@@ -84,7 +84,7 @@
 
         #endregion
 
-        public System.Windows.Forms.PictureBox aquarium_picturebox;
+        private System.Windows.Forms.PictureBox aquarium_picturebox;
         private System.Windows.Forms.Button add_carp_button;
         private System.Windows.Forms.Button add_pike_button;
     }

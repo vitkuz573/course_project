@@ -6,6 +6,10 @@ namespace course_project
 {
     public partial class AquariumForm : Form
     {
+        Random random = new Random();
+
+        public PictureBox Aquarium { get; private set; }
+
         public AquariumForm()
         {
             InitializeComponent();
@@ -13,20 +17,20 @@ namespace course_project
 
         private void AquariumForm_Load(object sender, EventArgs e)
         {
-            Bitmap bitmap = new Bitmap(aquarium_picturebox.Width, aquarium_picturebox.Height);
+            Bitmap bitmap = new Bitmap(Aquarium.Width, Aquarium.Height);
             Graphics graphics = Graphics.FromImage(bitmap);
 
             graphics.Clear(Color.Blue);
 
-            aquarium_picturebox.Image = bitmap;
-            aquarium_picturebox.Refresh();
+            Aquarium.Image = bitmap;
+            Aquarium.Refresh();
         }
 
-        private void add_carp_button_Click(object sender, EventArgs e)
+        private void Add_carp_button_Click(object sender, EventArgs e)
         {
             CarpFlock<int[]> carpFlock = new CarpFlock<int[]>();
 
-            carpFlock.Add(setCoordinates(), this);
+            carpFlock.Add(FishCoordinates, this);
 
             foreach (var carp in carpFlock)
             {
@@ -34,11 +38,11 @@ namespace course_project
             }
         }
 
-        private void add_pike_button_Click(object sender, EventArgs e)
+        private void Add_pike_button_Click(object sender, EventArgs e)
         {
             PikeFlock<int[]> pikeFlock = new PikeFlock<int[]>();
 
-            pikeFlock.Add(setCoordinates(), this);
+            pikeFlock.Add(FishCoordinates, this);
 
             foreach (var pike in pikeFlock)
             {
@@ -46,21 +50,14 @@ namespace course_project
             }
         }
 
-        public PictureBox getAquarium()
+        public int[] FishCoordinates
         {
-            return aquarium_picturebox;
-        }
+            get
+            {
+                int[] coordinates = { random.Next(0, Aquarium.Width), random.Next(0, Aquarium.Height) };
 
-        public int[] setCoordinates()
-        {
-            Random random = new Random(DateTime.Now.Millisecond);
-
-            int[] coordinates = {
-                random.Next(0, aquarium_picturebox.Width),
-                random.Next(0, aquarium_picturebox.Height)
-            };
-
-            return coordinates;
+                return coordinates;
+            }
         }
     }
 }

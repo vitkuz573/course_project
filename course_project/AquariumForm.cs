@@ -25,23 +25,27 @@ namespace course_project
 
         private void Add_carp_button_Click(object sender, EventArgs e)
         {
-            _ = new CarpFlock
-            {
-                { FishCoordinates, this }
-            };
+            aquarium.carpFlock.Add(FishCoordinates, this);
         }
 
         private void Add_pike_button_Click(object sender, EventArgs e)
         {
-            _ = new PikeFlock
-            {
-                { FishCoordinates, this }
-            };
+            aquarium.pikeFlock.Add(FishCoordinates, this);
         }
 
         private void Aquarium_timer_Tick(object sender, EventArgs e)
         {
             aquarium.Init();
+
+            foreach (int[] pike in aquarium.pikeFlock)
+            {
+                Console.WriteLine("Pike X: " + pike[0] + " Y: " + pike[1]);
+            }
+
+            foreach (int[] carp in aquarium.carpFlock)
+            {
+                Console.WriteLine("Carp X: " + carp[0] + " Y: " + carp[1]);
+            }
         }
 
         public PictureBox AquariumPictureBox => aquarium_picturebox;

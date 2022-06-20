@@ -4,8 +4,8 @@ namespace course_project
 {
     internal class Aquarium
     {
-        readonly PikeFlock pikeFlock;
-        readonly CarpFlock carpFlock;
+        readonly public PikeFlock pikeFlock;
+        readonly public CarpFlock carpFlock;
         readonly Color waterColor;
         readonly Bitmap bitmap;
         readonly Graphics graphics;

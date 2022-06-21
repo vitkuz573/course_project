@@ -17,6 +17,8 @@ namespace course_project
             rectangle = new Rectangle(data[0], data[1], 50, 20);
 
             Draw();
+
+            aquarium_form.Refresh();
         }
 
         public Carp Next { get; set; }
@@ -24,8 +26,6 @@ namespace course_project
         protected override void Draw()
         {
             graphics.FillRectangle(brush, rectangle);
-
-            aquarium_form.Refresh();
         }
     }
 }

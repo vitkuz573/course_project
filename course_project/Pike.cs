@@ -17,6 +17,8 @@ namespace course_project
             circle = new RectangleF(data[0], data[1], 40, 40);
 
             Draw();
+
+            aquarium_form.Refresh();
         }
 
         public Pike Next { get; set; }
@@ -24,8 +26,6 @@ namespace course_project
         protected override void Draw()
         {
             graphics.FillEllipse(brush, circle);
-
-            aquarium_form.Refresh();
         }
     }
 }

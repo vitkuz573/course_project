@@ -6,11 +6,10 @@ namespace course_project
     {
         readonly RectangleF circle;
 
-        public Pike(int[] data, AquariumForm aquariumForm)
+        public Pike(int[] data, AquariumForm aquariumForm) : base(Color.Green)
         {
             Data = data;
 
-            brush = new SolidBrush(Color.Green);
             aquarium_form = aquariumForm;
 
             graphics = Graphics.FromImage(aquarium_form.AquariumPictureBox.Image);

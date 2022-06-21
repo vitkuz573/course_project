@@ -8,6 +8,11 @@ namespace course_project
         private protected Brush brush;
         private protected AquariumForm aquarium_form;
 
+        public Fish(Color color)
+        {
+            brush = new SolidBrush(color);
+        }
+
         protected virtual void Draw() { }
 
         public int[] Data { get; set; }

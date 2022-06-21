@@ -6,11 +6,10 @@ namespace course_project
     {
         readonly Rectangle rectangle;
 
-        public Carp(int[] data, AquariumForm aquariumForm)
+        public Carp(int[] data, AquariumForm aquariumForm) : base(Color.Red)
         {
             Data = data;
 
-            brush = new SolidBrush(Color.Red);
             aquarium_form = aquariumForm;
 
             graphics = Graphics.FromImage(aquarium_form.AquariumPictureBox.Image);

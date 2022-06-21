@@ -4,16 +4,13 @@ namespace course_project
 {
     internal class Pike : Fish
     {
-        readonly RectangleF circle;
+        readonly RectangleF figure;
 
-        public Pike(int[] data, AquariumForm aquariumForm) : base(Color.Green)
+        public Pike(int[] data, AquariumForm aquariumForm) : base(Color.Green, aquariumForm)
         {
             Data = data;
 
-            aquarium_form = aquariumForm;
-
-            graphics = Graphics.FromImage(aquarium_form.AquariumPictureBox.Image);
-            circle = new RectangleF(data[0], data[1], 40, 40);
+            figure = new RectangleF(data[0], data[1], 40, 40);
 
             Draw();
 
@@ -24,7 +21,7 @@ namespace course_project
 
         protected override void Draw()
         {
-            graphics.FillEllipse(brush, circle);
+            graphics.FillEllipse(brush, figure);
         }
     }
 }

@@ -8,9 +8,12 @@ namespace course_project
         private protected Brush brush;
         private protected AquariumForm aquarium_form;
 
-        public Fish(Color color)
+        public Fish(Color color, AquariumForm aquariumForm)
         {
+            aquarium_form = aquariumForm;
+
             brush = new SolidBrush(color);
+            graphics = Graphics.FromImage(aquariumForm.AquariumPictureBox.Image);
         }
 
         protected virtual void Draw() { }

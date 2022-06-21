@@ -7,7 +7,7 @@ namespace course_project
         private protected Brush brush;
         private protected AquariumForm aquarium_form;
 
-        protected virtual void Draw(int[] coordinates) { }
+        protected virtual void Draw() { }
 
         public int[] Data { get; set; }
     }

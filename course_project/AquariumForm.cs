@@ -37,7 +37,7 @@ namespace course_project
         {
             aquarium.Init();
 
-            /**foreach (int[] pike in aquarium.pikeFlock)
+            foreach (int[] pike in aquarium.pikeFlock)
             {
                 Console.WriteLine("Pike X: " + pike[0] + " Y: " + pike[1]);
             }
@@ -45,7 +45,7 @@ namespace course_project
             foreach (int[] carp in aquarium.carpFlock)
             {
                 Console.WriteLine("Carp X: " + carp[0] + " Y: " + carp[1]);
-            }*/
+            }
         }
 
         public PictureBox AquariumPictureBox => aquarium_picturebox;

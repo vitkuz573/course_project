@@ -13,6 +13,7 @@ namespace course_project
             brush = new SolidBrush(Color.Red);
             aquarium_form = aquariumForm;
 
+            graphics = Graphics.FromImage(aquarium_form.AquariumPictureBox.Image);
             rectangle = new Rectangle(data[0], data[1], 50, 20);
 
             Draw();
@@ -22,8 +23,6 @@ namespace course_project
 
         protected override void Draw()
         {
-            Graphics graphics = Graphics.FromImage(aquarium_form.AquariumPictureBox.Image);
-
             graphics.FillRectangle(brush, rectangle);
 
             aquarium_form.Refresh();

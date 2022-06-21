@@ -18,7 +18,7 @@ namespace course_project
             waterColor = Color.LightSkyBlue;
             pikeFlock = new PikeFlock();
             carpFlock = new CarpFlock();
-            bitmap = new Bitmap(aquariumForm.Width, aquariumForm.Height);
+            bitmap = new Bitmap(aquariumForm.AquariumPictureBox.Width, aquariumForm.AquariumPictureBox.Height);
             graphics = Graphics.FromImage(bitmap);
         }
 

@@ -4,6 +4,7 @@ namespace course_project
 {
     internal class Fish
     {
+        private protected Graphics graphics;
         private protected Brush brush;
         private protected AquariumForm aquarium_form;
 

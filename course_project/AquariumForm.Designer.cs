@@ -29,20 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.aquarium_picturebox = new System.Windows.Forms.PictureBox();
             this.add_carp_button = new System.Windows.Forms.Button();
             this.add_pike_button = new System.Windows.Forms.Button();
             this.aquarium_timer = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.aquarium_picturebox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // aquarium_picturebox
-            // 
-            this.aquarium_picturebox.Location = new System.Drawing.Point(12, 12);
-            this.aquarium_picturebox.Name = "aquarium_picturebox";
-            this.aquarium_picturebox.Size = new System.Drawing.Size(776, 398);
-            this.aquarium_picturebox.TabIndex = 0;
-            this.aquarium_picturebox.TabStop = false;
             // 
             // add_carp_button
             // 
@@ -64,10 +54,6 @@
             this.add_pike_button.UseVisualStyleBackColor = true;
             this.add_pike_button.Click += new System.EventHandler(this.Add_pike_button_Click);
             // 
-            // aquarium_timer
-            // 
-            this.aquarium_timer.Tick += new System.EventHandler(this.Aquarium_timer_Tick);
-            // 
             // AquariumForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -75,22 +61,17 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.add_pike_button);
             this.Controls.Add(this.add_carp_button);
-            this.Controls.Add(this.aquarium_picturebox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "AquariumForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Аквариум - Кузяев Виталий (ИТЗ-0900021у)";
-            this.Load += new System.EventHandler(this.AquariumForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.aquarium_picturebox)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox aquarium_picturebox;
         private System.Windows.Forms.Button add_carp_button;
         private System.Windows.Forms.Button add_pike_button;
         private System.Windows.Forms.Timer aquarium_timer;

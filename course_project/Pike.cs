@@ -4,24 +4,40 @@ namespace course_project
 {
     internal class Pike : Fish
     {
-        readonly RectangleF figure;
+        private Point coordinates;
+        private Size size = new Size(40, 40);
+        private Size speed;
 
-        public Pike(int[] data, AquariumForm aquariumForm) : base(Color.Green, aquariumForm)
+        public Pike(Point data, AquariumForm aquariumForm) : base(Color.Green, aquariumForm)
         {
             Data = data;
 
-            figure = new RectangleF(data[0], data[1], 40, 40);
-
-            Draw();
-
-            aquarium_form.Refresh();
+            speed = new Size();
         }
 
         public Pike Next { get; set; }
 
-        protected override void Draw()
+        public override void Draw(Graphics graphics)
         {
-            graphics.FillEllipse(brush, figure);
+            graphics.FillEllipse(brush, coordinates.X, coordinates.Y, size.Width, size.Height);
+        }
+
+        public void UpdateLocation(Rectangle bounds)
+        {
+            if (!bounds.Contains(coordinates + speed))
+            {
+                if (coordinates.X + speed.Width < bounds.Left || coordinates.X + speed.Width > bounds.Right - size.Width)
+                {
+                    speed.Width *= -1;
+                }
+
+                if (coordinates.Y + speed.Height < bounds.Top || coordinates.Y + speed.Height > bounds.Bottom - size.Height)
+                {
+                    speed.Height *= -1;
+                }
+            }
+
+            coordinates += speed;
         }
     }
 }

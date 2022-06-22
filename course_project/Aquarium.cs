@@ -7,35 +7,23 @@ namespace course_project
         readonly public PikeFlock pikeFlock;
         readonly public CarpFlock carpFlock;
         readonly Color waterColor;
-        readonly Bitmap bitmap;
-        readonly Graphics graphics;
-        readonly AquariumForm aquarium_form;
 
-        public Aquarium(AquariumForm aquariumForm)
+        public Aquarium(Rectangle clientRectangle)
         {
-            aquarium_form = aquariumForm;
-
             waterColor = Color.LightSkyBlue;
             pikeFlock = new PikeFlock();
             carpFlock = new CarpFlock();
-            bitmap = new Bitmap(aquariumForm.AquariumPictureBox.Width, aquariumForm.AquariumPictureBox.Height);
-            graphics = Graphics.FromImage(bitmap);
         }
 
-        public void Init()
+        public void Paint(Graphics graphics)
         {
             graphics.Clear(waterColor);
 
-            aquarium_form.AquariumPictureBox.Image = bitmap;
-            aquarium_form.Refresh();
-        }
+            foreach (Pike pike in pikeFlock)
+                pike.Draw(graphics);
 
-        public void Run()
-        {
-        }
-
-        public void Done()
-        {
+            foreach (Carp carp in carpFlock)
+                carp.Draw(graphics);
         }
     }
 }

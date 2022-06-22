@@ -1,14 +1,16 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using System.Drawing;
 
 namespace course_project
 {
-    internal class PikeFlock : IEnumerable
+    internal class PikeFlock : IEnumerable<Pike>
     {
         Pike head;
         Pike tail;
         int count;
 
-        public void Add(int[] data, AquariumForm aquariumForm)
+        public void Add(Point data, AquariumForm aquariumForm)
         {
             Pike pike = new Pike(data, aquariumForm);
 
@@ -22,7 +24,7 @@ namespace course_project
             count++;
         }
 
-        public bool Remove(int[] data)
+        public bool Remove(Point data)
         {
             Pike current = head;
             Pike previous = null;
@@ -70,7 +72,7 @@ namespace course_project
             count = 0;
         }
 
-        public bool Contains(int[] data)
+        public bool Contains(Point data)
         {
             Pike current = head;
 
@@ -85,7 +87,7 @@ namespace course_project
             return false;
         }
 
-        public void AppendFirst(int[] data, AquariumForm aquariumForm)
+        public void AppendFirst(Point data, AquariumForm aquariumForm)
         {
             Pike pike = new Pike(data, aquariumForm)
             {
@@ -102,15 +104,20 @@ namespace course_project
             count++;
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
+        public IEnumerator<Pike> GetEnumerator()
         {
             Pike current = head;
 
             while (current != null)
             {
-                yield return current.Data;
+                yield return current;
                 current = current.Next;
             }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return ((IEnumerable)this).GetEnumerator();
         }
     }
 }

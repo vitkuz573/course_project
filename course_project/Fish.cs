@@ -4,7 +4,6 @@ namespace course_project
 {
     internal class Fish
     {
-        private protected Graphics graphics;
         private protected Brush brush;
         private protected AquariumForm aquarium_form;
 
@@ -13,11 +12,10 @@ namespace course_project
             aquarium_form = aquariumForm;
 
             brush = new SolidBrush(color);
-            graphics = Graphics.FromImage(aquariumForm.AquariumPictureBox.Image);
         }
 
-        protected virtual void Draw() { }
+        public virtual void Draw(Graphics graphics) { }
 
-        public int[] Data { get; set; }
+        public Point Data { get; set; }
     }
 }

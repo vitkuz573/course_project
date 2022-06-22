@@ -2,12 +2,12 @@
 
 namespace course_project
 {
-    internal class Fish
+    public class Fish
     {
         private protected Brush brush;
         private protected Point coordinates;
         private protected Size size;
-        private protected Size speed;
+        public Size speed;
 
         public Fish(Color color)
         {

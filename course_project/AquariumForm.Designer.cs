@@ -32,6 +32,8 @@
             this.add_carp_button = new System.Windows.Forms.Button();
             this.add_pike_button = new System.Windows.Forms.Button();
             this.aquarium_timer = new System.Windows.Forms.Timer(this.components);
+            this.speed_numericupdown = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.speed_numericupdown)).BeginInit();
             this.SuspendLayout();
             // 
             // add_carp_button
@@ -60,11 +62,20 @@
             // 
             this.aquarium_timer.Tick += new System.EventHandler(this.aquarium_timer_Tick);
             // 
+            // speed_numericupdown
+            // 
+            this.speed_numericupdown.Location = new System.Drawing.Point(466, 416);
+            this.speed_numericupdown.Name = "speed_numericupdown";
+            this.speed_numericupdown.Size = new System.Drawing.Size(90, 20);
+            this.speed_numericupdown.TabIndex = 3;
+            this.speed_numericupdown.ValueChanged += new System.EventHandler(this.speed_numericupdown_ValueChanged);
+            // 
             // AquariumForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.speed_numericupdown);
             this.Controls.Add(this.add_pike_button);
             this.Controls.Add(this.add_carp_button);
             this.DoubleBuffered = true;
@@ -72,6 +83,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Аквариум - Кузяев Виталий (ИТЗ-0900021у)";
+            ((System.ComponentModel.ISupportInitialize)(this.speed_numericupdown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -80,6 +92,7 @@
         private System.Windows.Forms.Button add_carp_button;
         private System.Windows.Forms.Button add_pike_button;
         private System.Windows.Forms.Timer aquarium_timer;
+        private System.Windows.Forms.NumericUpDown speed_numericupdown;
     }
 }
 

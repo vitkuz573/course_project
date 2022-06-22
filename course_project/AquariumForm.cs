@@ -14,8 +14,22 @@ namespace course_project
 
             aquarium = new Aquarium();
 
-            aquarium_timer.Interval = 100;
             aquarium_timer.Enabled = true;
+
+            speed_numericupdown.Value = 5;
+        }
+
+        private void speed_numericupdown_ValueChanged(object sender, EventArgs e)
+        {
+            foreach (Pike pike in aquarium.pikeFlock)
+            {
+                pike.speed = new Size(Convert.ToInt32(speed_numericupdown.Value), Convert.ToInt32(speed_numericupdown.Value));
+            }
+
+            foreach (Carp carp in aquarium.carpFlock)
+            {
+                carp.speed = new Size(Convert.ToInt32(speed_numericupdown.Value), Convert.ToInt32(speed_numericupdown.Value));
+            }
         }
 
         private void aquarium_timer_Tick(object sender, EventArgs e)

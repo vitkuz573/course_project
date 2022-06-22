@@ -17,5 +17,13 @@ namespace course_project
         {
             graphics.FillRectangle(brush, coordinates.X, coordinates.Y, size.Width, size.Height);
         }
+
+        public new Size speed
+        {
+            set
+            {
+                base.speed = value;
+            }
+        }
     }
 }

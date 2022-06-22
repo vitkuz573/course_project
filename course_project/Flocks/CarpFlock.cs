@@ -10,9 +10,9 @@ namespace course_project
         Carp tail;
         int count;
 
-        public void Add(Point data, AquariumForm aquariumForm)
+        public void Add(Point data)
         {
-            Carp carp = new Carp(data, aquariumForm);
+            Carp carp = new Carp(data);
 
             if (head == null)
                 head = carp;
@@ -87,9 +87,9 @@ namespace course_project
             return false;
         }
 
-        public void AppendFirst(Point data, AquariumForm aquariumForm)
+        public void AppendFirst(Point data)
         {
-            Carp carp = new Carp(data, aquariumForm)
+            Carp carp = new Carp(data)
             {
                 Next = head
             };

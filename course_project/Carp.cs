@@ -8,7 +8,7 @@ namespace course_project
         private Size size = new Size(40, 40);
         private Size speed;
 
-        public Carp(Point data, AquariumForm aquariumForm) : base(Color.Red, aquariumForm)
+        public Carp(Point data) : base(Color.Red)
         {
             Data = data;
 

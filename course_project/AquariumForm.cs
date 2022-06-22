@@ -37,12 +37,12 @@ namespace course_project
 
         private void Add_carp_button_Click(object sender, EventArgs e)
         {
-            aquarium.carpFlock.Add(new Point(), this);
+            aquarium.carpFlock.Add(new Point());
         }
 
         private void Add_pike_button_Click(object sender, EventArgs e)
         {
-            aquarium.pikeFlock.Add(new Point(), this);
+            aquarium.pikeFlock.Add(new Point());
         }
 
         protected override void OnPaint(PaintEventArgs e)

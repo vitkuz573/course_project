@@ -8,7 +8,7 @@ namespace course_project
         private Size size = new Size(40, 40);
         private Size speed;
 
-        public Pike(Point data, AquariumForm aquariumForm) : base(Color.Green, aquariumForm)
+        public Pike(Point data) : base(Color.Green)
         {
             Data = data;
 

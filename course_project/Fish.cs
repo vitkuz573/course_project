@@ -5,12 +5,9 @@ namespace course_project
     internal class Fish
     {
         private protected Brush brush;
-        private protected AquariumForm aquarium_form;
 
-        public Fish(Color color, AquariumForm aquariumForm)
+        public Fish(Color color)
         {
-            aquarium_form = aquariumForm;
-
             brush = new SolidBrush(color);
         }
 

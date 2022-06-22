@@ -10,9 +10,9 @@ namespace course_project
         Pike tail;
         int count;
 
-        public void Add(Point data, AquariumForm aquariumForm)
+        public void Add(Point data)
         {
-            Pike pike = new Pike(data, aquariumForm);
+            Pike pike = new Pike(data);
 
             if (head == null)
                 head = pike;
@@ -87,9 +87,9 @@ namespace course_project
             return false;
         }
 
-        public void AppendFirst(Point data, AquariumForm aquariumForm)
+        public void AppendFirst(Point data)
         {
-            Pike pike = new Pike(data, aquariumForm)
+            Pike pike = new Pike(data)
             {
                 Next = head
             };

@@ -46,7 +46,7 @@ namespace course_project
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            aquarium.Paint(e.Graphics);
+            aquarium.Init(e.Graphics);
         }
     }
 }

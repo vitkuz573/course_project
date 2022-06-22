@@ -15,8 +15,7 @@ namespace course_project
             carpFlock = new CarpFlock();
         }
 
-        public void Paint(Graphics graphics)
-        {
+        public void Init(Graphics graphics) {
             graphics.Clear(waterColor);
 
             foreach (Pike pike in pikeFlock)
@@ -25,5 +24,9 @@ namespace course_project
             foreach (Carp carp in carpFlock)
                 carp.Draw(graphics);
         }
+
+        public void Run() { }
+
+        public void Done() { }
     }
 }

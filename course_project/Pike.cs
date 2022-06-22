@@ -12,7 +12,7 @@ namespace course_project
         {
             Data = data;
 
-            speed = new Size();
+            speed = new Size(5, 5);
         }
 
         public Pike Next { get; set; }

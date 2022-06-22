@@ -14,7 +14,7 @@ namespace course_project
 
             DoubleBuffered = true;
 
-            aquarium = new Aquarium(ClientRectangle);
+            aquarium = new Aquarium();
             aquarium_timer.Interval = 100;
             aquarium_timer.Tick += Timer_Tick;
             aquarium_timer.Enabled = true;

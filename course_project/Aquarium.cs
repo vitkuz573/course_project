@@ -8,7 +8,7 @@ namespace course_project
         readonly public CarpFlock carpFlock;
         readonly Color waterColor;
 
-        public Aquarium(Rectangle clientRectangle)
+        public Aquarium()
         {
             waterColor = Color.LightSkyBlue;
             pikeFlock = new PikeFlock();

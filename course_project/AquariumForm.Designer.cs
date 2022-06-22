@@ -56,6 +56,10 @@
             this.add_pike_button.UseVisualStyleBackColor = true;
             this.add_pike_button.Click += new System.EventHandler(this.Add_pike_button_Click);
             // 
+            // aquarium_timer
+            // 
+            this.aquarium_timer.Tick += new System.EventHandler(this.aquarium_timer_Tick);
+            // 
             // AquariumForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -63,6 +67,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.add_pike_button);
             this.Controls.Add(this.add_carp_button);
+            this.DoubleBuffered = true;
             this.Name = "AquariumForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

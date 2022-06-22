@@ -12,15 +12,13 @@ namespace course_project
         {
             InitializeComponent();
 
-            DoubleBuffered = true;
-
             aquarium = new Aquarium();
+
             aquarium_timer.Interval = 100;
-            aquarium_timer.Tick += Timer_Tick;
             aquarium_timer.Enabled = true;
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        private void aquarium_timer_Tick(object sender, EventArgs e)
         {
             foreach (Pike pike in aquarium.pikeFlock)
             {

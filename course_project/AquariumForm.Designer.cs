@@ -36,6 +36,7 @@
             // 
             // add_carp_button
             // 
+            this.add_carp_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.add_carp_button.Location = new System.Drawing.Point(562, 415);
             this.add_carp_button.Name = "add_carp_button";
             this.add_carp_button.Size = new System.Drawing.Size(110, 23);
@@ -46,6 +47,7 @@
             // 
             // add_pike_button
             // 
+            this.add_pike_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.add_pike_button.Location = new System.Drawing.Point(678, 416);
             this.add_pike_button.Name = "add_pike_button";
             this.add_pike_button.Size = new System.Drawing.Size(110, 23);
@@ -61,8 +63,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.add_pike_button);
             this.Controls.Add(this.add_carp_button);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
             this.Name = "AquariumForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

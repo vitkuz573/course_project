@@ -8,24 +8,24 @@ namespace course_project
         public PikeFlock pikeFlock;
         public CarpFlock carpFlock;
         public Color waterColor;
-        public Color rocksSolor;
+        public Color rocksColor;
         public Random random;
+        public Rectangle client_rectangle;
 
-        public Aquarium()
+        public Aquarium(Rectangle clientRectangle)
         {
             waterColor = Color.LightSkyBlue;
-            rocksSolor = Color.DarkGray;
+            rocksColor = Color.DarkGray;
             pikeFlock = new PikeFlock();
             carpFlock = new CarpFlock();
             random = new Random();
+
+            client_rectangle = clientRectangle;
         }
 
-        public void Init(Graphics graphics) {
+        public void Init(Graphics graphics)
+        {
             graphics.Clear(waterColor);
-
-            for (int i = 0; i < random.Next(3, 8); i++) {
-                graphics.FillRectangle(new SolidBrush(rocksSolor), 50, 0, 50, 80);
-            }
 
             foreach (Pike pike in pikeFlock)
                 pike.Draw(graphics);
@@ -34,8 +34,15 @@ namespace course_project
                 carp.Draw(graphics);
         }
 
-        public void Run() { }
+        public void Run()
+        { }
 
-        public void Done() { }
+        public void Done()
+        { }
+
+        public Point FishCoordinates()
+        {
+            return new Point(random.Next(0, client_rectangle.Height));
+        }
     }
 }

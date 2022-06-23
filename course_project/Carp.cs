@@ -6,24 +6,21 @@ namespace course_project
     {
         public Carp(Point data) : base(Color.Red)
         {
-            Data = data;
+            Data = coordinates = data;
 
             size = new Size(40, 40);
         }
 
         public Carp Next { get; set; }
 
+        public new Size speed
+        {
+            set { base.speed = value; }
+        }
+
         public override void Draw(Graphics graphics)
         {
             graphics.FillRectangle(brush, coordinates.X, coordinates.Y, size.Width, size.Height);
-        }
-
-        public new Size speed
-        {
-            set
-            {
-                speed = value;
-            }
         }
     }
 }

@@ -6,9 +6,9 @@ namespace course_project
 {
     internal class CarpFlock : IEnumerable<Carp>
     {
-        Carp head;
-        Carp tail;
-        int count;
+        private Carp head;
+        private Carp tail;
+        private int count;
 
         public void Add(Point data)
         {
@@ -61,9 +61,11 @@ namespace course_project
             return false;
         }
 
-        public int Count { get { return count; } }
+        public int Count
+        { get { return count; } }
 
-        public bool IsEmpty { get { return count == 0; } }
+        public bool IsEmpty
+        { get { return count == 0; } }
 
         public void Clear()
         {

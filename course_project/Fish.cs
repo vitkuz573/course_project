@@ -7,7 +7,7 @@ namespace course_project
         private protected Brush brush;
         private protected Point coordinates;
         private protected Size size;
-        public Size speed;
+        private protected Size speed;
 
         public Fish(Color color)
         {

@@ -22,7 +22,7 @@ namespace course_project
         {
             set
             {
-                base.speed = value;
+                speed = value;
             }
         }
     }

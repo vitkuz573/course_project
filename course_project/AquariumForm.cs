@@ -19,19 +19,22 @@ namespace course_project
 
             aquarium_timer.Enabled = true;
 
-            speed_numericupdown.Value = 5;
+            pike_speed_numericupdown.Value = 5;
         }
 
-        private void speed_numericupdown_ValueChanged(object sender, EventArgs e)
+        private void Pike_speed_numericupdown_ValueChanged(object sender, EventArgs e)
         {
             foreach (Pike pike in aquarium.pikeFlock)
             {
-                pike.speed = new Size(Convert.ToInt32(speed_numericupdown.Value), Convert.ToInt32(speed_numericupdown.Value));
+                pike.speed = new Size(Convert.ToInt32(pike_speed_numericupdown.Value), Convert.ToInt32(pike_speed_numericupdown.Value));
             }
+        }
 
+        private void carp_speed_numericupdown_ValueChanged(object sender, EventArgs e)
+        {
             foreach (Carp carp in aquarium.carpFlock)
             {
-                carp.speed = new Size(Convert.ToInt32(speed_numericupdown.Value), Convert.ToInt32(speed_numericupdown.Value));
+                carp.speed = new Size(Convert.ToInt32(pike_speed_numericupdown.Value), Convert.ToInt32(pike_speed_numericupdown.Value));
             }
         }
 

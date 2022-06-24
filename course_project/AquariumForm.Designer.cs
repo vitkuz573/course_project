@@ -83,11 +83,6 @@
             0,
             0,
             0});
-            this.pike_speed_numericupdown.Minimum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
             this.pike_speed_numericupdown.Name = "pike_speed_numericupdown";
             this.pike_speed_numericupdown.Size = new System.Drawing.Size(90, 20);
             this.pike_speed_numericupdown.TabIndex = 3;
@@ -147,11 +142,6 @@
             this.carp_speed_numericupdown.Location = new System.Drawing.Point(582, 367);
             this.carp_speed_numericupdown.Maximum = new decimal(new int[] {
             10,
-            0,
-            0,
-            0});
-            this.carp_speed_numericupdown.Minimum = new decimal(new int[] {
-            5,
             0,
             0,
             0});

@@ -47,10 +47,7 @@ namespace course_project
                 _carpFlockData.Add(carp.Data);
             }
 
-            if (hunting_checkbox.Checked)
-                hunting_status_label.Text = "Охота: ON";
-            else
-                hunting_status_label.Text = "Охота: OFF";
+            hunting_status_label.Text = hunting_checkbox.Checked ? "Охота: ON" : "Охота: OFF";
 
             Invalidate();
         }

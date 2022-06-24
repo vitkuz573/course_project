@@ -4,7 +4,7 @@ namespace course_project
 {
     public class Fish
     {
-        protected Brush brush;
+        protected readonly Brush brush;
         protected Point coordinates;
         protected Size size;
         protected Size speed;
@@ -16,10 +16,10 @@ namespace course_project
             speed = new Size(5, 5);
         }
 
+        public Point Data { get; set; }
+
         public virtual void Draw(Graphics graphics)
         { }
-
-        public Point Data { get; set; }
 
         public void UpdateLocation(Rectangle bounds)
         {

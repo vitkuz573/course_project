@@ -7,61 +7,51 @@ namespace course_project
 {
     public partial class AquariumForm : Form
     {
-        private readonly Aquarium aquarium;
-        private readonly List<Point> carpFlockData = new List<Point>();
+        private readonly Aquarium _aquarium;
+        private readonly List<Point> _carpFlockData;
 
         public AquariumForm()
         {
             InitializeComponent();
 
-            aquarium = new Aquarium(ClientRectangle);
+            _aquarium = new Aquarium(ClientRectangle);
 
             aquarium_timer.Enabled = true;
 
             pike_speed_numericupdown.Value = 5;
+
+            _carpFlockData = new List<Point>();
         }
 
-        private void Pike_speed_numericupdown_ValueChanged(object sender, EventArgs e)
+        private void Pike_Speed_NumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            foreach (Pike pike in aquarium.pikeFlock)
-            {
-                pike.speed = new Size(Convert.ToInt32(pike_speed_numericupdown.Value), Convert.ToInt32(pike_speed_numericupdown.Value));
-            }
+            foreach (var pike in _aquarium.pikeFlock)
+                pike.speed = new Size(Convert.ToInt32(pike_speed_numericupdown.Value),
+                    Convert.ToInt32(pike_speed_numericupdown.Value));
         }
 
-        private void carp_speed_numericupdown_ValueChanged(object sender, EventArgs e)
+        private void Carp_Speed_NumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            foreach (Carp carp in aquarium.carpFlock)
-            {
-                carp.speed = new Size(Convert.ToInt32(pike_speed_numericupdown.Value), Convert.ToInt32(pike_speed_numericupdown.Value));
-            }
+            foreach (var carp in _aquarium.carpFlock)
+                carp.speed = new Size(Convert.ToInt32(pike_speed_numericupdown.Value),
+                    Convert.ToInt32(pike_speed_numericupdown.Value));
         }
 
         private void Aquarium_timer_Tick(object sender, EventArgs e)
         {
-            foreach (Pike pike in aquarium.pikeFlock)
-            {
-                pike.UpdateLocation(ClientRectangle);
-            }
+            foreach (var pike in _aquarium.pikeFlock) pike.UpdateLocation(ClientRectangle);
 
-            foreach (Carp carp in aquarium.carpFlock)
+            foreach (var carp in _aquarium.carpFlock)
             {
                 carp.UpdateLocation(ClientRectangle);
 
-                carpFlockData.Clear();
-                carpFlockData.Add(carp.Data);
+                _carpFlockData.Clear();
+                _carpFlockData.Add(carp.Data);
             }
 
-            if (hunting_checkbox.Checked == true)
+            if (hunting_checkbox.Checked)
             {
                 hunting_status_label.Text = "Охота: ON";
-
-                foreach (Pike pike in aquarium.pikeFlock)
-                {
-                    foreach (Point point in carpFlockData)
-                    {
-                    }
-                }
             }
             else
             {
@@ -71,20 +61,20 @@ namespace course_project
             Invalidate();
         }
 
-        private void Add_carp_button_Click(object sender, EventArgs e)
+        private void Add_Carp_Button_Click(object sender, EventArgs e)
         {
-            aquarium.carpFlock.Add(aquarium.FishCoordinates());
+            _aquarium.carpFlock.Add(_aquarium.RandomPoint());
 
-            carp_count_label.Text = "Карпы: " + aquarium.carpFlock.Count;
+            carp_count_label.Text = "Карпы: " + _aquarium.carpFlock.Count;
 
             EnableHuntingCheckBox();
         }
 
-        private void Add_pike_button_Click(object sender, EventArgs e)
+        private void Add_Pike_Button_Click(object sender, EventArgs e)
         {
-            aquarium.pikeFlock.Add(aquarium.FishCoordinates());
+            _aquarium.pikeFlock.Add(_aquarium.RandomPoint());
 
-            pike_count_label.Text = "Щуки: " + aquarium.pikeFlock.Count;
+            pike_count_label.Text = "Щуки: " + _aquarium.pikeFlock.Count;
 
             EnableHuntingCheckBox();
         }
@@ -92,15 +82,12 @@ namespace course_project
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            aquarium.Init(e.Graphics);
+            _aquarium.Init(e.Graphics);
         }
 
         private void EnableHuntingCheckBox()
         {
-            if (aquarium.pikeFlock.Count != 0 && aquarium.carpFlock.Count != 0)
-            {
-                hunting_checkbox.Enabled = true;
-            }
+            if (_aquarium.pikeFlock.Count != 0 && _aquarium.carpFlock.Count != 0) hunting_checkbox.Enabled = true;
         }
     }
 }

@@ -55,7 +55,7 @@
             this.add_carp_button.TabIndex = 1;
             this.add_carp_button.Text = "Добавить карпа";
             this.add_carp_button.UseVisualStyleBackColor = true;
-            this.add_carp_button.Click += new System.EventHandler(this.Add_carp_button_Click);
+            this.add_carp_button.Click += new System.EventHandler(this.Add_Carp_Button_Click);
             // 
             // add_pike_button
             // 
@@ -66,7 +66,7 @@
             this.add_pike_button.TabIndex = 2;
             this.add_pike_button.Text = "Добавить щуку";
             this.add_pike_button.UseVisualStyleBackColor = true;
-            this.add_pike_button.Click += new System.EventHandler(this.Add_pike_button_Click);
+            this.add_pike_button.Click += new System.EventHandler(this.Add_Pike_Button_Click);
             // 
             // aquarium_timer
             // 
@@ -94,7 +94,7 @@
             0,
             0,
             0});
-            this.pike_speed_numericupdown.ValueChanged += new System.EventHandler(this.Pike_speed_numericupdown_ValueChanged);
+            this.pike_speed_numericupdown.ValueChanged += new System.EventHandler(this.Pike_Speed_NumericUpDown_ValueChanged);
             // 
             // aquarium_status
             // 
@@ -128,6 +128,7 @@
             // 
             // hunting_checkbox
             // 
+            this.hunting_checkbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.hunting_checkbox.AutoSize = true;
             this.hunting_checkbox.BackColor = System.Drawing.Color.Transparent;
             this.hunting_checkbox.Enabled = false;
@@ -160,10 +161,11 @@
             0,
             0,
             0});
-            this.carp_speed_numericupdown.ValueChanged += new System.EventHandler(this.carp_speed_numericupdown_ValueChanged);
+            this.carp_speed_numericupdown.ValueChanged += new System.EventHandler(this.Carp_Speed_NumericUpDown_ValueChanged);
             // 
             // carp_speed_label
             // 
+            this.carp_speed_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.carp_speed_label.AutoSize = true;
             this.carp_speed_label.BackColor = System.Drawing.Color.Transparent;
             this.carp_speed_label.Location = new System.Drawing.Point(518, 369);
@@ -174,6 +176,7 @@
             // 
             // pike_speed_label
             // 
+            this.pike_speed_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pike_speed_label.AutoSize = true;
             this.pike_speed_label.BackColor = System.Drawing.Color.Transparent;
             this.pike_speed_label.Location = new System.Drawing.Point(518, 395);

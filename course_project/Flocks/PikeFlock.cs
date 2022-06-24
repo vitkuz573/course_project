@@ -2,113 +2,20 @@
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace course_project
+namespace course_project.Flocks
 {
     internal class PikeFlock : IEnumerable<Pike>
     {
-        private Pike head;
-        private Pike tail;
-        private int count;
+        private Pike _head;
+        private Pike _tail;
 
-        public void Add(Point data)
-        {
-            Pike pike = new Pike(data);
+        public int Count { get; private set; }
 
-            if (head == null)
-                head = pike;
-            else
-                tail.Next = pike;
-
-            tail = pike;
-
-            count++;
-        }
-
-        public bool Remove(Point data)
-        {
-            Pike current = head;
-            Pike previous = null;
-
-            while (current != null)
-            {
-                if (current.Data.Equals(data))
-                {
-                    if (previous != null)
-                    {
-                        previous.Next = current.Next;
-
-                        if (current.Next == null)
-                        {
-                            tail = previous;
-                        }
-                    }
-                    else
-                    {
-                        head = head.Next;
-
-                        if (head == null)
-                            tail = null;
-                    }
-
-                    count--;
-                    return true;
-                }
-
-                previous = current;
-                current = current.Next;
-            }
-
-            return false;
-        }
-
-        public int Count
-        { get { return count; } }
-
-        public bool IsEmpty
-        { get { return count == 0; } }
-
-        public void Clear()
-        {
-            head = null;
-            tail = null;
-            count = 0;
-        }
-
-        public bool Contains(Point data)
-        {
-            Pike current = head;
-
-            while (current != null)
-            {
-                if (current.Data.Equals(data))
-                    return true;
-
-                current = current.Next;
-            }
-
-            return false;
-        }
-
-        public void AppendFirst(Point data)
-        {
-            Pike pike = new Pike(data)
-            {
-                Next = head
-            };
-
-            head = pike;
-
-            if (count == 0)
-            {
-                tail = head;
-            }
-
-            count++;
-        }
+        public bool IsEmpty => Count == 0;
 
         public IEnumerator<Pike> GetEnumerator()
         {
-            Pike current = head;
+            var current = _head;
 
             while (current != null)
             {
@@ -120,6 +27,90 @@ namespace course_project
         IEnumerator IEnumerable.GetEnumerator()
         {
             return ((IEnumerable)this).GetEnumerator();
+        }
+
+        public void Add(Point data)
+        {
+            var pike = new Pike(data);
+
+            if (_head == null)
+                _head = pike;
+            else
+                _tail.Next = pike;
+
+            _tail = pike;
+
+            Count++;
+        }
+
+        public void AppendFirst(Point data)
+        {
+            var pike = new Pike(data)
+            {
+                Next = _head
+            };
+
+            _head = pike;
+
+            if (Count == 0) _tail = _head;
+
+            Count++;
+        }
+
+        public void Clear()
+        {
+            _head = null;
+            _tail = null;
+            Count = 0;
+        }
+
+        public bool Contains(Point data)
+        {
+            var current = _head;
+
+            while (current != null)
+            {
+                if (current.Data.Equals(data))
+                    return true;
+
+                current = current.Next;
+            }
+
+            return false;
+        }
+
+        public bool Remove(Point data)
+        {
+            var current = _head;
+            Pike previous = null;
+
+            while (current != null)
+            {
+                if (current.Data.Equals(data))
+                {
+                    if (previous != null)
+                    {
+                        previous.Next = current.Next;
+
+                        if (current.Next == null) _tail = previous;
+                    }
+                    else
+                    {
+                        _head = _head.Next;
+
+                        if (_head == null)
+                            _tail = null;
+                    }
+
+                    Count--;
+                    return true;
+                }
+
+                previous = current;
+                current = current.Next;
+            }
+
+            return false;
         }
     }
 }

@@ -15,7 +15,7 @@ namespace course_project
 
         public new Size speed
         {
-            set { base.speed = value; }
+            set => base.speed = value;
         }
 
         public override void Draw(Graphics graphics)

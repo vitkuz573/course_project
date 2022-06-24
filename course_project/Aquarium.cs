@@ -1,48 +1,50 @@
 ﻿using System;
 using System.Drawing;
+using course_project.Flocks;
 
 namespace course_project
 {
     internal class Aquarium
     {
-        public PikeFlock pikeFlock;
-        public CarpFlock carpFlock;
-        public Color waterColor;
-        public Color rocksColor;
-        public Random random;
-        public Rectangle client_rectangle;
+        public readonly CarpFlock carpFlock;
+        public readonly PikeFlock pikeFlock;
+        private readonly Rectangle _clientRectangle;
+        private readonly Random _random;
+        private readonly Color _waterColor;
+        private readonly Color _rocksColor;
 
-        public Aquarium(Rectangle clientRectangle)
+        public Aquarium(Rectangle client)
         {
-            waterColor = Color.LightSkyBlue;
-            rocksColor = Color.DarkGray;
             pikeFlock = new PikeFlock();
             carpFlock = new CarpFlock();
-            random = new Random();
-
-            client_rectangle = clientRectangle;
+            _clientRectangle = client;
+            _random = new Random();
+            _waterColor = Color.LightSkyBlue;
+            _rocksColor = Color.DarkGray;
         }
 
         public void Init(Graphics graphics)
         {
-            graphics.Clear(waterColor);
+            graphics.Clear(_waterColor);
 
-            foreach (Pike pike in pikeFlock)
+            foreach (var pike in pikeFlock)
                 pike.Draw(graphics);
 
-            foreach (Carp carp in carpFlock)
+            foreach (var carp in carpFlock)
                 carp.Draw(graphics);
         }
 
         public void Run()
-        { }
+        {
+        }
 
         public void Done()
-        { }
-
-        public Point FishCoordinates()
         {
-            return new Point(random.Next(0, client_rectangle.Height));
+        }
+
+        public Point RandomPoint()
+        {
+            return new Point(_random.Next(0, _clientRectangle.Width), _random.Next(0, _clientRectangle.Height));
         }
     }
 }

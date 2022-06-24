@@ -51,21 +51,6 @@ namespace course_project.Flocks
             Count = 0;
         }
 
-        public bool Contains(Point data)
-        {
-            var current = _head;
-
-            while (current != null)
-            {
-                if (current.Data.Equals(data))
-                    return true;
-
-                current = current.Next;
-            }
-
-            return false;
-        }
-
         public bool Remove(Point data)
         {
             var current = _head;
@@ -85,11 +70,11 @@ namespace course_project.Flocks
                     {
                         _head = _head.Next;
 
-                        if (_head == null)
-                            _tail = null;
+                        if (_head == null) _tail = null;
                     }
 
                     Count--;
+
                     return true;
                 }
 

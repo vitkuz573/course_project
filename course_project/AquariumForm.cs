@@ -83,12 +83,12 @@ namespace course_project
 
         private void EnableHuntingCheckBox()
         {
-            if (_aquarium.pikeFlock.Count != 0 && _aquarium.carpFlock.Count != 0) hunting_checkbox.Enabled = true;
+            if (!_aquarium.pikeFlock.IsEmpty && !_aquarium.carpFlock.IsEmpty) hunting_checkbox.Enabled = true;
         }
 
         private void EnableCleanButton()
         {
-            if (_aquarium.pikeFlock.Count != 0 || _aquarium.carpFlock.Count != 0) aquarium_clean_button.Enabled = true;
+            if (!_aquarium.pikeFlock.IsEmpty || !_aquarium.carpFlock.IsEmpty) aquarium_clean_button.Enabled = true;
         }
 
         private void Aquarium_Clean_Button_Click(object sender, EventArgs e)

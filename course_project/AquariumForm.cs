@@ -50,13 +50,9 @@ namespace course_project
             }
 
             if (hunting_checkbox.Checked)
-            {
                 hunting_status_label.Text = "Охота: ON";
-            }
             else
-            {
                 hunting_status_label.Text = "Охота: OFF";
-            }
 
             Invalidate();
         }
@@ -88,6 +84,15 @@ namespace course_project
         private void EnableHuntingCheckBox()
         {
             if (_aquarium.pikeFlock.Count != 0 && _aquarium.carpFlock.Count != 0) hunting_checkbox.Enabled = true;
+        }
+
+        private void Aquarium_Clean_Button_Click(object sender, EventArgs e)
+        {
+            _aquarium.carpFlock.Clear();
+            _aquarium.pikeFlock.Clear();
+
+            pike_count_label.Text = "Щуки: " + _aquarium.pikeFlock.Count;
+            carp_count_label.Text = "Карпы: " + _aquarium.carpFlock.Count;
         }
     }
 }

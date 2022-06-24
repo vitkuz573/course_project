@@ -41,6 +41,7 @@
             this.carp_speed_numericupdown = new System.Windows.Forms.NumericUpDown();
             this.carp_speed_label = new System.Windows.Forms.Label();
             this.pike_speed_label = new System.Windows.Forms.Label();
+            this.aquarium_clean_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pike_speed_numericupdown)).BeginInit();
             this.aquarium_status.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.carp_speed_numericupdown)).BeginInit();
@@ -132,7 +133,7 @@
             this.hunting_checkbox.AutoSize = true;
             this.hunting_checkbox.BackColor = System.Drawing.Color.Transparent;
             this.hunting_checkbox.Enabled = false;
-            this.hunting_checkbox.Location = new System.Drawing.Point(700, 341);
+            this.hunting_checkbox.Location = new System.Drawing.Point(582, 339);
             this.hunting_checkbox.Name = "hunting_checkbox";
             this.hunting_checkbox.Size = new System.Drawing.Size(56, 17);
             this.hunting_checkbox.TabIndex = 5;
@@ -185,11 +186,23 @@
             this.pike_speed_label.TabIndex = 8;
             this.pike_speed_label.Text = "Скорость:";
             // 
+            // aquarium_clean_button
+            // 
+            this.aquarium_clean_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.aquarium_clean_button.Location = new System.Drawing.Point(678, 335);
+            this.aquarium_clean_button.Name = "aquarium_clean_button";
+            this.aquarium_clean_button.Size = new System.Drawing.Size(110, 23);
+            this.aquarium_clean_button.TabIndex = 9;
+            this.aquarium_clean_button.Text = "Очистить";
+            this.aquarium_clean_button.UseVisualStyleBackColor = true;
+            this.aquarium_clean_button.Click += new System.EventHandler(this.Aquarium_Clean_Button_Click);
+            // 
             // AquariumForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.aquarium_clean_button);
             this.Controls.Add(this.pike_speed_label);
             this.Controls.Add(this.carp_speed_label);
             this.Controls.Add(this.carp_speed_numericupdown);
@@ -225,6 +238,7 @@
         private System.Windows.Forms.NumericUpDown carp_speed_numericupdown;
         private System.Windows.Forms.Label carp_speed_label;
         private System.Windows.Forms.Label pike_speed_label;
+        private System.Windows.Forms.Button aquarium_clean_button;
     }
 }
 

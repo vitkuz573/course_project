@@ -19,21 +19,18 @@ namespace course_project
         public Point Data { get; set; }
 
         public virtual void Draw(Graphics graphics)
-        { }
+        {
+        }
 
         public void UpdateLocation(Rectangle bounds)
         {
             if (!bounds.Contains(coordinates + speed))
             {
-                if (coordinates.X + speed.Width < bounds.Left || coordinates.X + speed.Width > bounds.Right - size.Width)
-                {
-                    speed.Width *= -1;
-                }
+                if (coordinates.X + speed.Width < bounds.Left ||
+                    coordinates.X + speed.Width > bounds.Right - size.Width) speed.Width *= -1;
 
-                if (coordinates.Y + speed.Height < bounds.Top || coordinates.Y + speed.Height > bounds.Bottom - size.Height)
-                {
-                    speed.Height *= -1;
-                }
+                if (coordinates.Y + speed.Height < bounds.Top ||
+                    coordinates.Y + speed.Height > bounds.Bottom - size.Height) speed.Height *= -1;
             }
 
             coordinates += speed;

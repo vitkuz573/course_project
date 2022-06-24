@@ -6,12 +6,12 @@ namespace course_project
 {
     internal class Aquarium
     {
-        public readonly CarpFlock carpFlock;
-        public readonly PikeFlock pikeFlock;
         private readonly Rectangle _clientRectangle;
         private readonly Random _random;
-        private readonly Color _waterColor;
         private readonly Color _rocksColor;
+        private readonly Color _waterColor;
+        public readonly CarpFlock carpFlock;
+        public readonly PikeFlock pikeFlock;
 
         public Aquarium(Rectangle client)
         {

@@ -44,20 +44,6 @@ namespace course_project.Flocks
             Count++;
         }
 
-        public void AppendFirst(Point data)
-        {
-            var pike = new Pike(data)
-            {
-                Next = _head
-            };
-
-            _head = pike;
-
-            if (Count == 0) _tail = _head;
-
-            Count++;
-        }
-
         public void Clear()
         {
             _head = null;

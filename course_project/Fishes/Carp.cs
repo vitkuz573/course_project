@@ -1,17 +1,17 @@
 ﻿using System.Drawing;
 
-namespace course_project
+namespace course_project.Fishes
 {
-    internal class Pike : Fish
+    internal class Carp : Fish
     {
-        public Pike(Point data) : base(Color.Green)
+        public Carp(Point data) : base(Color.Red)
         {
             Data = coordinates = data;
 
             size = new Size(40, 40);
         }
 
-        public Pike Next { get; set; }
+        public Carp Next { get; set; }
 
         public new Size speed
         {
@@ -20,7 +20,7 @@ namespace course_project
 
         public override void Draw(Graphics graphics)
         {
-            graphics.FillEllipse(brush, coordinates.X, coordinates.Y, size.Width, size.Height);
+            graphics.FillRectangle(brush, coordinates.X, coordinates.Y, size.Width, size.Height);
         }
     }
 }

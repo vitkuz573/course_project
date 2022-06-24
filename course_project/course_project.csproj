@@ -63,7 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aquarium.cs" />
-    <Compile Include="Carp.cs" />
+    <Compile Include="Fishes\Carp.cs" />
     <Compile Include="Flocks\CarpFlock.cs" />
     <Compile Include="Fish.cs" />
     <Compile Include="AquariumForm.cs">
@@ -72,7 +72,7 @@
     <Compile Include="AquariumForm.Designer.cs">
       <DependentUpon>AquariumForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pike.cs" />
+    <Compile Include="Fishes\Pike.cs" />
     <Compile Include="Flocks\PikeFlock.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -114,5 +114,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

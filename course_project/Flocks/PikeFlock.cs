@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using course_project.Fishes;
 
 namespace course_project.Flocks
 {

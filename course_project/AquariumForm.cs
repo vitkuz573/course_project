@@ -16,8 +16,6 @@ namespace course_project
 
             _aquarium = new Aquarium(ClientRectangle);
 
-            aquarium_timer.Enabled = true;
-
             pike_speed_numericupdown.Value = 5;
 
             _carpFlockData = new List<Point>();
@@ -64,6 +62,7 @@ namespace course_project
             carp_count_label.Text = "Карпы: " + _aquarium.carpFlock.Count;
 
             EnableHuntingCheckBox();
+            EnableCleanButton();
         }
 
         private void Add_Pike_Button_Click(object sender, EventArgs e)
@@ -73,6 +72,7 @@ namespace course_project
             pike_count_label.Text = "Щуки: " + _aquarium.pikeFlock.Count;
 
             EnableHuntingCheckBox();
+            EnableCleanButton();
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -86,10 +86,20 @@ namespace course_project
             if (_aquarium.pikeFlock.Count != 0 && _aquarium.carpFlock.Count != 0) hunting_checkbox.Enabled = true;
         }
 
+        private void EnableCleanButton()
+        {
+            if (_aquarium.pikeFlock.Count != 0 || _aquarium.carpFlock.Count != 0) aquarium_clean_button.Enabled = true;
+        }
+
         private void Aquarium_Clean_Button_Click(object sender, EventArgs e)
         {
             _aquarium.carpFlock.Clear();
             _aquarium.pikeFlock.Clear();
+
+            if (hunting_checkbox.Checked) hunting_checkbox.Checked = false;
+
+            hunting_checkbox.Enabled = false;
+            aquarium_clean_button.Enabled = false;
 
             pike_count_label.Text = "Щуки: " + _aquarium.pikeFlock.Count;
             carp_count_label.Text = "Карпы: " + _aquarium.carpFlock.Count;

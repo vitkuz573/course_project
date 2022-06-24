@@ -71,6 +71,7 @@
             // 
             // aquarium_timer
             // 
+            this.aquarium_timer.Enabled = true;
             this.aquarium_timer.Tick += new System.EventHandler(this.Aquarium_timer_Tick);
             // 
             // pike_speed_numericupdown
@@ -189,6 +190,7 @@
             // aquarium_clean_button
             // 
             this.aquarium_clean_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.aquarium_clean_button.Enabled = false;
             this.aquarium_clean_button.Location = new System.Drawing.Point(678, 335);
             this.aquarium_clean_button.Name = "aquarium_clean_button";
             this.aquarium_clean_button.Size = new System.Drawing.Size(110, 23);

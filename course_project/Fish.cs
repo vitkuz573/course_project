@@ -4,13 +4,13 @@ namespace course_project
 {
     public class Fish
     {
-        protected readonly Brush brush;
-        protected Point coordinates;
-        protected Size size;
+        protected readonly Brush Brush;
+        protected Point Coordinates;
+        protected Size Size;
 
         public Fish(Color color)
         {
-            brush = new SolidBrush(color);
+            Brush = new SolidBrush(color);
         }
 
         public Point Data { get; set; }

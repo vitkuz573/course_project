@@ -4,36 +4,36 @@ namespace course_project.Fishes
 {
     internal class Pike : Fish
     {
-        public Size speed;
+        public Size Speed;
 
         public Pike(Point data) : base(Color.Green)
         {
-            Data = coordinates = data;
+            Data = Coordinates = data;
 
-            size = new Size(40, 40);
+            Size = new Size(40, 40);
 
-            speed = new Size(5, 5);
+            Speed = new Size(5, 5);
         }
 
         public Pike Next { get; set; }
 
         public override void Draw(Graphics graphics)
         {
-            graphics.FillEllipse(brush, coordinates.X, coordinates.Y, size.Width, size.Height);
+            graphics.FillEllipse(Brush, Coordinates.X, Coordinates.Y, Size.Width, Size.Height);
         }
 
         public void UpdateLocation(Rectangle bounds)
         {
-            if (!bounds.Contains(coordinates + speed))
+            if (!bounds.Contains(Coordinates + Speed))
             {
-                if (coordinates.X + speed.Width < bounds.Left ||
-                    coordinates.X + speed.Width > bounds.Right - size.Width) speed.Width *= -1;
+                if (Coordinates.X + Speed.Width < bounds.Left ||
+                    Coordinates.X + Speed.Width > bounds.Right - Size.Width) Speed.Width *= -1;
 
-                if (coordinates.Y + speed.Height < bounds.Top ||
-                    coordinates.Y + speed.Height > bounds.Bottom - size.Height) speed.Height *= -1;
+                if (Coordinates.Y + Speed.Height < bounds.Top ||
+                    Coordinates.Y + Speed.Height > bounds.Bottom - Size.Height) Speed.Height *= -1;
             }
 
-            coordinates += speed;
+            Coordinates += Speed;
         }
     }
 }

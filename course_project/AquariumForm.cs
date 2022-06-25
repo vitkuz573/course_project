@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace course_project
 {
@@ -24,14 +25,14 @@ namespace course_project
         private void Pike_Speed_NumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             foreach (var pike in _aquarium.pikeFlock)
-                pike.speed = new Size(Convert.ToInt32(pike_speed_numericupdown.Value),
+                pike.Speed = new Size(Convert.ToInt32(pike_speed_numericupdown.Value),
                     Convert.ToInt32(pike_speed_numericupdown.Value));
         }
 
         private void Carp_Speed_NumericUpDown_ValueChanged(object sender, EventArgs e)
         {
             foreach (var carp in _aquarium.carpFlock)
-                carp.speed = new Size(Convert.ToInt32(pike_speed_numericupdown.Value),
+                carp.Speed = new Size(Convert.ToInt32(pike_speed_numericupdown.Value),
                     Convert.ToInt32(pike_speed_numericupdown.Value));
         }
 

@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using course_project.Properties;
 
 namespace course_project.Fishes
 {
@@ -10,7 +11,7 @@ namespace course_project.Fishes
         {
             Data = Coordinates = data;
 
-            Size = new Size(40, 40);
+            Size = new Size(80, 80);
 
             Speed = new Size(5, 5);
         }
@@ -19,7 +20,8 @@ namespace course_project.Fishes
 
         public override void Draw(Graphics graphics)
         {
-            graphics.FillEllipse(Brush, Coordinates.X, Coordinates.Y, Size.Width, Size.Height);
+            graphics.DrawImage(Resources.pike_to_right, Coordinates.X, Coordinates.Y, Size.Width, Size.Height);
+            //graphics.FillEllipse(Brush, Coordinates.X, Coordinates.Y, Size.Width, Size.Height);
         }
 
         public Point UpdateLocation(Rectangle bounds)

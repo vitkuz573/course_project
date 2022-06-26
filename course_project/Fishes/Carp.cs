@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using course_project.Properties;
 
 namespace course_project.Fishes
 {
@@ -19,7 +20,8 @@ namespace course_project.Fishes
 
         public override void Draw(Graphics graphics)
         {
-            graphics.FillRectangle(Brush, Coordinates.X, Coordinates.Y, Size.Width, Size.Height);
+            graphics.DrawImage(Resources.carp_to_right, Coordinates.X, Coordinates.Y, Size.Width, Size.Height);
+            //graphics.FillRectangle(Brush, Coordinates.X, Coordinates.Y, Size.Width, Size.Height);
         }
 
         public Point UpdateLocation(Rectangle bounds)

@@ -22,7 +22,7 @@ namespace course_project.Fishes
             graphics.FillRectangle(Brush, Coordinates.X, Coordinates.Y, Size.Width, Size.Height);
         }
 
-        public void UpdateLocation(Rectangle bounds)
+        public Point UpdateLocation(Rectangle bounds)
         {
             if (!bounds.Contains(Coordinates + Speed))
             {
@@ -34,6 +34,8 @@ namespace course_project.Fishes
             }
 
             Coordinates += Speed;
+
+            return Coordinates;
         }
     }
 }

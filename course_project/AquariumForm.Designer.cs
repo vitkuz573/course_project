@@ -72,6 +72,7 @@
             // aquarium_timer
             // 
             this.aquarium_timer.Enabled = true;
+            this.aquarium_timer.Interval = 1000;
             this.aquarium_timer.Tick += new System.EventHandler(this.Aquarium_timer_Tick);
             // 
             // pike_speed_numericupdown

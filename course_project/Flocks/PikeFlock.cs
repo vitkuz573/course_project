@@ -50,39 +50,5 @@ namespace course_project.Flocks
             _tail = null;
             Count = 0;
         }
-
-        public bool Remove(Point data)
-        {
-            var current = _head;
-            Pike previous = null;
-
-            while (current != null)
-            {
-                if (current.Data.Equals(data))
-                {
-                    if (previous != null)
-                    {
-                        previous.Next = current.Next;
-
-                        if (current.Next == null) _tail = previous;
-                    }
-                    else
-                    {
-                        _head = _head.Next;
-
-                        if (_head == null) _tail = null;
-                    }
-
-                    Count--;
-
-                    return true;
-                }
-
-                previous = current;
-                current = current.Next;
-            }
-
-            return false;
-        }
     }
 }

@@ -5,9 +5,9 @@ namespace course_project
 {
     public class Fish
     {
+        protected readonly Random random;
         protected Point coordinates;
         protected Image image;
-        protected Random random;
         protected Size size;
         protected Size speed;
 

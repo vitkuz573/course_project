@@ -124,5 +124,8 @@
   <ItemGroup>
     <None Include="carp_to_right.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="carp_to_left.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

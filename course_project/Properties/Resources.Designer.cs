@@ -63,6 +63,16 @@ namespace course_project.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap carp_to_left {
+            get {
+                object obj = ResourceManager.GetObject("carp_to_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap carp_to_right {
             get {
                 object obj = ResourceManager.GetObject("carp_to_right", resourceCulture);

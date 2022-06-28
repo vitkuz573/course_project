@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace course_project
@@ -17,23 +18,7 @@ namespace course_project
 
             _aquarium = new Aquarium(ClientRectangle);
 
-            pike_speed_numericupdown.Value = 5;
-
             _carpFlockPoints = new List<Point>();
-        }
-
-        private void Pike_Speed_NumericUpDown_ValueChanged(object sender, EventArgs e)
-        {
-            foreach (var pike in _aquarium.pikeFlock)
-                pike.Speed = new Size(Convert.ToInt32(pike_speed_numericupdown.Value),
-                    Convert.ToInt32(pike_speed_numericupdown.Value));
-        }
-
-        private void Carp_Speed_NumericUpDown_ValueChanged(object sender, EventArgs e)
-        {
-            foreach (var carp in _aquarium.carpFlock)
-                carp.Speed = new Size(Convert.ToInt32(pike_speed_numericupdown.Value),
-                    Convert.ToInt32(pike_speed_numericupdown.Value));
         }
 
         private void Aquarium_timer_Tick(object sender, EventArgs e)
@@ -41,7 +26,7 @@ namespace course_project
             _carpFlockPoints.Clear();
 
             foreach (var pike in _aquarium.pikeFlock) pike.UpdateLocation(ClientRectangle);
-            
+
             foreach (var carp in _aquarium.carpFlock)
             {
                 var coordinates = carp.UpdateLocation(ClientRectangle);
@@ -118,19 +103,21 @@ namespace course_project
         private void Hunting()
         {
             foreach (var pike in _aquarium.pikeFlock)
-            {
                 if (!_aquarium.carpFlock.IsEmpty)
                 {
                     _aquarium.carpFlock.Remove(NearestPoint(_carpFlockPoints, pike.Data));
+
+                    carp_count_label.Text = "Карпы: " + _aquarium.carpFlock.Count;
+
+                    Thread.Sleep(1000);
+
+                    _carpFlockPoints.Clear();
                 }
                 else
                 {
                     hunting_checkbox.Checked = false;
                     hunting_checkbox.Enabled = false;
                 }
-
-                carp_count_label.Text = "Карпы: " + _aquarium.carpFlock.Count;
-            }
         }
 
         public Point NearestPoint(List<Point> points, Point point)

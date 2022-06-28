@@ -1,16 +1,19 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 
 namespace course_project
 {
     public class Fish
     {
-        protected readonly Brush Brush;
-        protected Point Coordinates;
-        protected Size Size;
+        protected Point coordinates;
+        protected Image image;
+        protected Random random;
+        protected Size size;
+        protected Size speed;
 
-        public Fish(Color color)
+        public Fish()
         {
-            Brush = new SolidBrush(color);
+            random = new Random();
         }
 
         public Point Data { get; set; }

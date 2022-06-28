@@ -5,39 +5,40 @@ namespace course_project.Fishes
 {
     internal class Carp : Fish
     {
-        public Size Speed;
-
-        public Carp(Point data) : base(Color.Red)
+        public Carp(Point data)
         {
-            Data = Coordinates = data;
+            Data = coordinates = data;
 
-            Size = new Size(40, 40);
+            size = new Size(40, 40);
 
-            Speed = new Size(5, 5);
+            speed = new Size(random.Next(-5, 5), random.Next(-5, 5));
+
+            image = speed.Width < 0
+                ? Resources.carp_to_left
+                : Resources.carp_to_right;
         }
 
         public Carp Next { get; set; }
 
         public override void Draw(Graphics graphics)
         {
-            graphics.DrawImage(Resources.carp_to_right, Coordinates.X, Coordinates.Y, Size.Width, Size.Height);
-            //graphics.FillRectangle(Brush, Coordinates.X, Coordinates.Y, Size.Width, Size.Height);
+            graphics.DrawImage(image, coordinates.X, coordinates.Y, size.Width, size.Height);
         }
 
         public Point UpdateLocation(Rectangle bounds)
         {
-            if (!bounds.Contains(Coordinates + Speed))
+            if (!bounds.Contains(coordinates + speed))
             {
-                if (Coordinates.X + Speed.Width < bounds.Left ||
-                    Coordinates.X + Speed.Width > bounds.Right - Size.Width) Speed.Width *= -1;
+                if (coordinates.X + speed.Width < bounds.Left ||
+                    coordinates.X + speed.Width > bounds.Right - size.Width) speed.Width *= -1;
 
-                if (Coordinates.Y + Speed.Height < bounds.Top ||
-                    Coordinates.Y + Speed.Height > bounds.Bottom - Size.Height) Speed.Height *= -1;
+                if (coordinates.Y + speed.Height < bounds.Top ||
+                    coordinates.Y + speed.Height > bounds.Bottom - size.Height) speed.Height *= -1;
             }
 
-            Coordinates += Speed;
+            coordinates += speed;
 
-            return Coordinates;
+            return coordinates;
         }
     }
 }

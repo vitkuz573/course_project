@@ -32,19 +32,13 @@
             this.add_carp_button = new System.Windows.Forms.Button();
             this.add_pike_button = new System.Windows.Forms.Button();
             this.aquarium_timer = new System.Windows.Forms.Timer(this.components);
-            this.pike_speed_numericupdown = new System.Windows.Forms.NumericUpDown();
             this.aquarium_status = new System.Windows.Forms.StatusStrip();
             this.carp_count_label = new System.Windows.Forms.ToolStripStatusLabel();
             this.pike_count_label = new System.Windows.Forms.ToolStripStatusLabel();
             this.hunting_status_label = new System.Windows.Forms.ToolStripStatusLabel();
             this.hunting_checkbox = new System.Windows.Forms.CheckBox();
-            this.carp_speed_numericupdown = new System.Windows.Forms.NumericUpDown();
-            this.carp_speed_label = new System.Windows.Forms.Label();
-            this.pike_speed_label = new System.Windows.Forms.Label();
             this.aquarium_clean_button = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pike_speed_numericupdown)).BeginInit();
             this.aquarium_status.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.carp_speed_numericupdown)).BeginInit();
             this.SuspendLayout();
             // 
             // add_carp_button
@@ -72,27 +66,8 @@
             // aquarium_timer
             // 
             this.aquarium_timer.Enabled = true;
-            this.aquarium_timer.Interval = 1000;
+            this.aquarium_timer.Interval = 300;
             this.aquarium_timer.Tick += new System.EventHandler(this.Aquarium_timer_Tick);
-            // 
-            // pike_speed_numericupdown
-            // 
-            this.pike_speed_numericupdown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pike_speed_numericupdown.Location = new System.Drawing.Point(582, 393);
-            this.pike_speed_numericupdown.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.pike_speed_numericupdown.Name = "pike_speed_numericupdown";
-            this.pike_speed_numericupdown.Size = new System.Drawing.Size(90, 20);
-            this.pike_speed_numericupdown.TabIndex = 3;
-            this.pike_speed_numericupdown.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.pike_speed_numericupdown.ValueChanged += new System.EventHandler(this.Pike_Speed_NumericUpDown_ValueChanged);
             // 
             // aquarium_status
             // 
@@ -130,53 +105,12 @@
             this.hunting_checkbox.AutoSize = true;
             this.hunting_checkbox.BackColor = System.Drawing.Color.Transparent;
             this.hunting_checkbox.Enabled = false;
-            this.hunting_checkbox.Location = new System.Drawing.Point(582, 339);
+            this.hunting_checkbox.Location = new System.Drawing.Point(678, 312);
             this.hunting_checkbox.Name = "hunting_checkbox";
             this.hunting_checkbox.Size = new System.Drawing.Size(56, 17);
             this.hunting_checkbox.TabIndex = 5;
             this.hunting_checkbox.Text = "Охота";
             this.hunting_checkbox.UseVisualStyleBackColor = false;
-            // 
-            // carp_speed_numericupdown
-            // 
-            this.carp_speed_numericupdown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.carp_speed_numericupdown.Location = new System.Drawing.Point(582, 367);
-            this.carp_speed_numericupdown.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.carp_speed_numericupdown.Name = "carp_speed_numericupdown";
-            this.carp_speed_numericupdown.Size = new System.Drawing.Size(90, 20);
-            this.carp_speed_numericupdown.TabIndex = 6;
-            this.carp_speed_numericupdown.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.carp_speed_numericupdown.ValueChanged += new System.EventHandler(this.Carp_Speed_NumericUpDown_ValueChanged);
-            // 
-            // carp_speed_label
-            // 
-            this.carp_speed_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.carp_speed_label.AutoSize = true;
-            this.carp_speed_label.BackColor = System.Drawing.Color.Transparent;
-            this.carp_speed_label.Location = new System.Drawing.Point(518, 369);
-            this.carp_speed_label.Name = "carp_speed_label";
-            this.carp_speed_label.Size = new System.Drawing.Size(58, 13);
-            this.carp_speed_label.TabIndex = 7;
-            this.carp_speed_label.Text = "Скорость:";
-            // 
-            // pike_speed_label
-            // 
-            this.pike_speed_label.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.pike_speed_label.AutoSize = true;
-            this.pike_speed_label.BackColor = System.Drawing.Color.Transparent;
-            this.pike_speed_label.Location = new System.Drawing.Point(518, 395);
-            this.pike_speed_label.Name = "pike_speed_label";
-            this.pike_speed_label.Size = new System.Drawing.Size(58, 13);
-            this.pike_speed_label.TabIndex = 8;
-            this.pike_speed_label.Text = "Скорость:";
             // 
             // aquarium_clean_button
             // 
@@ -196,12 +130,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.aquarium_clean_button);
-            this.Controls.Add(this.pike_speed_label);
-            this.Controls.Add(this.carp_speed_label);
-            this.Controls.Add(this.carp_speed_numericupdown);
             this.Controls.Add(this.hunting_checkbox);
             this.Controls.Add(this.aquarium_status);
-            this.Controls.Add(this.pike_speed_numericupdown);
             this.Controls.Add(this.add_pike_button);
             this.Controls.Add(this.add_carp_button);
             this.DoubleBuffered = true;
@@ -209,10 +139,8 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Аквариум - Кузяев Виталий (ИТЗ-0900021у)";
-            ((System.ComponentModel.ISupportInitialize)(this.pike_speed_numericupdown)).EndInit();
             this.aquarium_status.ResumeLayout(false);
             this.aquarium_status.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.carp_speed_numericupdown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,15 +150,11 @@
         private System.Windows.Forms.Button add_carp_button;
         private System.Windows.Forms.Button add_pike_button;
         private System.Windows.Forms.Timer aquarium_timer;
-        private System.Windows.Forms.NumericUpDown pike_speed_numericupdown;
         private System.Windows.Forms.StatusStrip aquarium_status;
         private System.Windows.Forms.ToolStripStatusLabel carp_count_label;
         private System.Windows.Forms.ToolStripStatusLabel pike_count_label;
         private System.Windows.Forms.ToolStripStatusLabel hunting_status_label;
         private System.Windows.Forms.CheckBox hunting_checkbox;
-        private System.Windows.Forms.NumericUpDown carp_speed_numericupdown;
-        private System.Windows.Forms.Label carp_speed_label;
-        private System.Windows.Forms.Label pike_speed_label;
         private System.Windows.Forms.Button aquarium_clean_button;
     }
 }

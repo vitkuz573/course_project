@@ -110,8 +110,6 @@ namespace course_project
                     carp_count_label.Text = "Карпы: " + _aquarium.carpFlock.Count;
 
                     Thread.Sleep(1000);
-
-                    _carpFlockPoints.Clear();
                 }
                 else
                 {

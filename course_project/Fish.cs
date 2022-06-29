@@ -27,15 +27,16 @@ namespace course_project
         {
             if (!bounds.Contains(Data + speed))
             {
-                if (Data.X + speed.Width < bounds.Left ||
-                    Data.X + speed.Width > bounds.Right - size.Width)
+                if (Data.X + speed.Width < bounds.Left || Data.X + speed.Width > bounds.Right - size.Width)
                 {
                     speed.Width *= -1;
                     image.RotateFlip(RotateFlipType.Rotate180FlipY);
                 }
 
-                if (Data.Y + speed.Height < bounds.Top ||
-                    Data.Y + speed.Height > bounds.Bottom - size.Height) speed.Height *= -1;
+                if (Data.Y + speed.Height < bounds.Top || Data.Y + speed.Height > bounds.Bottom - size.Height)
+                {
+                    speed.Height *= -1;
+                }
             }
 
             Data += speed;

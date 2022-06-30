@@ -99,7 +99,7 @@ namespace course_project.Flocks
                 current = current.Next;
             }
 
-            return Remove(list.NearestPoint(point));
+            return Remove(list.Nearest(point));
         }
     }
 }

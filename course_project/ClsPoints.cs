@@ -7,7 +7,7 @@ namespace course_project
 {
     internal static class ClsPoints
     {
-        public static Point NearestPoint(List<Point> points, Point point)
+        public static Point NearestPoint(this List<Point> points, Point point)
         {
             return points
                 .Select(n => new { n, distance = Math.Sqrt(Math.Pow(n.X - point.X, 2) + Math.Pow(n.Y - point.Y, 2)) })

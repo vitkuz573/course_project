@@ -77,7 +77,7 @@ namespace course_project
 
         private void Hunting()
         {
-            foreach (var pike in _aquarium.pikeFlock) 
+            foreach (var pike in _aquarium.pikeFlock)
                 if (_aquarium.carpFlock.IsNotEmpty)
                 {
                     _aquarium.carpFlock.RemoveNearest(pike.Data);

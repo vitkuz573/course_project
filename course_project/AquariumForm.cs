@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace course_project
@@ -20,6 +19,11 @@ namespace course_project
             foreach (var pike in _aquarium.pikeFlock) pike.UpdateLocation(ClientRectangle);
             foreach (var carp in _aquarium.carpFlock) carp.UpdateLocation(ClientRectangle);
 
+            Invalidate();
+        }
+
+        private void Hunting_timer_Tick(object sender, EventArgs e)
+        {
             if (hunting_checkbox.Checked)
             {
                 hunting_status_label.Text = "Охота: ON";
@@ -30,8 +34,6 @@ namespace course_project
             {
                 hunting_status_label.Text = "Охота: OFF";
             }
-
-            Invalidate();
         }
 
         private void Add_Carp_Button_Click(object sender, EventArgs e)
@@ -81,8 +83,6 @@ namespace course_project
                     _aquarium.carpFlock.RemoveNearest(pike.Data);
 
                     UpdateCounters();
-
-                    Thread.Sleep(1000);
                 }
                 else
                 {

@@ -38,6 +38,7 @@
             this.hunting_status_label = new System.Windows.Forms.ToolStripStatusLabel();
             this.hunting_checkbox = new System.Windows.Forms.CheckBox();
             this.aquarium_clean_button = new System.Windows.Forms.Button();
+            this.hunting_timer = new System.Windows.Forms.Timer(this.components);
             this.aquarium_status.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -123,6 +124,12 @@
             this.aquarium_clean_button.UseVisualStyleBackColor = true;
             this.aquarium_clean_button.Click += new System.EventHandler(this.Aquarium_Clean_Button_Click);
             // 
+            // hunting_timer
+            // 
+            this.hunting_timer.Enabled = true;
+            this.hunting_timer.Interval = 1000;
+            this.hunting_timer.Tick += new System.EventHandler(this.Hunting_timer_Tick);
+            // 
             // AquariumForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -155,6 +162,7 @@
         private System.Windows.Forms.ToolStripStatusLabel hunting_status_label;
         private System.Windows.Forms.CheckBox hunting_checkbox;
         private System.Windows.Forms.Button aquarium_clean_button;
+        private System.Windows.Forms.Timer hunting_timer;
     }
 }
 

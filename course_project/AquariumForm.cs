@@ -95,7 +95,7 @@ namespace course_project
             foreach (var pike in _aquarium.pikeFlock)
                 if (_aquarium.carpFlock.IsNotEmpty)
                 {
-                    _aquarium.carpFlock.Remove(_aquarium.carpFlock.GetAllData().NearestPoint(pike.Data));
+                    _aquarium.carpFlock.RemoveNearest(pike.Data);
 
                     carp_count_label.Text = "Карпы: " + _aquarium.carpFlock.Count;
 

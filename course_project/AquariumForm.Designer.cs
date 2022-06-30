@@ -67,7 +67,7 @@
             // aquarium_timer
             // 
             this.aquarium_timer.Enabled = true;
-            this.aquarium_timer.Tick += new System.EventHandler(this.Aquarium_timer_Tick);
+            this.aquarium_timer.Tick += new System.EventHandler(this.Aquarium_Timer_Tick);
             // 
             // aquarium_status
             // 
@@ -128,7 +128,7 @@
             // 
             this.hunting_timer.Enabled = true;
             this.hunting_timer.Interval = 1000;
-            this.hunting_timer.Tick += new System.EventHandler(this.Hunting_timer_Tick);
+            this.hunting_timer.Tick += new System.EventHandler(this.Hunting_Timer_Tick);
             // 
             // AquariumForm
             // 

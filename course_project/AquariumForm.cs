@@ -14,7 +14,7 @@ namespace course_project
             _aquarium = new Aquarium(ClientRectangle);
         }
 
-        private void Aquarium_timer_Tick(object sender, EventArgs e)
+        private void Aquarium_Timer_Tick(object sender, EventArgs e)
         {
             foreach (var pike in _aquarium.pikeFlock) pike.UpdateLocation(ClientRectangle);
             foreach (var carp in _aquarium.carpFlock) carp.UpdateLocation(ClientRectangle);
@@ -22,7 +22,7 @@ namespace course_project
             Invalidate();
         }
 
-        private void Hunting_timer_Tick(object sender, EventArgs e)
+        private void Hunting_Timer_Tick(object sender, EventArgs e)
         {
             if (hunting_checkbox.Checked)
             {

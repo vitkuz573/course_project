@@ -87,7 +87,7 @@ namespace course_project.Flocks
             return false;
         }
 
-        public void RemoveNearest(Point point)
+        public bool RemoveNearest(Point point)
         {
             var list = new List<Point>();
             var current = _head;
@@ -99,7 +99,7 @@ namespace course_project.Flocks
                 current = current.Next;
             }
 
-            Remove(list.NearestPoint(point));
+            return Remove(list.NearestPoint(point));
         }
     }
 }

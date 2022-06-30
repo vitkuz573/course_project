@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace course_project
@@ -15,7 +16,7 @@ namespace course_project
             _aquarium = new Aquarium(ClientRectangle);
         }
 
-        private void Aquarium_timer_Tick(object sender, EventArgs e)
+        private async void Aquarium_timer_Tick(object sender, EventArgs e)
         {
             foreach (var pike in _aquarium.pikeFlock) pike.UpdateLocation(ClientRectangle);
 
@@ -30,7 +31,7 @@ namespace course_project
             {
                 hunting_status_label.Text = "Охота: ON";
 
-                Hunting();
+                await Hunting();
             }
             else
             {
@@ -79,7 +80,7 @@ namespace course_project
             UpdateCounters();
         }
 
-        private void Hunting()
+        private async Task Hunting()
         {
             foreach (var pike in _aquarium.pikeFlock)
                 if (_aquarium.carpFlock.IsNotEmpty)
@@ -89,6 +90,8 @@ namespace course_project
                     UpdateCounters();
 
                     Thread.Sleep(1000);
+
+                    // await Task.Delay(1000);
                 }
                 else
                 {

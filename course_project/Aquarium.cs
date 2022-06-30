@@ -31,7 +31,7 @@ namespace course_project
             {
                 new Point(160, _clientRectangle.Bottom),
                 new Point(40, _clientRectangle.Bottom),
-                new Point(67, 80),
+                new Point(67, 80)
             });
 
             foreach (var pike in pikeFlock)

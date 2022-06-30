@@ -93,7 +93,6 @@ namespace course_project
         private void Hunting()
         {
             foreach (var pike in _aquarium.pikeFlock)
-            {
                 if (_aquarium.carpFlock.IsNotEmpty)
                 {
                     _aquarium.carpFlock.Remove(ClsPoints.NearestPoint(_aquarium.carpFlock.GetAllData(), pike.Data));
@@ -107,7 +106,6 @@ namespace course_project
                     hunting_checkbox.Checked = false;
                     hunting_checkbox.Enabled = false;
                 }
-            }
         }
     }
 }

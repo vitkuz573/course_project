@@ -74,6 +74,7 @@
     </Compile>
     <Compile Include="Fishes\Pike.cs" />
     <Compile Include="Flocks\PikeFlock.cs" />
+    <Compile Include="ClsPoints.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AquariumForm.resx">

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -10,21 +7,16 @@ namespace course_project
     public partial class AquariumForm : Form
     {
         private readonly Aquarium _aquarium;
-        private readonly List<Point> _carpFlockPoints;
 
         public AquariumForm()
         {
             InitializeComponent();
 
             _aquarium = new Aquarium(ClientRectangle);
-
-            _carpFlockPoints = new List<Point>();
         }
 
         private void Aquarium_timer_Tick(object sender, EventArgs e)
         {
-            _carpFlockPoints.Clear();
-
             foreach (var pike in _aquarium.pikeFlock) pike.UpdateLocation(ClientRectangle);
 
             foreach (var carp in _aquarium.carpFlock)
@@ -32,8 +24,6 @@ namespace course_project
                 var coordinates = carp.UpdateLocation(ClientRectangle);
 
                 carp.Data = coordinates;
-
-                _carpFlockPoints.Add(coordinates);
             }
 
             if (hunting_checkbox.Checked)
@@ -103,28 +93,17 @@ namespace course_project
         private void Hunting()
         {
             foreach (var pike in _aquarium.pikeFlock)
-                if (!_aquarium.carpFlock.IsEmpty)
-                {
-                    _aquarium.carpFlock.Remove(NearestPoint(_carpFlockPoints, pike.Data));
+            {
+                _aquarium.carpFlock.Remove(ClsPoints.NearestPoint(_aquarium.carpFlock.GetAllData(), pike.Data));
 
-                    carp_count_label.Text = "Карпы: " + _aquarium.carpFlock.Count;
+                carp_count_label.Text = "Карпы: " + _aquarium.carpFlock.Count;
 
-                    Thread.Sleep(1000);
-                }
-                else
-                {
-                    hunting_checkbox.Checked = false;
-                    hunting_checkbox.Enabled = false;
-                }
-        }
+                Thread.Sleep(1000);
 
-        public Point NearestPoint(List<Point> points, Point point)
-        {
-            return points
-                .Select(n => new { n, distance = Math.Sqrt(Math.Pow(n.X - point.X, 2) + Math.Pow(n.Y - point.Y, 2)) })
-                .OrderBy(p => p.distance)
-                .First()
-                .n;
+                if (!_aquarium.carpFlock.IsEmpty) continue;
+                hunting_checkbox.Checked = false;
+                hunting_checkbox.Enabled = false;
+            }
         }
     }
 }

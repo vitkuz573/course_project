@@ -84,5 +84,20 @@ namespace course_project.Flocks
 
             return false;
         }
+
+        public List<Point> GetAllData()
+        {
+            var list = new List<Point>();
+            var current = _head;
+
+            while (current != null)
+            {
+                list.Add(current.Data);
+
+                current = current.Next;
+            }
+
+            return list;
+        }
     }
 }

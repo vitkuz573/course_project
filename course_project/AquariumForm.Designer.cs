@@ -66,7 +66,6 @@
             // aquarium_timer
             // 
             this.aquarium_timer.Enabled = true;
-            this.aquarium_timer.Interval = 300;
             this.aquarium_timer.Tick += new System.EventHandler(this.Aquarium_timer_Tick);
             // 
             // aquarium_status

@@ -34,9 +34,7 @@ namespace course_project
                 }
 
                 if (Data.Y + speed.Height < bounds.Top || Data.Y + speed.Height > bounds.Bottom - size.Height)
-                {
                     speed.Height *= -1;
-                }
             }
 
             Data += speed;

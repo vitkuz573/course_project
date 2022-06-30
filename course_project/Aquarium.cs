@@ -27,6 +27,13 @@ namespace course_project
         {
             graphics.Clear(_waterColor);
 
+            graphics.FillPolygon(new SolidBrush(_rocksColor), new PointF[]
+            {
+                new Point(160, _clientRectangle.Bottom),
+                new Point(40, _clientRectangle.Bottom),
+                new Point(67, 80),
+            });
+
             foreach (var pike in pikeFlock)
                 pike.Draw(graphics);
 

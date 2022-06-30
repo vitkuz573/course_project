@@ -14,6 +14,8 @@ namespace course_project.Flocks
 
         public bool IsEmpty => Count == 0;
 
+        public bool IsNotEmpty => Count != 0;
+
         public IEnumerator<Pike> GetEnumerator()
         {
             var current = _head;

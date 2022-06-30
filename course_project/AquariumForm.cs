@@ -68,12 +68,12 @@ namespace course_project
 
         private void EnableHuntingCheckBox()
         {
-            if (!_aquarium.pikeFlock.IsEmpty && !_aquarium.carpFlock.IsEmpty) hunting_checkbox.Enabled = true;
+            if (_aquarium.pikeFlock.IsNotEmpty && _aquarium.carpFlock.IsNotEmpty) hunting_checkbox.Enabled = true;
         }
 
         private void EnableCleanButton()
         {
-            if (!_aquarium.pikeFlock.IsEmpty || !_aquarium.carpFlock.IsEmpty) aquarium_clean_button.Enabled = true;
+            if (_aquarium.pikeFlock.IsNotEmpty || _aquarium.carpFlock.IsNotEmpty) aquarium_clean_button.Enabled = true;
         }
 
         private void Aquarium_Clean_Button_Click(object sender, EventArgs e)
@@ -94,15 +94,19 @@ namespace course_project
         {
             foreach (var pike in _aquarium.pikeFlock)
             {
-                _aquarium.carpFlock.Remove(ClsPoints.NearestPoint(_aquarium.carpFlock.GetAllData(), pike.Data));
+                if (_aquarium.carpFlock.IsNotEmpty)
+                {
+                    _aquarium.carpFlock.Remove(ClsPoints.NearestPoint(_aquarium.carpFlock.GetAllData(), pike.Data));
 
-                carp_count_label.Text = "Карпы: " + _aquarium.carpFlock.Count;
+                    carp_count_label.Text = "Карпы: " + _aquarium.carpFlock.Count;
 
-                Thread.Sleep(1000);
-
-                if (!_aquarium.carpFlock.IsEmpty) continue;
-                hunting_checkbox.Checked = false;
-                hunting_checkbox.Enabled = false;
+                    Thread.Sleep(1000);
+                }
+                else
+                {
+                    hunting_checkbox.Checked = false;
+                    hunting_checkbox.Enabled = false;
+                }
             }
         }
     }

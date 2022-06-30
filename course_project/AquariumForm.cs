@@ -67,8 +67,7 @@ namespace course_project
             _aquarium.carpFlock.Clear();
             _aquarium.pikeFlock.Clear();
 
-            if (hunting_checkbox.Checked) hunting_checkbox.Checked = false;
-
+            hunting_checkbox.Checked = false;
             hunting_checkbox.Enabled = false;
             aquarium_clean_button.Enabled = false;
 

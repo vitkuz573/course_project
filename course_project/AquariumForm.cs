@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace course_project
@@ -16,22 +15,16 @@ namespace course_project
             _aquarium = new Aquarium(ClientRectangle);
         }
 
-        private async void Aquarium_timer_Tick(object sender, EventArgs e)
+        private void Aquarium_timer_Tick(object sender, EventArgs e)
         {
             foreach (var pike in _aquarium.pikeFlock) pike.UpdateLocation(ClientRectangle);
-
-            foreach (var carp in _aquarium.carpFlock)
-            {
-                var coordinates = carp.UpdateLocation(ClientRectangle);
-
-                carp.Data = coordinates;
-            }
+            foreach (var carp in _aquarium.carpFlock) carp.UpdateLocation(ClientRectangle);
 
             if (hunting_checkbox.Checked)
             {
                 hunting_status_label.Text = "Охота: ON";
 
-                await Hunting();
+                Hunting();
             }
             else
             {
@@ -80,9 +73,9 @@ namespace course_project
             UpdateCounters();
         }
 
-        private async Task Hunting()
+        private void Hunting()
         {
-            foreach (var pike in _aquarium.pikeFlock)
+            foreach (var pike in _aquarium.pikeFlock) 
                 if (_aquarium.carpFlock.IsNotEmpty)
                 {
                     _aquarium.carpFlock.RemoveNearest(pike.Data);
@@ -90,8 +83,6 @@ namespace course_project
                     UpdateCounters();
 
                     Thread.Sleep(1000);
-
-                    // await Task.Delay(1000);
                 }
                 else
                 {

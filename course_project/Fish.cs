@@ -23,7 +23,7 @@ namespace course_project
         {
         }
 
-        public Point UpdateLocation(Rectangle bounds)
+        public void UpdateLocation(Rectangle bounds)
         {
             if (!bounds.Contains(Data + speed))
             {
@@ -38,8 +38,6 @@ namespace course_project
             }
 
             Data += speed;
-
-            return Data;
         }
     }
 }

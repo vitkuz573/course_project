@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace course_project
 {
-    internal static class ClsRandom
+    internal static class RandomExtensions
     {
         public static int NextWithExclude(this Random random, int min, int max, int[] exclude)
         {

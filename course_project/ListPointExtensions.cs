@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace course_project
 {
-    internal static class ClsListPoints
+    internal static class ListPointExtensions
     {
         public static Point Nearest(this List<Point> points, Point point)
         {

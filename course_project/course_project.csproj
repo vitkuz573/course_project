@@ -63,7 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aquarium.cs" />
-    <Compile Include="ClsRandom.cs" />
+    <Compile Include="RandomExtensions.cs" />
     <Compile Include="Fishes\Carp.cs" />
     <Compile Include="Flocks\CarpFlock.cs" />
     <Compile Include="Fish.cs" />
@@ -75,7 +75,7 @@
     </Compile>
     <Compile Include="Fishes\Pike.cs" />
     <Compile Include="Flocks\PikeFlock.cs" />
-    <Compile Include="ClsListPoints.cs" />
+    <Compile Include="ListPointExtensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AquariumForm.resx">

@@ -96,7 +96,6 @@ namespace course_project.Flocks
             while (current != null)
             {
                 list.Add(current.Data);
-
                 current = current.Next;
             }
 

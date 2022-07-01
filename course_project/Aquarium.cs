@@ -37,8 +37,8 @@ namespace course_project
             graphics.FillPolygon(new SolidBrush(_rocksColor), new PointF[]
             {
                 new Point(360, _clientRectangle.Bottom),
-                new Point(90, _clientRectangle.Bottom),
-                new Point(67, 300)
+                new Point(300, _clientRectangle.Bottom),
+                new Point(280, 300)
             });
 
             foreach (var pike in pikeFlock)
@@ -48,17 +48,6 @@ namespace course_project
                 carp.Draw(graphics);
         }
 
-        public void Run()
-        {
-        }
-
-        public void Done()
-        {
-        }
-
-        public Point RandomPoint()
-        {
-            return new Point(_random.Next(0, _clientRectangle.Width), _random.Next(0, _clientRectangle.Height));
-        }
+        public Point RandomPoint() => new Point(_random.Next(0, _clientRectangle.Width), _random.Next(0, _clientRectangle.Height));
     }
 }

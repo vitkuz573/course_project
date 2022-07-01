@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 
-namespace course_project
+namespace course_project.Extensions
 {
     internal static class ListPointExtensions
     {

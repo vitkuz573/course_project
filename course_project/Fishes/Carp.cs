@@ -18,9 +18,6 @@ namespace course_project.Fishes
 
         public Carp Next { get; set; }
 
-        public override void Draw(Graphics graphics)
-        {
-            graphics.DrawImage(image, Data.X, Data.Y, size.Width, size.Height);
-        }
+        public override void Draw(Graphics graphics) => graphics.DrawImage(image, Data.X, Data.Y, size.Width, size.Height);
     }
 }

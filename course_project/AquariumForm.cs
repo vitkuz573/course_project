@@ -14,6 +14,12 @@ namespace course_project
             _aquarium = new Aquarium(ClientRectangle);
         }
 
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            _aquarium.Init(e.Graphics);
+        }
+
         private void Aquarium_Timer_Tick(object sender, EventArgs e)
         {
             foreach (var pike in _aquarium.pikeFlock) pike.UpdateLocation(ClientRectangle);
@@ -28,7 +34,18 @@ namespace course_project
             {
                 hunting_status_label.Text = "Охота: ON";
 
-                Hunting();
+                foreach (var pike in _aquarium.pikeFlock)
+                    if (_aquarium.carpFlock.IsNotEmpty)
+                    {
+                        _aquarium.carpFlock.RemoveNearest(pike.Data);
+
+                        UpdateCounters();
+                    }
+                    else
+                    {
+                        hunting_checkbox.Checked = false;
+                        hunting_checkbox.Enabled = false;
+                    }
             }
             else
             {
@@ -41,9 +58,7 @@ namespace course_project
             _aquarium.carpFlock.Add(_aquarium.RandomPoint());
 
             UpdateCounters();
-
-            EnableHuntingCheckBox();
-            EnableCleanButton();
+            EnableControls();
         }
 
         private void Add_Pike_Button_Click(object sender, EventArgs e)
@@ -51,15 +66,7 @@ namespace course_project
             _aquarium.pikeFlock.Add(_aquarium.RandomPoint());
 
             UpdateCounters();
-
-            EnableHuntingCheckBox();
-            EnableCleanButton();
-        }
-
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            base.OnPaint(e);
-            _aquarium.Init(e.Graphics);
+            EnableControls();
         }
 
         private void Aquarium_Clean_Button_Click(object sender, EventArgs e)
@@ -74,36 +81,16 @@ namespace course_project
             UpdateCounters();
         }
 
-        private void Hunting()
-        {
-            foreach (var pike in _aquarium.pikeFlock)
-                if (_aquarium.carpFlock.IsNotEmpty)
-                {
-                    _aquarium.carpFlock.RemoveNearest(pike.Data);
-
-                    UpdateCounters();
-                }
-                else
-                {
-                    hunting_checkbox.Checked = false;
-                    hunting_checkbox.Enabled = false;
-                }
-        }
-
-        private void EnableHuntingCheckBox()
-        {
-            if (_aquarium.pikeFlock.IsNotEmpty && _aquarium.carpFlock.IsNotEmpty) hunting_checkbox.Enabled = true;
-        }
-
-        private void EnableCleanButton()
-        {
-            if (_aquarium.pikeFlock.IsNotEmpty || _aquarium.carpFlock.IsNotEmpty) aquarium_clean_button.Enabled = true;
-        }
-
         private void UpdateCounters()
         {
             pike_count_label.Text = "Щуки: " + _aquarium.pikeFlock.Count;
             carp_count_label.Text = "Карпы: " + _aquarium.carpFlock.Count;
+        }
+
+        private void EnableControls()
+        {
+            aquarium_clean_button.Enabled = _aquarium.pikeFlock.IsNotEmpty || _aquarium.carpFlock.IsNotEmpty;
+            hunting_checkbox.Enabled = _aquarium.pikeFlock.IsNotEmpty && _aquarium.carpFlock.IsNotEmpty;
         }
     }
 }

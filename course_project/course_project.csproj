@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aquarium.cs" />
+    <Compile Include="ClsRandom.cs" />
     <Compile Include="Fishes\Carp.cs" />
     <Compile Include="Flocks\CarpFlock.cs" />
     <Compile Include="Fish.cs" />

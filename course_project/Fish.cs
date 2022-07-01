@@ -14,7 +14,7 @@ namespace course_project
         {
             random = new Random();
 
-            speed = new Size(random.Next(-5, 5), random.Next(-5, 5));
+            speed = new Size(random.NextWithExclude(-5, 5, new[] { 0 }), random.NextWithExclude(-5, 5, new[] { 0 }));
         }
 
         public Point Data { get; set; }

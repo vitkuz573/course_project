@@ -48,6 +48,9 @@ namespace course_project
                 carp.Draw(graphics);
         }
 
-        public Point RandomPoint() => new Point(_random.Next(0, _clientRectangle.Width), _random.Next(0, _clientRectangle.Height));
+        public Point RandomPoint()
+        {
+            return new Point(_random.Next(0, _clientRectangle.Width), _random.Next(0, _clientRectangle.Height));
+        }
     }
 }

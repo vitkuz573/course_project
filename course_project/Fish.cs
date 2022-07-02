@@ -26,8 +26,8 @@
         protected Fish()
         {
             this.speed = new Size(
-                this.random.NextWithExclude(-5, 5, new[] { 0 }),
-                this.random.NextWithExclude(-5, 5, new[] { 0 }));
+                this.random.NextWithExclude(-5, 5, new[] { -1, 0, 1 }),
+                this.random.NextWithExclude(-5, 5, new[] { -1, 0, 1 }));
         }
 
         /// <summary>

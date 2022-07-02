@@ -21,11 +21,6 @@
         public readonly PikeFlock PikeFlock;
 
         /// <summary>
-        /// The client rectangle.
-        /// </summary>
-        private readonly Rectangle clientRectangle;
-
-        /// <summary>
         /// The random.
         /// </summary>
         private readonly Random random;
@@ -41,16 +36,17 @@
         private readonly Color waterColor;
 
         /// <summary>
+        /// The clip rectangle.
+        /// </summary>
+        private Rectangle clipRectangle;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Aquarium"/> class.
         /// </summary>
-        /// <param name="client">
-        /// The client.
-        /// </param>
-        public Aquarium(Rectangle client)
+        public Aquarium()
         {
             this.PikeFlock = new PikeFlock();
             this.CarpFlock = new CarpFlock();
-            this.clientRectangle = client;
             this.random = new Random();
             this.waterColor = Color.LightSkyBlue;
             this.rocksColor = Color.DarkGray;
@@ -62,9 +58,22 @@
         /// <param name="graphics">
         /// The graphics.
         /// </param>
-        public void Init(Graphics graphics)
+        /// <param name="clip">
+        /// The clip.
+        /// </param>
+        public void Init(Graphics graphics, Rectangle clip)
         {
+            this.clipRectangle = clip;
+
             graphics.Clear(this.waterColor);
+
+            graphics.FillPolygon(
+                new SolidBrush(this.rocksColor),
+                new[] { new PointF(50, clip.Bottom), new PointF(250, clip.Bottom), new PointF(90, 100) });
+
+            graphics.FillPolygon(
+                new SolidBrush(this.rocksColor),
+                new[] { new PointF(260, clip.Bottom), new PointF(600, clip.Bottom), new PointF(300, 100) });
 
             foreach (var pike in this.PikeFlock)
             {
@@ -86,8 +95,8 @@
         public Point RandomPoint()
         {
             return new Point(
-                this.random.Next(0, this.clientRectangle.Width),
-                this.random.Next(0, this.clientRectangle.Height));
+                this.random.Next(0, this.clipRectangle.Width),
+                this.random.Next(0, this.clipRectangle.Height));
         }
     }
 }

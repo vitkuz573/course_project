@@ -20,7 +20,7 @@
         {
             this.InitializeComponent();
 
-            this.aquarium = new Aquarium(this.ClientRectangle);
+            this.aquarium = new Aquarium();
         }
 
         /// <summary>
@@ -32,7 +32,7 @@
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            this.aquarium.Init(e.Graphics);
+            this.aquarium.Init(e.Graphics, e.ClipRectangle);
         }
 
         /// <summary>

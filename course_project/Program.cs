@@ -1,10 +1,16 @@
-﻿using System;
-using System.Windows.Forms;
-
-namespace course_project
+﻿namespace CourseProject
 {
+    using System;
+    using System.Windows.Forms;
+
+    /// <summary>
+    /// The program.
+    /// </summary>
     internal static class Program
     {
+        /// <summary>
+        /// The main.
+        /// </summary>
         [STAThread]
         private static void Main()
         {

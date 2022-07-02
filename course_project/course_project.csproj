@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{BCEA22EC-BEF2-4D75-B25E-99E0EC7FF934}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>course_project</RootNamespace>
+    <RootNamespace>CourseProject</RootNamespace>
     <AssemblyName>Course_Project</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

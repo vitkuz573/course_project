@@ -1,44 +1,103 @@
-﻿using System;
-using System.Drawing;
-using course_project.Extensions;
-
-namespace course_project
+﻿namespace CourseProject
 {
+    using System;
+    using System.Drawing;
+
+    using CourseProject.Extensions;
+
+    /// <summary>
+    /// The fish.
+    /// </summary>
     public class Fish
     {
-        protected readonly Random random;
-        protected Image image;
-        protected Size size;
-        protected Size speed;
+        /// <summary>
+        /// The random.
+        /// </summary>
+        private readonly Random random = new Random();
 
-        public Fish()
+        /// <summary>
+        /// The speed.
+        /// </summary>
+        private Size speed;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Fish"/> class.
+        /// </summary>
+        protected Fish()
         {
-            random = new Random();
-
-            speed = new Size(random.NextWithExclude(-5, 5, new[] { 0 }), random.NextWithExclude(-5, 5, new[] { 0 }));
+            this.speed = new Size(
+                this.random.NextWithExclude(-5, 5, new[] { 0 }),
+                this.random.NextWithExclude(-5, 5, new[] { 0 }));
         }
 
-        public Point Data { get; set; }
+        /// <summary>
+        /// Gets or sets the data.
+        /// </summary>
+        public Point Data { get; protected set; }
 
+        /// <summary>
+        /// Gets or sets the fish image.
+        /// </summary>
+        protected Image FishImage { get; set; }
+
+        /// <summary>
+        /// Gets or sets the fish size.
+        /// </summary>
+        protected Size FishSize { get; set; }
+
+        /// <summary>
+        /// Gets the fish speed width.
+        /// </summary>
+        protected int FishSpeedWidth
+        {
+            get => this.speed.Width;
+            private set => this.speed.Width = value;
+        }
+
+        /// <summary>
+        /// Gets or sets the fish speed height.
+        /// </summary>
+        private int FishSpeedHeight
+        {
+            get => this.speed.Height;
+            set => this.speed.Height = value;
+        }
+
+        /// <summary>
+        /// The draw.
+        /// </summary>
+        /// <param name="graphics">
+        /// The graphics.
+        /// </param>
         public virtual void Draw(Graphics graphics)
         {
         }
 
+        /// <summary>
+        /// The update location.
+        /// </summary>
+        /// <param name="bounds">
+        /// The bounds.
+        /// </param>
         public void UpdateLocation(Rectangle bounds)
         {
-            if (!bounds.Contains(Data + speed))
+            if (!bounds.Contains(this.Data + this.speed))
             {
-                if (Data.X + speed.Width < bounds.Left || Data.X + speed.Width > bounds.Right - size.Width)
+                if (this.Data.X + this.speed.Width < bounds.Left
+                    || this.Data.X + this.speed.Width > bounds.Right - this.FishSize.Width)
                 {
-                    speed.Width *= -1;
-                    image.RotateFlip(RotateFlipType.Rotate180FlipY);
+                    this.FishSpeedWidth *= -1;
+                    this.FishImage.RotateFlip(RotateFlipType.Rotate180FlipY);
                 }
 
-                if (Data.Y + speed.Height < bounds.Top || Data.Y + speed.Height > bounds.Bottom - size.Height)
-                    speed.Height *= -1;
+                if (this.Data.Y + this.speed.Height < bounds.Top
+                    || this.Data.Y + this.speed.Height > bounds.Bottom - this.FishSize.Height)
+                {
+                    this.FishSpeedHeight *= -1;
+                }
             }
 
-            Data += speed;
+            this.Data += this.speed;
         }
     }
 }

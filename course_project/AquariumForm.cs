@@ -1,96 +1,172 @@
-﻿using System;
-using System.Windows.Forms;
-
-namespace course_project
+﻿namespace CourseProject
 {
+    using System;
+    using System.Windows.Forms;
+
+    /// <summary>
+    /// The aquarium form.
+    /// </summary>
     public partial class AquariumForm : Form
     {
-        private readonly Aquarium _aquarium;
+        /// <summary>
+        /// The aquarium.
+        /// </summary>
+        private readonly Aquarium aquarium;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AquariumForm"/> class.
+        /// </summary>
         public AquariumForm()
         {
-            InitializeComponent();
+            this.InitializeComponent();
 
-            _aquarium = new Aquarium(ClientRectangle);
+            this.aquarium = new Aquarium(this.ClientRectangle);
         }
 
+        /// <summary>
+        /// The on paint.
+        /// </summary>
+        /// <param name="e">
+        /// The e.
+        /// </param>
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            _aquarium.Init(e.Graphics);
+            this.aquarium.Init(e.Graphics);
         }
 
+        /// <summary>
+        /// The add_ carp_ button_ click.
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">
+        /// The e.
+        /// </param>
+        private void Add_Carp_Button_Click(object sender, EventArgs e)
+        {
+            this.aquarium.CarpFlock.Add(this.aquarium.RandomPoint());
+
+            this.UpdateCounters();
+            this.EnableControls();
+        }
+
+        /// <summary>
+        /// The add_ pike_ button_ click.
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">
+        /// The e.
+        /// </param>
+        private void Add_Pike_Button_Click(object sender, EventArgs e)
+        {
+            this.aquarium.PikeFlock.Add(this.aquarium.RandomPoint());
+
+            this.UpdateCounters();
+            this.EnableControls();
+        }
+
+        /// <summary>
+        /// The aquarium_ clean_ button_ click.
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">
+        /// The e.
+        /// </param>
+        private void Aquarium_Clean_Button_Click(object sender, EventArgs e)
+        {
+            this.aquarium.CarpFlock.Clear();
+            this.aquarium.PikeFlock.Clear();
+
+            this.hunting_checkbox.Checked = false;
+            this.hunting_checkbox.Enabled = false;
+            this.aquarium_clean_button.Enabled = false;
+
+            this.UpdateCounters();
+        }
+
+        /// <summary>
+        /// The aquarium_ timer_ tick.
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">
+        /// The e.
+        /// </param>
         private void Aquarium_Timer_Tick(object sender, EventArgs e)
         {
-            foreach (var pike in _aquarium.pikeFlock) pike.UpdateLocation(ClientRectangle);
-            foreach (var carp in _aquarium.carpFlock) carp.UpdateLocation(ClientRectangle);
+            foreach (var pike in this.aquarium.PikeFlock)
+            {
+                pike.UpdateLocation(this.ClientRectangle);
+            }
 
-            Invalidate();
+            foreach (var carp in this.aquarium.CarpFlock)
+            {
+                carp.UpdateLocation(this.ClientRectangle);
+            }
+
+            this.Invalidate();
         }
 
+        /// <summary>
+        /// The enable controls.
+        /// </summary>
+        private void EnableControls()
+        {
+            this.aquarium_clean_button.Enabled =
+                this.aquarium.PikeFlock.IsNotEmpty || this.aquarium.CarpFlock.IsNotEmpty;
+            this.hunting_checkbox.Enabled = this.aquarium.PikeFlock.IsNotEmpty && this.aquarium.CarpFlock.IsNotEmpty;
+        }
+
+        /// <summary>
+        /// The hunting_ timer_ tick.
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">
+        /// The e.
+        /// </param>
         private void Hunting_Timer_Tick(object sender, EventArgs e)
         {
-            if (hunting_checkbox.Checked)
+            if (this.hunting_checkbox.Checked)
             {
-                hunting_status_label.Text = "Охота: ON";
+                this.hunting_status_label.Text = "Охота: ON";
 
-                foreach (var pike in _aquarium.pikeFlock)
-                    if (_aquarium.carpFlock.IsNotEmpty)
+                foreach (var pike in this.aquarium.PikeFlock)
+                {
+                    if (this.aquarium.CarpFlock.IsNotEmpty)
                     {
-                        _aquarium.carpFlock.RemoveNearest(pike.Data);
+                        this.aquarium.CarpFlock.RemoveNearest(pike.Data);
 
-                        UpdateCounters();
+                        this.UpdateCounters();
                     }
                     else
                     {
-                        hunting_checkbox.Checked = false;
-                        hunting_checkbox.Enabled = false;
+                        this.hunting_checkbox.Checked = false;
+                        this.hunting_checkbox.Enabled = false;
                     }
+                }
             }
             else
             {
-                hunting_status_label.Text = "Охота: OFF";
+                this.hunting_status_label.Text = "Охота: OFF";
             }
         }
 
-        private void Add_Carp_Button_Click(object sender, EventArgs e)
-        {
-            _aquarium.carpFlock.Add(_aquarium.RandomPoint());
-
-            UpdateCounters();
-            EnableControls();
-        }
-
-        private void Add_Pike_Button_Click(object sender, EventArgs e)
-        {
-            _aquarium.pikeFlock.Add(_aquarium.RandomPoint());
-
-            UpdateCounters();
-            EnableControls();
-        }
-
-        private void Aquarium_Clean_Button_Click(object sender, EventArgs e)
-        {
-            _aquarium.carpFlock.Clear();
-            _aquarium.pikeFlock.Clear();
-
-            hunting_checkbox.Checked = false;
-            hunting_checkbox.Enabled = false;
-            aquarium_clean_button.Enabled = false;
-
-            UpdateCounters();
-        }
-
+        /// <summary>
+        /// The update counters.
+        /// </summary>
         private void UpdateCounters()
         {
-            pike_count_label.Text = "Щуки: " + _aquarium.pikeFlock.Count;
-            carp_count_label.Text = "Карпы: " + _aquarium.carpFlock.Count;
-        }
-
-        private void EnableControls()
-        {
-            aquarium_clean_button.Enabled = _aquarium.pikeFlock.IsNotEmpty || _aquarium.carpFlock.IsNotEmpty;
-            hunting_checkbox.Enabled = _aquarium.pikeFlock.IsNotEmpty && _aquarium.carpFlock.IsNotEmpty;
+            this.pike_count_label.Text = "Щуки: " + this.aquarium.PikeFlock.Count;
+            this.carp_count_label.Text = "Карпы: " + this.aquarium.CarpFlock.Count;
         }
     }
 }

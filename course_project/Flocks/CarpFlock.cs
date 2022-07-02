@@ -1,25 +1,85 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Drawing;
-using course_project.Extensions;
-using course_project.Fishes;
-
-namespace course_project.Flocks
+﻿namespace CourseProject.Flocks
 {
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Drawing;
+
+    using CourseProject.Extensions;
+    using CourseProject.Fishes;
+
+    /// <summary>
+    /// The carp flock.
+    /// </summary>
     internal class CarpFlock : IEnumerable<Carp>
     {
-        private Carp _head;
-        private Carp _tail;
+        /// <summary>
+        /// The head.
+        /// </summary>
+        private Carp head;
 
+        /// <summary>
+        /// The tail.
+        /// </summary>
+        private Carp tail;
+
+        /// <summary>
+        /// Gets the count.
+        /// </summary>
         public int Count { get; private set; }
 
-        public bool IsEmpty => Count == 0;
+        /// <summary>
+        /// The is empty.
+        /// </summary>
+        public bool IsEmpty => this.Count == 0;
 
-        public bool IsNotEmpty => Count != 0;
+        /// <summary>
+        /// The is not empty.
+        /// </summary>
+        public bool IsNotEmpty => this.Count != 0;
 
+        /// <summary>
+        /// The add.
+        /// </summary>
+        /// <param name="data">
+        /// The data.
+        /// </param>
+        public void Add(Point data)
+        {
+            var carp = new Carp(data);
+
+            if (this.head == null)
+            {
+                this.head = carp;
+            }
+            else
+            {
+                this.tail.Next = carp;
+            }
+
+            this.tail = carp;
+
+            this.Count++;
+        }
+
+        /// <summary>
+        /// The clear.
+        /// </summary>
+        public void Clear()
+        {
+            this.head = null;
+            this.tail = null;
+            this.Count = 0;
+        }
+
+        /// <summary>
+        /// The get enumerator.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="IEnumerator"/>.
+        /// </returns>
         public IEnumerator<Carp> GetEnumerator()
         {
-            var current = _head;
+            var current = this.head;
 
             while (current != null)
             {
@@ -28,35 +88,52 @@ namespace course_project.Flocks
             }
         }
 
+        /// <summary>
+        /// The remove nearest.
+        /// </summary>
+        /// <param name="point">
+        /// The point.
+        /// </param>
+        /// <returns>
+        /// The <see cref="bool"/>.
+        /// </returns>
+        public bool RemoveNearest(Point point)
+        {
+            var list = new List<Point>();
+            var current = this.head;
+
+            while (current != null)
+            {
+                list.Add(current.Data);
+                current = current.Next;
+            }
+
+            return this.Remove(list.Nearest(point));
+        }
+
+        /// <summary>
+        /// The get enumerator.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="IEnumerator"/>.
+        /// </returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return ((IEnumerable)this).GetEnumerator();
         }
 
-        public void Add(Point data)
+        /// <summary>
+        /// The remove.
+        /// </summary>
+        /// <param name="data">
+        /// The data.
+        /// </param>
+        /// <returns>
+        /// The <see cref="bool"/>.
+        /// </returns>
+        private bool Remove(Point data)
         {
-            var carp = new Carp(data);
-
-            if (_head == null)
-                _head = carp;
-            else
-                _tail.Next = carp;
-
-            _tail = carp;
-
-            Count++;
-        }
-
-        public void Clear()
-        {
-            _head = null;
-            _tail = null;
-            Count = 0;
-        }
-
-        public bool Remove(Point data)
-        {
-            var current = _head;
+            var current = this.head;
             Carp previous = null;
 
             while (current != null)
@@ -67,16 +144,22 @@ namespace course_project.Flocks
                     {
                         previous.Next = current.Next;
 
-                        if (current.Next == null) _tail = previous;
+                        if (current.Next == null)
+                        {
+                            this.tail = previous;
+                        }
                     }
                     else
                     {
-                        _head = _head.Next;
+                        this.head = this.head.Next;
 
-                        if (_head == null) _tail = null;
+                        if (this.head == null)
+                        {
+                            this.tail = null;
+                        }
                     }
 
-                    Count--;
+                    this.Count--;
 
                     return true;
                 }
@@ -86,20 +169,6 @@ namespace course_project.Flocks
             }
 
             return false;
-        }
-
-        public bool RemoveNearest(Point point)
-        {
-            var list = new List<Point>();
-            var current = _head;
-
-            while (current != null)
-            {
-                list.Add(current.Data);
-                current = current.Next;
-            }
-
-            return Remove(list.Nearest(point));
         }
     }
 }

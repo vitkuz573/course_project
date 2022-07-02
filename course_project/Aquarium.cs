@@ -1,56 +1,93 @@
-﻿using System;
-using System.Drawing;
-using course_project.Flocks;
-
-namespace course_project
+﻿namespace CourseProject
 {
+    using System;
+    using System.Drawing;
+
+    using CourseProject.Flocks;
+
+    /// <summary>
+    /// The aquarium.
+    /// </summary>
     internal class Aquarium
     {
-        private readonly Rectangle _clientRectangle;
-        private readonly Random _random;
-        private readonly Color _rocksColor;
-        private readonly Color _waterColor;
-        public readonly CarpFlock carpFlock;
-        public readonly PikeFlock pikeFlock;
+        /// <summary>
+        /// The carp flock.
+        /// </summary>
+        public readonly CarpFlock CarpFlock;
 
+        /// <summary>
+        /// The pike flock.
+        /// </summary>
+        public readonly PikeFlock PikeFlock;
+
+        /// <summary>
+        /// The client rectangle.
+        /// </summary>
+        private readonly Rectangle clientRectangle;
+
+        /// <summary>
+        /// The random.
+        /// </summary>
+        private readonly Random random;
+
+        /// <summary>
+        /// The rocks color.
+        /// </summary>
+        private readonly Color rocksColor;
+
+        /// <summary>
+        /// The water color.
+        /// </summary>
+        private readonly Color waterColor;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Aquarium"/> class.
+        /// </summary>
+        /// <param name="client">
+        /// The client.
+        /// </param>
         public Aquarium(Rectangle client)
         {
-            pikeFlock = new PikeFlock();
-            carpFlock = new CarpFlock();
-            _clientRectangle = client;
-            _random = new Random();
-            _waterColor = Color.LightSkyBlue;
-            _rocksColor = Color.DarkGray;
+            this.PikeFlock = new PikeFlock();
+            this.CarpFlock = new CarpFlock();
+            this.clientRectangle = client;
+            this.random = new Random();
+            this.waterColor = Color.LightSkyBlue;
+            this.rocksColor = Color.DarkGray;
         }
 
+        /// <summary>
+        /// The init.
+        /// </summary>
+        /// <param name="graphics">
+        /// The graphics.
+        /// </param>
         public void Init(Graphics graphics)
         {
-            graphics.Clear(_waterColor);
+            graphics.Clear(this.waterColor);
 
-            graphics.FillPolygon(new SolidBrush(_rocksColor), new PointF[]
+            foreach (var pike in this.PikeFlock)
             {
-                new Point(160, _clientRectangle.Bottom),
-                new Point(40, _clientRectangle.Bottom),
-                new Point(67, 80)
-            });
-
-            graphics.FillPolygon(new SolidBrush(_rocksColor), new PointF[]
-            {
-                new Point(360, _clientRectangle.Bottom),
-                new Point(300, _clientRectangle.Bottom),
-                new Point(280, 300)
-            });
-
-            foreach (var pike in pikeFlock)
                 pike.Draw(graphics);
+            }
 
-            foreach (var carp in carpFlock)
+            foreach (var carp in this.CarpFlock)
+            {
                 carp.Draw(graphics);
+            }
         }
 
+        /// <summary>
+        /// The random point.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="Point"/>.
+        /// </returns>
         public Point RandomPoint()
         {
-            return new Point(_random.Next(0, _clientRectangle.Width), _random.Next(0, _clientRectangle.Height));
+            return new Point(
+                this.random.Next(0, this.clientRectangle.Width),
+                this.random.Next(0, this.clientRectangle.Height));
         }
     }
 }

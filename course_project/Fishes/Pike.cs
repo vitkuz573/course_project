@@ -1,26 +1,43 @@
-﻿using System.Drawing;
-using course_project.Properties;
-
-namespace course_project.Fishes
+﻿namespace CourseProject.Fishes
 {
+    using System.Drawing;
+
+    using CourseProject.Properties;
+
+    /// <summary>
+    /// The pike.
+    /// </summary>
     internal class Pike : Fish
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Pike"/> class.
+        /// </summary>
+        /// <param name="data">
+        /// The data.
+        /// </param>
         public Pike(Point data)
         {
-            Data = data;
+            this.Data = data;
 
-            size = new Size(80, 80);
+            this.FishSize = new Size(80, 80);
 
-            image = speed.Width < 0
-                ? Resources.pike_to_left
-                : Resources.pike_to_right;
+            this.FishImage = this.FishSpeedWidth < 0 ? Resources.pike_to_left : Resources.pike_to_right;
         }
 
+        /// <summary>
+        /// Gets or sets the next.
+        /// </summary>
         public Pike Next { get; set; }
 
+        /// <summary>
+        /// The draw.
+        /// </summary>
+        /// <param name="graphics">
+        /// The graphics.
+        /// </param>
         public override void Draw(Graphics graphics)
         {
-            graphics.DrawImage(image, Data.X, Data.Y, size.Width, size.Height);
+            graphics.DrawImage(this.FishImage, this.Data.X, this.Data.Y, this.FishSize.Width, this.FishSize.Height);
         }
     }
 }

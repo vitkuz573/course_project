@@ -1,6 +1,7 @@
 ﻿namespace CourseProject
 {
     using System;
+    using System.Collections.Generic;
     using System.Drawing;
 
     using CourseProject.Flocks;
@@ -36,6 +37,16 @@
         private readonly Color waterColor;
 
         /// <summary>
+        /// The rocks count.
+        /// </summary>
+        private readonly int rocksCount;
+
+        /// <summary>
+        /// The rocks coordinates.
+        /// </summary>
+        private readonly List<PointF[]> rocksCoordinates;
+
+        /// <summary>
         /// The clip rectangle.
         /// </summary>
         private Rectangle clipRectangle;
@@ -50,6 +61,17 @@
             this.random = new Random();
             this.waterColor = Color.LightSkyBlue;
             this.rocksColor = Color.DarkGray;
+            this.rocksCount = this.random.Next(2, 5);
+            this.rocksCoordinates = new List<PointF[]>();
+
+            for (var i = 0; i < this.rocksCount; i++)
+            {
+                this.rocksCoordinates.Add(
+                    new[]
+                        {
+                            new PointF(this.random.Next(0, 400), this.random.Next(0, 400)),
+                        });
+            }
         }
 
         /// <summary>
@@ -67,13 +89,12 @@
 
             graphics.Clear(this.waterColor);
 
-            graphics.FillPolygon(
-                new SolidBrush(this.rocksColor),
-                new[] { new PointF(50, clip.Bottom), new PointF(250, clip.Bottom), new PointF(90, 100) });
-
-            graphics.FillPolygon(
-                new SolidBrush(this.rocksColor),
-                new[] { new PointF(260, clip.Bottom), new PointF(600, clip.Bottom), new PointF(300, 100) });
+            for (var i = 0; i < this.rocksCount; i++)
+            {
+                graphics.FillPolygon(
+                    new SolidBrush(this.rocksColor),
+                    new[] { new PointF(clip.Width, clip.Bottom), new PointF(clip.Height, clip.Bottom), this.rocksCoordinates[i][0] });
+            }
 
             foreach (var pike in this.PikeFlock)
             {

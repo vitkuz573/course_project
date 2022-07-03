@@ -45,6 +45,8 @@
             // add_carp_button
             // 
             this.add_carp_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.add_carp_button.FlatAppearance.BorderSize = 0;
+            this.add_carp_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.add_carp_button.Location = new System.Drawing.Point(678, 364);
             this.add_carp_button.Name = "add_carp_button";
             this.add_carp_button.Size = new System.Drawing.Size(110, 23);
@@ -56,6 +58,8 @@
             // add_pike_button
             // 
             this.add_pike_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.add_pike_button.FlatAppearance.BorderSize = 0;
+            this.add_pike_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.add_pike_button.Location = new System.Drawing.Point(678, 393);
             this.add_pike_button.Name = "add_pike_button";
             this.add_pike_button.Size = new System.Drawing.Size(110, 23);
@@ -105,23 +109,29 @@
             this.hunting_checkbox.AutoSize = true;
             this.hunting_checkbox.BackColor = System.Drawing.Color.Transparent;
             this.hunting_checkbox.Enabled = false;
-            this.hunting_checkbox.Location = new System.Drawing.Point(678, 312);
+            this.hunting_checkbox.FlatAppearance.BorderSize = 0;
+            this.hunting_checkbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hunting_checkbox.Location = new System.Drawing.Point(681, 312);
             this.hunting_checkbox.Name = "hunting_checkbox";
-            this.hunting_checkbox.Size = new System.Drawing.Size(56, 17);
+            this.hunting_checkbox.Size = new System.Drawing.Size(53, 17);
             this.hunting_checkbox.TabIndex = 5;
             this.hunting_checkbox.Text = "Охота";
             this.hunting_checkbox.UseVisualStyleBackColor = false;
+            this.hunting_checkbox.Visible = false;
             // 
             // aquarium_clean_button
             // 
             this.aquarium_clean_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.aquarium_clean_button.Enabled = false;
+            this.aquarium_clean_button.FlatAppearance.BorderSize = 0;
+            this.aquarium_clean_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.aquarium_clean_button.Location = new System.Drawing.Point(678, 335);
             this.aquarium_clean_button.Name = "aquarium_clean_button";
             this.aquarium_clean_button.Size = new System.Drawing.Size(110, 23);
             this.aquarium_clean_button.TabIndex = 9;
             this.aquarium_clean_button.Text = "Очистить";
             this.aquarium_clean_button.UseVisualStyleBackColor = true;
+            this.aquarium_clean_button.Visible = false;
             this.aquarium_clean_button.Click += new System.EventHandler(this.Aquarium_Clean_Button_Click);
             // 
             // hunting_timer

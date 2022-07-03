@@ -85,7 +85,9 @@
 
             this.hunting_checkbox.Checked = false;
             this.hunting_checkbox.Enabled = false;
+            this.hunting_checkbox.Visible = false;
             this.aquarium_clean_button.Enabled = false;
+            this.aquarium_clean_button.Visible = false;
 
             this.UpdateCounters();
         }
@@ -121,7 +123,13 @@
         {
             this.aquarium_clean_button.Enabled =
                 this.aquarium.PikeFlock.IsNotEmpty || this.aquarium.CarpFlock.IsNotEmpty;
+
+            this.aquarium_clean_button.Visible =
+                this.aquarium.PikeFlock.IsNotEmpty || this.aquarium.CarpFlock.IsNotEmpty;
+
             this.hunting_checkbox.Enabled = this.aquarium.PikeFlock.IsNotEmpty && this.aquarium.CarpFlock.IsNotEmpty;
+
+            this.hunting_checkbox.Visible = this.aquarium.PikeFlock.IsNotEmpty && this.aquarium.CarpFlock.IsNotEmpty;
         }
 
         /// <summary>
@@ -141,16 +149,15 @@
 
                 foreach (var pike in this.aquarium.PikeFlock)
                 {
-                    if (this.aquarium.CarpFlock.IsNotEmpty)
-                    {
-                        this.aquarium.CarpFlock.RemoveNearest(pike.Data);
+                    this.aquarium.CarpFlock.RemoveNearest(pike.Data);
 
-                        this.UpdateCounters();
-                    }
-                    else
+                    this.UpdateCounters();
+
+                    if (this.aquarium.CarpFlock.IsEmpty)
                     {
                         this.hunting_checkbox.Checked = false;
                         this.hunting_checkbox.Enabled = false;
+                        this.hunting_checkbox.Visible = false;
                     }
                 }
             }

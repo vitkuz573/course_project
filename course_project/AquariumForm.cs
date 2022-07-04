@@ -48,7 +48,7 @@
         {
             this.aquarium.CarpFlock.Add(this.aquarium.RandomPoint());
 
-            this.UpdateCounters();
+            this.UpdateFishCounters();
             this.EnableControls();
         }
 
@@ -65,7 +65,7 @@
         {
             this.aquarium.PikeFlock.Add(this.aquarium.RandomPoint());
 
-            this.UpdateCounters();
+            this.UpdateFishCounters();
             this.EnableControls();
         }
 
@@ -83,13 +83,13 @@
             this.aquarium.CarpFlock.Clear();
             this.aquarium.PikeFlock.Clear();
 
-            this.hunting_checkbox.Checked = false;
-            this.hunting_checkbox.Enabled = false;
-            this.hunting_checkbox.Visible = false;
-            this.aquarium_clean_button.Enabled = false;
-            this.aquarium_clean_button.Visible = false;
+            this.huntingCheckBox.Checked = false;
+            this.huntingCheckBox.Enabled = false;
+            this.huntingCheckBox.Visible = false;
+            this.aquariumCleanButton.Enabled = false;
+            this.aquariumCleanButton.Visible = false;
 
-            this.UpdateCounters();
+            this.UpdateFishCounters();
         }
 
         /// <summary>
@@ -121,15 +121,15 @@
         /// </summary>
         private void EnableControls()
         {
-            this.aquarium_clean_button.Enabled =
+            this.aquariumCleanButton.Enabled =
                 this.aquarium.PikeFlock.IsNotEmpty || this.aquarium.CarpFlock.IsNotEmpty;
 
-            this.aquarium_clean_button.Visible =
+            this.aquariumCleanButton.Visible =
                 this.aquarium.PikeFlock.IsNotEmpty || this.aquarium.CarpFlock.IsNotEmpty;
 
-            this.hunting_checkbox.Enabled = this.aquarium.PikeFlock.IsNotEmpty && this.aquarium.CarpFlock.IsNotEmpty;
+            this.huntingCheckBox.Enabled = this.aquarium.PikeFlock.IsNotEmpty && this.aquarium.CarpFlock.IsNotEmpty;
 
-            this.hunting_checkbox.Visible = this.aquarium.PikeFlock.IsNotEmpty && this.aquarium.CarpFlock.IsNotEmpty;
+            this.huntingCheckBox.Visible = this.aquarium.PikeFlock.IsNotEmpty && this.aquarium.CarpFlock.IsNotEmpty;
         }
 
         /// <summary>
@@ -143,37 +143,37 @@
         /// </param>
         private void Hunting_Timer_Tick(object sender, EventArgs e)
         {
-            if (this.hunting_checkbox.Checked)
+            if (this.huntingCheckBox.Checked)
             {
-                this.hunting_status_label.Text = "Охота: ON";
+                this.huntingStatusLabel.Text = "Охота: ON";
 
                 foreach (var pike in this.aquarium.PikeFlock)
                 {
                     this.aquarium.CarpFlock.RemoveNearest(pike.Data);
 
-                    this.UpdateCounters();
+                    this.UpdateFishCounters();
 
                     if (this.aquarium.CarpFlock.IsEmpty)
                     {
-                        this.hunting_checkbox.Checked = false;
-                        this.hunting_checkbox.Enabled = false;
-                        this.hunting_checkbox.Visible = false;
+                        this.huntingCheckBox.Checked = false;
+                        this.huntingCheckBox.Enabled = false;
+                        this.huntingCheckBox.Visible = false;
                     }
                 }
             }
             else
             {
-                this.hunting_status_label.Text = "Охота: OFF";
+                this.huntingStatusLabel.Text = "Охота: OFF";
             }
         }
 
         /// <summary>
-        /// The update counters.
+        /// The update fish counters.
         /// </summary>
-        private void UpdateCounters()
+        private void UpdateFishCounters()
         {
-            this.pike_count_label.Text = "Щуки: " + this.aquarium.PikeFlock.Count;
-            this.carp_count_label.Text = "Карпы: " + this.aquarium.CarpFlock.Count;
+            this.pikeCountLabel.Text = "Щуки: " + this.aquarium.PikeFlock.Count;
+            this.carpCountLabel.Text = "Карпы: " + this.aquarium.CarpFlock.Count;
         }
     }
 }

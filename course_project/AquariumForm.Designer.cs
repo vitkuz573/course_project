@@ -29,150 +29,150 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.add_carp_button = new System.Windows.Forms.Button();
-            this.add_pike_button = new System.Windows.Forms.Button();
-            this.aquarium_timer = new System.Windows.Forms.Timer(this.components);
-            this.aquarium_status = new System.Windows.Forms.StatusStrip();
-            this.carp_count_label = new System.Windows.Forms.ToolStripStatusLabel();
-            this.pike_count_label = new System.Windows.Forms.ToolStripStatusLabel();
-            this.hunting_status_label = new System.Windows.Forms.ToolStripStatusLabel();
-            this.hunting_checkbox = new System.Windows.Forms.CheckBox();
-            this.aquarium_clean_button = new System.Windows.Forms.Button();
-            this.hunting_timer = new System.Windows.Forms.Timer(this.components);
-            this.aquarium_status.SuspendLayout();
+            this.addCarpButton = new System.Windows.Forms.Button();
+            this.addPikeButton = new System.Windows.Forms.Button();
+            this.aquariumTimer = new System.Windows.Forms.Timer(this.components);
+            this.aquariumStatus = new System.Windows.Forms.StatusStrip();
+            this.carpCountLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.pikeCountLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.huntingStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.huntingCheckBox = new System.Windows.Forms.CheckBox();
+            this.aquariumCleanButton = new System.Windows.Forms.Button();
+            this.huntingTimer = new System.Windows.Forms.Timer(this.components);
+            this.aquariumStatus.SuspendLayout();
             this.SuspendLayout();
             // 
-            // add_carp_button
+            // addCarpButton
             // 
-            this.add_carp_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.add_carp_button.FlatAppearance.BorderSize = 0;
-            this.add_carp_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.add_carp_button.Location = new System.Drawing.Point(678, 364);
-            this.add_carp_button.Name = "add_carp_button";
-            this.add_carp_button.Size = new System.Drawing.Size(110, 23);
-            this.add_carp_button.TabIndex = 1;
-            this.add_carp_button.Text = "Добавить карпа";
-            this.add_carp_button.UseVisualStyleBackColor = true;
-            this.add_carp_button.Click += new System.EventHandler(this.Add_Carp_Button_Click);
+            this.addCarpButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.addCarpButton.FlatAppearance.BorderSize = 0;
+            this.addCarpButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addCarpButton.Location = new System.Drawing.Point(678, 364);
+            this.addCarpButton.Name = "addCarpButton";
+            this.addCarpButton.Size = new System.Drawing.Size(110, 23);
+            this.addCarpButton.TabIndex = 1;
+            this.addCarpButton.Text = "Добавить карпа";
+            this.addCarpButton.UseVisualStyleBackColor = true;
+            this.addCarpButton.Click += new System.EventHandler(this.Add_Carp_Button_Click);
             // 
-            // add_pike_button
+            // addPikeButton
             // 
-            this.add_pike_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.add_pike_button.FlatAppearance.BorderSize = 0;
-            this.add_pike_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.add_pike_button.Location = new System.Drawing.Point(678, 393);
-            this.add_pike_button.Name = "add_pike_button";
-            this.add_pike_button.Size = new System.Drawing.Size(110, 23);
-            this.add_pike_button.TabIndex = 2;
-            this.add_pike_button.Text = "Добавить щуку";
-            this.add_pike_button.UseVisualStyleBackColor = true;
-            this.add_pike_button.Click += new System.EventHandler(this.Add_Pike_Button_Click);
+            this.addPikeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.addPikeButton.FlatAppearance.BorderSize = 0;
+            this.addPikeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addPikeButton.Location = new System.Drawing.Point(678, 393);
+            this.addPikeButton.Name = "addPikeButton";
+            this.addPikeButton.Size = new System.Drawing.Size(110, 23);
+            this.addPikeButton.TabIndex = 2;
+            this.addPikeButton.Text = "Добавить щуку";
+            this.addPikeButton.UseVisualStyleBackColor = true;
+            this.addPikeButton.Click += new System.EventHandler(this.Add_Pike_Button_Click);
             // 
-            // aquarium_timer
+            // aquariumTimer
             // 
-            this.aquarium_timer.Enabled = true;
-            this.aquarium_timer.Tick += new System.EventHandler(this.Aquarium_Timer_Tick);
+            this.aquariumTimer.Enabled = true;
+            this.aquariumTimer.Tick += new System.EventHandler(this.Aquarium_Timer_Tick);
             // 
-            // aquarium_status
+            // aquariumStatus
             // 
-            this.aquarium_status.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.carp_count_label,
-            this.pike_count_label,
-            this.hunting_status_label});
-            this.aquarium_status.Location = new System.Drawing.Point(0, 428);
-            this.aquarium_status.Name = "aquarium_status";
-            this.aquarium_status.Size = new System.Drawing.Size(800, 22);
-            this.aquarium_status.TabIndex = 4;
-            this.aquarium_status.Text = "statusStrip1";
+            this.aquariumStatus.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.carpCountLabel,
+            this.pikeCountLabel,
+            this.huntingStatusLabel});
+            this.aquariumStatus.Location = new System.Drawing.Point(0, 428);
+            this.aquariumStatus.Name = "aquariumStatus";
+            this.aquariumStatus.Size = new System.Drawing.Size(800, 22);
+            this.aquariumStatus.TabIndex = 4;
+            this.aquariumStatus.Text = "statusStrip1";
             // 
-            // carp_count_label
+            // carpCountLabel
             // 
-            this.carp_count_label.Name = "carp_count_label";
-            this.carp_count_label.Size = new System.Drawing.Size(55, 17);
-            this.carp_count_label.Text = "Карпы: 0";
+            this.carpCountLabel.Name = "carpCountLabel";
+            this.carpCountLabel.Size = new System.Drawing.Size(55, 17);
+            this.carpCountLabel.Text = "Карпы: 0";
             // 
-            // pike_count_label
+            // pikeCountLabel
             // 
-            this.pike_count_label.Name = "pike_count_label";
-            this.pike_count_label.Size = new System.Drawing.Size(50, 17);
-            this.pike_count_label.Text = "Щуки: 0";
+            this.pikeCountLabel.Name = "pikeCountLabel";
+            this.pikeCountLabel.Size = new System.Drawing.Size(50, 17);
+            this.pikeCountLabel.Text = "Щуки: 0";
             // 
-            // hunting_status_label
+            // huntingStatusLabel
             // 
-            this.hunting_status_label.Name = "hunting_status_label";
-            this.hunting_status_label.Size = new System.Drawing.Size(67, 17);
-            this.hunting_status_label.Text = "Охота: OFF";
+            this.huntingStatusLabel.Name = "huntingStatusLabel";
+            this.huntingStatusLabel.Size = new System.Drawing.Size(67, 17);
+            this.huntingStatusLabel.Text = "Охота: OFF";
             // 
-            // hunting_checkbox
+            // huntingCheckBox
             // 
-            this.hunting_checkbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.hunting_checkbox.AutoSize = true;
-            this.hunting_checkbox.BackColor = System.Drawing.Color.Transparent;
-            this.hunting_checkbox.Enabled = false;
-            this.hunting_checkbox.FlatAppearance.BorderSize = 0;
-            this.hunting_checkbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.hunting_checkbox.Location = new System.Drawing.Point(681, 312);
-            this.hunting_checkbox.Name = "hunting_checkbox";
-            this.hunting_checkbox.Size = new System.Drawing.Size(53, 17);
-            this.hunting_checkbox.TabIndex = 5;
-            this.hunting_checkbox.Text = "Охота";
-            this.hunting_checkbox.UseVisualStyleBackColor = false;
-            this.hunting_checkbox.Visible = false;
+            this.huntingCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.huntingCheckBox.AutoSize = true;
+            this.huntingCheckBox.BackColor = System.Drawing.Color.Transparent;
+            this.huntingCheckBox.Enabled = false;
+            this.huntingCheckBox.FlatAppearance.BorderSize = 0;
+            this.huntingCheckBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.huntingCheckBox.Location = new System.Drawing.Point(681, 312);
+            this.huntingCheckBox.Name = "huntingCheckBox";
+            this.huntingCheckBox.Size = new System.Drawing.Size(53, 17);
+            this.huntingCheckBox.TabIndex = 5;
+            this.huntingCheckBox.Text = "Охота";
+            this.huntingCheckBox.UseVisualStyleBackColor = false;
+            this.huntingCheckBox.Visible = false;
             // 
-            // aquarium_clean_button
+            // aquariumCleanButton
             // 
-            this.aquarium_clean_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.aquarium_clean_button.Enabled = false;
-            this.aquarium_clean_button.FlatAppearance.BorderSize = 0;
-            this.aquarium_clean_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.aquarium_clean_button.Location = new System.Drawing.Point(678, 335);
-            this.aquarium_clean_button.Name = "aquarium_clean_button";
-            this.aquarium_clean_button.Size = new System.Drawing.Size(110, 23);
-            this.aquarium_clean_button.TabIndex = 9;
-            this.aquarium_clean_button.Text = "Очистить";
-            this.aquarium_clean_button.UseVisualStyleBackColor = true;
-            this.aquarium_clean_button.Visible = false;
-            this.aquarium_clean_button.Click += new System.EventHandler(this.Aquarium_Clean_Button_Click);
+            this.aquariumCleanButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.aquariumCleanButton.Enabled = false;
+            this.aquariumCleanButton.FlatAppearance.BorderSize = 0;
+            this.aquariumCleanButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.aquariumCleanButton.Location = new System.Drawing.Point(678, 335);
+            this.aquariumCleanButton.Name = "aquariumCleanButton";
+            this.aquariumCleanButton.Size = new System.Drawing.Size(110, 23);
+            this.aquariumCleanButton.TabIndex = 9;
+            this.aquariumCleanButton.Text = "Очистить";
+            this.aquariumCleanButton.UseVisualStyleBackColor = true;
+            this.aquariumCleanButton.Visible = false;
+            this.aquariumCleanButton.Click += new System.EventHandler(this.Aquarium_Clean_Button_Click);
             // 
-            // hunting_timer
+            // huntingTimer
             // 
-            this.hunting_timer.Enabled = true;
-            this.hunting_timer.Interval = 3000;
-            this.hunting_timer.Tick += new System.EventHandler(this.Hunting_Timer_Tick);
+            this.huntingTimer.Enabled = true;
+            this.huntingTimer.Interval = 3000;
+            this.huntingTimer.Tick += new System.EventHandler(this.Hunting_Timer_Tick);
             // 
             // AquariumForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.aquarium_clean_button);
-            this.Controls.Add(this.hunting_checkbox);
-            this.Controls.Add(this.aquarium_status);
-            this.Controls.Add(this.add_pike_button);
-            this.Controls.Add(this.add_carp_button);
+            this.Controls.Add(this.aquariumCleanButton);
+            this.Controls.Add(this.huntingCheckBox);
+            this.Controls.Add(this.aquariumStatus);
+            this.Controls.Add(this.addPikeButton);
+            this.Controls.Add(this.addCarpButton);
             this.DoubleBuffered = true;
             this.Name = "AquariumForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Аквариум - Кузяев Виталий (ИТЗ-0900021у)";
-            this.aquarium_status.ResumeLayout(false);
-            this.aquarium_status.PerformLayout();
+            this.aquariumStatus.ResumeLayout(false);
+            this.aquariumStatus.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button add_carp_button;
-        private System.Windows.Forms.Button add_pike_button;
-        private System.Windows.Forms.Timer aquarium_timer;
-        private System.Windows.Forms.StatusStrip aquarium_status;
-        private System.Windows.Forms.ToolStripStatusLabel carp_count_label;
-        private System.Windows.Forms.ToolStripStatusLabel pike_count_label;
-        private System.Windows.Forms.ToolStripStatusLabel hunting_status_label;
-        private System.Windows.Forms.CheckBox hunting_checkbox;
-        private System.Windows.Forms.Button aquarium_clean_button;
-        private System.Windows.Forms.Timer hunting_timer;
+        private System.Windows.Forms.Button addCarpButton;
+        private System.Windows.Forms.Button addPikeButton;
+        private System.Windows.Forms.Timer aquariumTimer;
+        private System.Windows.Forms.StatusStrip aquariumStatus;
+        private System.Windows.Forms.ToolStripStatusLabel carpCountLabel;
+        private System.Windows.Forms.ToolStripStatusLabel pikeCountLabel;
+        private System.Windows.Forms.ToolStripStatusLabel huntingStatusLabel;
+        private System.Windows.Forms.CheckBox huntingCheckBox;
+        private System.Windows.Forms.Button aquariumCleanButton;
+        private System.Windows.Forms.Timer huntingTimer;
     }
 }
 

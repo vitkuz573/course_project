@@ -9,68 +9,64 @@
     /// <summary>
     /// The aquarium.
     /// </summary>
-    internal class Aquarium
+    internal static class Aquarium
     {
         /// <summary>
         /// The carp flock.
         /// </summary>
-        public readonly CarpFlock CarpFlock;
+        public static readonly CarpFlock CarpFlock;
 
         /// <summary>
         /// The pike flock.
         /// </summary>
-        public readonly PikeFlock PikeFlock;
+        public static readonly PikeFlock PikeFlock;
 
         /// <summary>
-        /// The random.
+        /// The aquarium random.
         /// </summary>
-        private readonly Random random;
+        public static readonly Random Random;
 
         /// <summary>
         /// The rocks color.
         /// </summary>
-        private readonly Color rocksColor;
-
-        /// <summary>
-        /// The water color.
-        /// </summary>
-        private readonly Color waterColor;
-
-        /// <summary>
-        /// The rocks count.
-        /// </summary>
-        private readonly int rocksCount;
+        private static readonly Color RocksColor;
 
         /// <summary>
         /// The rocks coordinates.
         /// </summary>
-        private readonly List<PointF[]> rocksCoordinates;
+        private static readonly List<PointF[]> RocksTopCoordinates;
 
         /// <summary>
-        /// The clip rectangle.
+        /// The rocks count.
         /// </summary>
-        private Rectangle clipRectangle;
+        private static readonly int RocksCount;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Aquarium"/> class.
+        /// The water color.
         /// </summary>
-        public Aquarium()
+        private static readonly Color WaterColor;
+
+        /// <summary>
+        /// The aquarium rectangle.
+        /// </summary>
+        private static Rectangle aquariumRectangle;
+
+        /// <summary>
+        /// Initializes static members of the <see cref="Aquarium"/> class.
+        /// </summary>
+        static Aquarium()
         {
-            this.PikeFlock = new PikeFlock();
-            this.CarpFlock = new CarpFlock();
-            this.random = new Random();
-            this.waterColor = Color.LightSkyBlue;
-            this.rocksColor = Color.DarkGray;
-            this.rocksCount = this.random.Next(2, 5);
-            this.rocksCoordinates = new List<PointF[]>();
+            Random = new Random();
+            PikeFlock = new PikeFlock();
+            CarpFlock = new CarpFlock();
+            WaterColor = Color.LightSkyBlue;
+            RocksColor = Color.DarkGray;
+            RocksCount = Random.Next(2, 5);
+            RocksTopCoordinates = new List<PointF[]>();
 
-            for (var i = 0; i < this.rocksCount; i++)
+            for (var i = 0; i < RocksCount; i++)
             {
-                this.rocksCoordinates.Add(
-                    new[]
-                        {
-                            new PointF(this.random.Next(0, 400), this.random.Next(0, 400)),
-                        });
+                RocksTopCoordinates.Add(new[] { new PointF(Random.Next(0, 400), Random.Next(0, 400)), });
             }
         }
 
@@ -80,28 +76,28 @@
         /// <param name="graphics">
         /// The graphics.
         /// </param>
-        /// <param name="clip">
-        /// The clip.
+        /// <param name="aquarium">
+        /// The aquarium.
         /// </param>
-        public void Init(Graphics graphics, Rectangle clip)
+        public static void Init(Graphics graphics, Rectangle aquarium)
         {
-            this.clipRectangle = clip;
+            aquariumRectangle = aquarium;
 
-            graphics.Clear(this.waterColor);
+            graphics.Clear(WaterColor);
 
-            for (var i = 0; i < this.rocksCount; i++)
+            for (var i = 0; i < RocksCount; i++)
             {
                 graphics.FillPolygon(
-                    new SolidBrush(this.rocksColor),
-                    new[] { new PointF(clip.Width, clip.Bottom), new PointF(clip.Height, clip.Bottom), this.rocksCoordinates[i][0] });
+                    new SolidBrush(RocksColor),
+                    new[] { new PointF(aquarium.Width, aquarium.Bottom), new PointF(aquarium.Height, aquarium.Bottom), RocksTopCoordinates[i][0] });
             }
 
-            foreach (var pike in this.PikeFlock)
+            foreach (var pike in PikeFlock)
             {
                 pike.Draw(graphics);
             }
 
-            foreach (var carp in this.CarpFlock)
+            foreach (var carp in CarpFlock)
             {
                 carp.Draw(graphics);
             }
@@ -113,11 +109,9 @@
         /// <returns>
         /// The <see cref="Point"/>.
         /// </returns>
-        public Point RandomPoint()
+        public static Point RandomPoint()
         {
-            return new Point(
-                this.random.Next(0, this.clipRectangle.Width),
-                this.random.Next(0, this.clipRectangle.Height));
+            return new Point(Random.Next(0, aquariumRectangle.Width), Random.Next(0, aquariumRectangle.Height));
         }
     }
 }

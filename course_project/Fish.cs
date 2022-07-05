@@ -1,6 +1,5 @@
 ﻿namespace CourseProject
 {
-    using System;
     using System.Drawing;
 
     using CourseProject.Extensions;
@@ -8,13 +7,8 @@
     /// <summary>
     /// The fish.
     /// </summary>
-    public class Fish
+    public abstract class Fish
     {
-        /// <summary>
-        /// The random.
-        /// </summary>
-        private readonly Random random = new Random();
-
         /// <summary>
         /// The speed.
         /// </summary>
@@ -26,8 +20,8 @@
         protected Fish()
         {
             this.speed = new Size(
-                this.random.NextWithExclude(-5, 5, new[] { -1, 0, 1 }),
-                this.random.NextWithExclude(-5, 5, new[] { -1, 0, 1 }));
+                Aquarium.Random.NextWithExclude(-5, 5, new[] { -1, 0, 1 }),
+                Aquarium.Random.NextWithExclude(-5, 5, new[] { -1, 0, 1 }));
         }
 
         /// <summary>
@@ -69,9 +63,7 @@
         /// <param name="graphics">
         /// The graphics.
         /// </param>
-        public virtual void Draw(Graphics graphics)
-        {
-        }
+        public abstract void Draw(Graphics graphics);
 
         /// <summary>
         /// The update location.
@@ -83,15 +75,15 @@
         {
             if (!bounds.Contains(this.Data + this.speed))
             {
-                if (this.Data.X + this.speed.Width < bounds.Left
-                    || this.Data.X + this.speed.Width > bounds.Right - this.FishSize.Width)
+                if (this.Data.X + this.FishSpeedWidth < bounds.Left
+                    || this.Data.X + this.FishSpeedWidth > bounds.Right - this.FishSize.Width)
                 {
                     this.FishSpeedWidth *= -1;
                     this.FishImage.RotateFlip(RotateFlipType.Rotate180FlipY);
                 }
 
-                if (this.Data.Y + this.speed.Height < bounds.Top
-                    || this.Data.Y + this.speed.Height > bounds.Bottom - this.FishSize.Height)
+                if (this.Data.Y + this.FishSpeedHeight < bounds.Top
+                    || this.Data.Y + this.FishSpeedHeight > bounds.Bottom - this.FishSize.Height)
                 {
                     this.FishSpeedHeight *= -1;
                 }

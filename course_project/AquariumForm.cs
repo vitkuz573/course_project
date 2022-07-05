@@ -9,18 +9,11 @@
     public partial class AquariumForm : Form
     {
         /// <summary>
-        /// The aquarium.
-        /// </summary>
-        private readonly Aquarium aquarium;
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="AquariumForm"/> class.
         /// </summary>
         public AquariumForm()
         {
             this.InitializeComponent();
-
-            this.aquarium = new Aquarium();
         }
 
         /// <summary>
@@ -32,7 +25,7 @@
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            this.aquarium.Init(e.Graphics, e.ClipRectangle);
+            Aquarium.Init(e.Graphics, e.ClipRectangle);
         }
 
         /// <summary>
@@ -46,7 +39,7 @@
         /// </param>
         private void Add_Carp_Button_Click(object sender, EventArgs e)
         {
-            this.aquarium.CarpFlock.Add(this.aquarium.RandomPoint());
+            Aquarium.CarpFlock.Add(Aquarium.RandomPoint());
 
             this.UpdateFishCounters();
             this.EnableControls();
@@ -63,7 +56,7 @@
         /// </param>
         private void Add_Pike_Button_Click(object sender, EventArgs e)
         {
-            this.aquarium.PikeFlock.Add(this.aquarium.RandomPoint());
+            Aquarium.PikeFlock.Add(Aquarium.RandomPoint());
 
             this.UpdateFishCounters();
             this.EnableControls();
@@ -80,8 +73,8 @@
         /// </param>
         private void Aquarium_Clean_Button_Click(object sender, EventArgs e)
         {
-            this.aquarium.CarpFlock.Clear();
-            this.aquarium.PikeFlock.Clear();
+            Aquarium.CarpFlock.Clear();
+            Aquarium.PikeFlock.Clear();
 
             this.huntingCheckBox.Checked = false;
             this.huntingCheckBox.Enabled = false;
@@ -103,12 +96,12 @@
         /// </param>
         private void Aquarium_Timer_Tick(object sender, EventArgs e)
         {
-            foreach (var pike in this.aquarium.PikeFlock)
+            foreach (var pike in Aquarium.PikeFlock)
             {
                 pike.UpdateLocation(this.ClientRectangle);
             }
 
-            foreach (var carp in this.aquarium.CarpFlock)
+            foreach (var carp in Aquarium.CarpFlock)
             {
                 carp.UpdateLocation(this.ClientRectangle);
             }
@@ -121,15 +114,13 @@
         /// </summary>
         private void EnableControls()
         {
-            this.aquariumCleanButton.Enabled =
-                this.aquarium.PikeFlock.IsNotEmpty || this.aquarium.CarpFlock.IsNotEmpty;
+            this.aquariumCleanButton.Enabled = Aquarium.PikeFlock.IsNotEmpty || Aquarium.CarpFlock.IsNotEmpty;
 
-            this.aquariumCleanButton.Visible =
-                this.aquarium.PikeFlock.IsNotEmpty || this.aquarium.CarpFlock.IsNotEmpty;
+            this.aquariumCleanButton.Visible = Aquarium.PikeFlock.IsNotEmpty || Aquarium.CarpFlock.IsNotEmpty;
 
-            this.huntingCheckBox.Enabled = this.aquarium.PikeFlock.IsNotEmpty && this.aquarium.CarpFlock.IsNotEmpty;
+            this.huntingCheckBox.Enabled = Aquarium.PikeFlock.IsNotEmpty && Aquarium.CarpFlock.IsNotEmpty;
 
-            this.huntingCheckBox.Visible = this.aquarium.PikeFlock.IsNotEmpty && this.aquarium.CarpFlock.IsNotEmpty;
+            this.huntingCheckBox.Visible = Aquarium.PikeFlock.IsNotEmpty && Aquarium.CarpFlock.IsNotEmpty;
         }
 
         /// <summary>
@@ -147,13 +138,15 @@
             {
                 this.huntingStatusLabel.Text = "Охота: ON";
 
-                foreach (var pike in this.aquarium.PikeFlock)
+                foreach (var pike in Aquarium.PikeFlock)
                 {
-                    this.aquarium.CarpFlock.RemoveNearest(pike.Data);
+                    if (Aquarium.CarpFlock.IsNotEmpty)
+                    {
+                        Aquarium.CarpFlock.RemoveNearest(pike.Data);
 
-                    this.UpdateFishCounters();
-
-                    if (this.aquarium.CarpFlock.IsEmpty)
+                        this.UpdateFishCounters();
+                    }
+                    else
                     {
                         this.huntingCheckBox.Checked = false;
                         this.huntingCheckBox.Enabled = false;
@@ -172,8 +165,8 @@
         /// </summary>
         private void UpdateFishCounters()
         {
-            this.pikeCountLabel.Text = "Щуки: " + this.aquarium.PikeFlock.Count;
-            this.carpCountLabel.Text = "Карпы: " + this.aquarium.CarpFlock.Count;
+            this.pikeCountLabel.Text = "Щуки: " + Aquarium.PikeFlock.Count;
+            this.carpCountLabel.Text = "Карпы: " + Aquarium.CarpFlock.Count;
         }
     }
 }

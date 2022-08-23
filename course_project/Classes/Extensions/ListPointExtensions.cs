@@ -12,27 +12,27 @@
         /// <summary>
         /// The nearest.
         /// </summary>
-        /// <param name="points">
+        /// <param name="carps">
         /// The points.
         /// </param>
-        /// <param name="point">
+        /// <param name="pike">
         /// The point.
         /// </param>
         /// <returns>
         /// The <see cref="Point"/>.
         /// </returns>
-        public static Point Nearest(this IEnumerable<Point> points, Point point)
+        public static Point Nearest(this IEnumerable<Point> carps, Point pike)
         {
-            List<Carps> carps = new List<Carps>();
+            var carps_list = new List<CarpDistance>();
 
-            foreach (var carp in points)
+            foreach (var carp in carps)
             {
-                carps.Add(new Carps(carp, Math.Sqrt(Math.Pow(carp.X - point.X, 2) + Math.Pow(carp.Y - point.Y, 2))));
+                carps_list.Add(new CarpDistance(carp, Math.Sqrt(Math.Pow(carp.X - pike.X, 2) + Math.Pow(carp.Y - pike.Y, 2))));
             }
 
-            carps.Sort();
+            carps_list.Sort();
 
-            var nearest_carp = carps[0];
+            var nearest_carp = carps_list[0];
 
             if (nearest_carp.Distance <= 100)
             {

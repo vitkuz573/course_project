@@ -1,17 +1,17 @@
-﻿namespace CourseProject
+﻿namespace CourseProject.Classes
 {
     using System;
     using System.Drawing;
 
     /// <summary>
-    /// The carps.
+    /// The carp distance.
     /// </summary>
-    internal class Carps : IComparable<Carps>
+    internal class CarpDistance : IComparable<CarpDistance>
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Carps"/> class.
+        /// Initializes a new instance of the <see cref="CarpDistance"/> class.
         /// </summary>
-        public Carps(Point coordinates, double distance)
+        public CarpDistance(Point coordinates, double distance)
         {
             Coordinates = coordinates;
             Distance = distance;
@@ -27,7 +27,7 @@
         /// </summary>
         public double Distance { get; set; }
 
-        public int CompareTo(Carps other)
+        public int CompareTo(CarpDistance other)
         {
             return Distance.CompareTo(other.Distance);
         }

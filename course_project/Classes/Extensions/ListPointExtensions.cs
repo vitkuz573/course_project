@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Drawing;
+    using System.Linq;
 
     /// <summary>
     /// The list point extensions.
@@ -13,30 +14,24 @@
         /// The nearest.
         /// </summary>
         /// <param name="carps">
-        /// The points.
+        /// The carps.
         /// </param>
         /// <param name="pike">
-        /// The point.
+        /// The pike.
         /// </param>
         /// <returns>
         /// The <see cref="Point"/>.
         /// </returns>
         public static Point Nearest(this IEnumerable<Point> carps, Point pike)
         {
-            var carps_list = new List<CarpDistance>();
+            var nearest_carp = carps
+                .Select(coordinates => new { coordinates, distance = Math.Sqrt(Math.Pow(coordinates.X - pike.X, 2) + Math.Pow(coordinates.Y - pike.Y, 2)) })
+                .OrderBy(p => p.distance)
+                .First();
 
-            foreach (var carp in carps)
+            if (nearest_carp.distance <= 100)
             {
-                carps_list.Add(new CarpDistance(carp, Math.Sqrt(Math.Pow(carp.X - pike.X, 2) + Math.Pow(carp.Y - pike.Y, 2))));
-            }
-
-            carps_list.Sort();
-
-            var nearest_carp = carps_list[0];
-
-            if (nearest_carp.Distance <= 100)
-            {
-                return nearest_carp.Coordinates;
+                return nearest_carp.coordinates;
             }
 
             return new Point();

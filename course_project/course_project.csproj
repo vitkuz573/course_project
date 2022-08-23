@@ -63,7 +63,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\CarpDistance.cs" />
     <Compile Include="Classes\Aquarium.cs" />
     <Compile Include="Classes\Extensions\RandomExtensions.cs" />
     <Compile Include="Classes\Fishes\Carp.cs" />

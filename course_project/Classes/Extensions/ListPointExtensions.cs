@@ -13,28 +13,26 @@
         /// <summary>
         /// The nearest.
         /// </summary>
-        /// <param name="carps">
-        /// The carps.
+        /// <param name="points">
+        /// The points.
         /// </param>
-        /// <param name="pike">
-        /// The pike.
+        /// <param name="point">
+        /// The point.
+        /// </param>
+        /// <param name="minDistance">
+        /// The minimal distance.
         /// </param>
         /// <returns>
         /// The <see cref="Point"/>.
         /// </returns>
-        public static Point Nearest(this IEnumerable<Point> carps, Point pike)
+        public static Point Nearest(this IEnumerable<Point> points, Point point, double minDistance)
         {
-            var nearest_carp = carps
-                .Select(coordinates => new { coordinates, distance = Math.Sqrt(Math.Pow(coordinates.X - pike.X, 2) + Math.Pow(coordinates.Y - pike.Y, 2)) })
+            var nearestPoint = points
+                .Select(coordinates => new { coordinates, distance = Math.Sqrt(Math.Pow(coordinates.X - point.X, 2) + Math.Pow(coordinates.Y - point.Y, 2)) })
                 .OrderBy(p => p.distance)
                 .First();
 
-            if (nearest_carp.distance <= 100)
-            {
-                return nearest_carp.coordinates;
-            }
-
-            return new Point();
+            return nearestPoint.distance <= minDistance ? nearestPoint.coordinates : new Point();
         }
     }
 }

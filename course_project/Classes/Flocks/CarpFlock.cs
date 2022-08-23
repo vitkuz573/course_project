@@ -108,7 +108,7 @@
                 current = current.Next;
             }
 
-            return this.Remove(list.Nearest(point));
+            return this.Remove(list.Nearest(point, 100));
         }
 
         /// <summary>

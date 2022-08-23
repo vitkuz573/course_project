@@ -36,7 +36,10 @@
         /// </summary>
         private static Rectangle aquariumRectangle;
 
-        private static Random Random;
+        /// <summary>
+        /// The random.
+        /// </summary>
+        private static Random random;
 
         /// <summary>
         /// Initializes static members of the <see cref="Aquarium"/> class.
@@ -52,14 +55,14 @@
 
             for (var i = 0; i < RocksCount; i++)
             {
-                RocksTopCoordinates.Add(new[] { new PointF(Random.Next(0, 400), Random.Next(0, 400)), });
+                RocksTopCoordinates.Add(new[] { new PointF(random.Next(0, 400), random.Next(0, 400)), });
             }
         }
 
         /// <summary>
         /// Gets the random.
         /// </summary>
-        public static Random AquariumRandom => Random ?? (Random = new Random());
+        public static Random AquariumRandom => random ?? (random = new Random());
 
         /// <summary>
         /// Gets the carp flock.

@@ -63,40 +63,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aquarium.cs" />
-    <Compile Include="Extensions\RandomExtensions.cs" />
-    <Compile Include="Fishes\Carp.cs" />
-    <Compile Include="Flocks\CarpFlock.cs" />
-    <Compile Include="Fish.cs" />
-    <Compile Include="AquariumForm.cs">
+    <Compile Include="Carps.cs" />
+    <Compile Include="Classes\Aquarium.cs" />
+    <Compile Include="Classes\Extensions\RandomExtensions.cs" />
+    <Compile Include="Classes\Fishes\Carp.cs" />
+    <Compile Include="Classes\Flocks\CarpFlock.cs" />
+    <Compile Include="Classes\Fish.cs" />
+    <Compile Include="Forms\AquariumForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AquariumForm.Designer.cs">
+    <Compile Include="Forms\AquariumForm.Designer.cs">
       <DependentUpon>AquariumForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fishes\Pike.cs" />
-    <Compile Include="Flocks\PikeFlock.cs" />
-    <Compile Include="Extensions\ListPointExtensions.cs" />
+    <Compile Include="Classes\Fishes\Pike.cs" />
+    <Compile Include="Classes\Flocks\PikeFlock.cs" />
+    <Compile Include="Classes\Extensions\ListPointExtensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AquariumForm.resx">
+    <EmbeddedResource Include="Forms\AquariumForm.resx">
       <DependentUpon>AquariumForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -119,17 +120,16 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="pike_to_left.png" />
+    <None Include="Resources\pike_to_left.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="pike_to_right.png" />
+    <None Include="Resources\pike_to_right.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="carp_to_right.png" />
+    <None Include="Resources\carp_to_right.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="carp_to_left.png" />
+    <None Include="Resources\carp_to_left.png" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

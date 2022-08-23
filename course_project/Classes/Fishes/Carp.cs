@@ -1,33 +1,33 @@
-﻿namespace CourseProject.Fishes
+﻿namespace CourseProject.Classes.Fishes
 {
     using System.Drawing;
 
     using CourseProject.Properties;
 
     /// <summary>
-    /// The pike.
+    /// The carp.
     /// </summary>
-    internal class Pike : Fish
+    internal sealed class Carp : Fish
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Pike"/> class.
+        /// Initializes a new instance of the <see cref="Carp"/> class.
         /// </summary>
         /// <param name="data">
         /// The data.
         /// </param>
-        public Pike(Point data)
+        public Carp(Point data)
         {
             this.Data = data;
 
-            this.FishSize = new Size(80, 80);
+            this.FishSize = new Size(40, 40);
 
-            this.FishImage = this.FishSpeedWidth < 0 ? Resources.pike_to_left : Resources.pike_to_right;
+            this.FishImage = this.FishSpeedWidth < 0 ? Resources.carp_to_left : Resources.carp_to_right;
         }
 
         /// <summary>
         /// Gets or sets the next.
         /// </summary>
-        public Pike Next { get; set; }
+        public Carp Next { get; set; }
 
         /// <summary>
         /// The draw.

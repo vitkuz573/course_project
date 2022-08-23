@@ -1,10 +1,10 @@
-﻿namespace CourseProject.Flocks
+﻿namespace CourseProject.Classes.Flocks
 {
     using System.Collections;
     using System.Collections.Generic;
     using System.Drawing;
 
-    using CourseProject.Fishes;
+    using CourseProject.Classes.Fishes;
 
     /// <summary>
     /// The pike flock.

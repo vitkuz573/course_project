@@ -1,31 +1,16 @@
-﻿namespace CourseProject
+﻿namespace CourseProject.Classes
 {
     using System;
     using System.Collections.Generic;
     using System.Drawing;
 
-    using CourseProject.Flocks;
+    using CourseProject.Classes.Flocks;
 
     /// <summary>
     /// The aquarium.
     /// </summary>
     internal static class Aquarium
     {
-        /// <summary>
-        /// The carp flock.
-        /// </summary>
-        public static readonly CarpFlock CarpFlock;
-
-        /// <summary>
-        /// The pike flock.
-        /// </summary>
-        public static readonly PikeFlock PikeFlock;
-
-        /// <summary>
-        /// The aquarium random.
-        /// </summary>
-        public static readonly Random Random;
-
         /// <summary>
         /// The rocks color.
         /// </summary>
@@ -51,17 +36,18 @@
         /// </summary>
         private static Rectangle aquariumRectangle;
 
+        private static Random Random;
+
         /// <summary>
         /// Initializes static members of the <see cref="Aquarium"/> class.
         /// </summary>
         static Aquarium()
         {
-            Random = new Random();
             PikeFlock = new PikeFlock();
             CarpFlock = new CarpFlock();
             WaterColor = Color.LightSkyBlue;
             RocksColor = Color.DarkGray;
-            RocksCount = Random.Next(2, 5);
+            RocksCount = AquariumRandom.Next(2, 5);
             RocksTopCoordinates = new List<PointF[]>();
 
             for (var i = 0; i < RocksCount; i++)
@@ -69,6 +55,21 @@
                 RocksTopCoordinates.Add(new[] { new PointF(Random.Next(0, 400), Random.Next(0, 400)), });
             }
         }
+
+        /// <summary>
+        /// Gets the random.
+        /// </summary>
+        public static Random AquariumRandom => Random ?? (Random = new Random());
+
+        /// <summary>
+        /// Gets the carp flock.
+        /// </summary>
+        public static CarpFlock CarpFlock { get; }
+
+        /// <summary>
+        /// Gets the pike flock.
+        /// </summary>
+        public static PikeFlock PikeFlock { get; }
 
         /// <summary>
         /// The init.
@@ -111,7 +112,7 @@
         /// </returns>
         public static Point RandomPoint()
         {
-            return new Point(Random.Next(0, aquariumRectangle.Width), Random.Next(0, aquariumRectangle.Height));
+            return new Point(AquariumRandom.Next(0, aquariumRectangle.Width), AquariumRandom.Next(0, aquariumRectangle.Height));
         }
     }
 }

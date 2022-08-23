@@ -1,9 +1,8 @@
-﻿namespace CourseProject.Extensions
+﻿namespace CourseProject.Classes.Extensions
 {
     using System;
     using System.Collections.Generic;
     using System.Drawing;
-    using System.Linq;
 
     /// <summary>
     /// The list point extensions.
@@ -24,11 +23,23 @@
         /// </returns>
         public static Point Nearest(this IEnumerable<Point> points, Point point)
         {
-            return points
-                .Select(n => new { n, distance = Math.Sqrt(Math.Pow(n.X - point.X, 2) + Math.Pow(n.Y - point.Y, 2)) })
-                .OrderBy(p => p.distance)
-                .First()
-                .n;
+            List<Carps> carps = new List<Carps>();
+
+            foreach (var carp in points)
+            {
+                carps.Add(new Carps(carp, Math.Sqrt(Math.Pow(carp.X - point.X, 2) + Math.Pow(carp.Y - point.Y, 2))));
+            }
+
+            carps.Sort();
+
+            var nearest_carp = carps[0];
+
+            if (nearest_carp.Distance <= 100)
+            {
+                return nearest_carp.Coordinates;
+            }
+
+            return new Point();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace CourseProject.Extensions
+﻿namespace CourseProject.Classes.Extensions
 {
     using System;
     using System.Linq;

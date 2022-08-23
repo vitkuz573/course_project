@@ -1,8 +1,8 @@
-﻿namespace CourseProject
+﻿namespace CourseProject.Classes
 {
     using System.Drawing;
 
-    using CourseProject.Extensions;
+    using CourseProject.Classes.Extensions;
 
     /// <summary>
     /// The fish.
@@ -20,8 +20,8 @@
         protected Fish()
         {
             this.speed = new Size(
-                Aquarium.Random.NextWithExclude(-5, 5, new[] { -1, 0, 1 }),
-                Aquarium.Random.NextWithExclude(-5, 5, new[] { -1, 0, 1 }));
+                Aquarium.AquariumRandom.NextWithExclude(-5, 5, new[] { -1, 0, 1 }),
+                Aquarium.AquariumRandom.NextWithExclude(-5, 5, new[] { -1, 0, 1 }));
         }
 
         /// <summary>

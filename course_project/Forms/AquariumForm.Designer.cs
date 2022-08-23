@@ -137,7 +137,7 @@
             // huntingTimer
             // 
             this.huntingTimer.Enabled = true;
-            this.huntingTimer.Interval = 3000;
+            this.huntingTimer.Interval = 1000;
             this.huntingTimer.Tick += new System.EventHandler(this.Hunting_Timer_Tick);
             // 
             // AquariumForm

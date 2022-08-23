@@ -3,6 +3,8 @@
     using System;
     using System.Windows.Forms;
 
+    using CourseProject.Classes;
+
     /// <summary>
     /// The aquarium form.
     /// </summary>
@@ -115,11 +117,8 @@
         private void EnableControls()
         {
             this.aquariumCleanButton.Enabled = Aquarium.PikeFlock.IsNotEmpty || Aquarium.CarpFlock.IsNotEmpty;
-
             this.aquariumCleanButton.Visible = Aquarium.PikeFlock.IsNotEmpty || Aquarium.CarpFlock.IsNotEmpty;
-
             this.huntingCheckBox.Enabled = Aquarium.PikeFlock.IsNotEmpty && Aquarium.CarpFlock.IsNotEmpty;
-
             this.huntingCheckBox.Visible = Aquarium.PikeFlock.IsNotEmpty && Aquarium.CarpFlock.IsNotEmpty;
         }
 

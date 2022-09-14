@@ -1,7 +1,6 @@
 ﻿namespace CourseProject.Classes.Fishes
 {
     using System.Drawing;
-
     using CourseProject.Properties;
 
     /// <summary>
@@ -18,9 +17,7 @@
         public Pike(Point data)
         {
             this.Data = data;
-
             this.FishSize = new Size(80, 40);
-
             this.FishImage = this.FishSpeedWidth < 0 ? Resources.pike_to_left : Resources.pike_to_right;
         }
 

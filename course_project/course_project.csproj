@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Aquarium.cs" />
+    <Compile Include="Classes\Extensions\GraphicsExtensions.cs" />
     <Compile Include="Classes\Extensions\RandomExtensions.cs" />
     <Compile Include="Classes\Fishes\Carp.cs" />
     <Compile Include="Classes\Flocks\CarpFlock.cs" />

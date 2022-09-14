@@ -3,7 +3,6 @@
     using System.Collections;
     using System.Collections.Generic;
     using System.Drawing;
-
     using CourseProject.Classes.Extensions;
     using CourseProject.Classes.Fishes;
 
@@ -26,11 +25,6 @@
         /// Gets the count.
         /// </summary>
         public int Count { get; private set; }
-
-        /// <summary>
-        /// The is empty.
-        /// </summary>
-        public bool IsEmpty => this.Count == 0;
 
         /// <summary>
         /// The is not empty.

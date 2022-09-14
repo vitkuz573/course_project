@@ -1,9 +1,8 @@
 ﻿namespace CourseProject.Classes
 {
     using System;
-    using System.Collections.Generic;
     using System.Drawing;
-
+    using CourseProject.Classes.Extensions;
     using CourseProject.Classes.Flocks;
 
     /// <summary>
@@ -17,9 +16,9 @@
         private static readonly Color RocksColor;
 
         /// <summary>
-        /// The rocks coordinates.
+        /// The rocks top coordinates.
         /// </summary>
-        private static readonly List<PointF[]> RocksTopCoordinates;
+        private static readonly Point[] RocksTopCoordinates;
 
         /// <summary>
         /// The rocks count.
@@ -51,11 +50,14 @@
             WaterColor = Color.LightSkyBlue;
             RocksColor = Color.DarkGray;
             RocksCount = AquariumRandom.Next(2, 5);
-            RocksTopCoordinates = new List<PointF[]>();
+            RocksTopCoordinates = new Point[RocksCount];
 
             for (var i = 0; i < RocksCount; i++)
             {
-                RocksTopCoordinates.Add(new[] { new PointF(random.Next(0, 400), random.Next(0, 400)), });
+                if (random != null)
+                {
+                    RocksTopCoordinates[i] = new Point(random.Next(0, 400), random.Next(0, 400));
+                }
             }
         }
 
@@ -91,9 +93,7 @@
 
             for (var i = 0; i < RocksCount; i++)
             {
-                graphics.FillPolygon(
-                    new SolidBrush(RocksColor),
-                    new[] { new PointF(aquarium.Width, aquarium.Bottom), new PointF(aquarium.Height, aquarium.Bottom), RocksTopCoordinates[i][0] });
+                graphics.FillTriangle(new SolidBrush(RocksColor), new Point(aquarium.Width, aquarium.Bottom), new Point(aquarium.Height, aquarium.Bottom), RocksTopCoordinates[i]);
             }
 
             foreach (var pike in PikeFlock)

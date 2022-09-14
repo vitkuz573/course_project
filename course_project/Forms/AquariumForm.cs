@@ -1,8 +1,7 @@
-﻿namespace CourseProject
+﻿namespace CourseProject.Forms
 {
     using System;
     using System.Windows.Forms;
-
     using CourseProject.Classes;
 
     /// <summary>
@@ -31,7 +30,7 @@
         }
 
         /// <summary>
-        /// The add_ carp_ button_ click.
+        /// The add carp button click.
         /// </summary>
         /// <param name="sender">
         /// The sender.
@@ -48,7 +47,7 @@
         }
 
         /// <summary>
-        /// The add_ pike_ button_ click.
+        /// The add pike button click.
         /// </summary>
         /// <param name="sender">
         /// The sender.
@@ -65,7 +64,7 @@
         }
 
         /// <summary>
-        /// The aquarium_ clean_ button_ click.
+        /// The aquarium clean button click.
         /// </summary>
         /// <param name="sender">
         /// The sender.
@@ -88,7 +87,7 @@
         }
 
         /// <summary>
-        /// The aquarium_ timer_ tick.
+        /// The aquarium timer tick.
         /// </summary>
         /// <param name="sender">
         /// The sender.
@@ -123,7 +122,7 @@
         }
 
         /// <summary>
-        /// The hunting_ timer_ tick.
+        /// The hunting timer tick.
         /// </summary>
         /// <param name="sender">
         /// The sender.

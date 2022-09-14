@@ -2,6 +2,7 @@
 {
     using System;
     using System.Windows.Forms;
+    using CourseProject.Forms;
 
     /// <summary>
     /// The program.

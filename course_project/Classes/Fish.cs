@@ -1,7 +1,6 @@
 ﻿namespace CourseProject.Classes
 {
     using System.Drawing;
-
     using CourseProject.Classes.Extensions;
 
     /// <summary>
